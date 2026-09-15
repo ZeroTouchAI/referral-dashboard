@@ -1,7 +1,257 @@
 {
-  "generated_at": null,
-  "total": 0,
-  "status_counts": {},
-  "score_distribution": {},
-  "programs": []
+  "generated_at": "2026-09-15T06:35:47.133300+00:00",
+  "total": 30,
+  "status_counts": {
+    "In Progress": 1,
+    "Todo": 28,
+    "No Good": 1
+  },
+  "score_distribution": {
+    "4": 13,
+    "5": 13,
+    "3": 4
+  },
+  "avg_score": 4.3,
+  "programs": [
+    {
+      "name": "Booking.com Affiliate Partner Program",
+      "topic": "Hotel booking discounts and price comparison",
+      "commission_note": "Industry standard with high conversion rates; tiered commission structure.",
+      "score": 5,
+      "status": "Todo",
+      "signup_url": "https://www.booking.com/affiliate-program/v2/index.html"
+    },
+    {
+      "name": "Skiplagged",
+      "topic": "Hidden City Ticketing",
+      "commission_note": "Offers a performance-based affiliate program for driving bookings through their hidden-city search engine.",
+      "score": 5,
+      "status": "Todo",
+      "signup_url": "https://skiplagged.com/affiliate"
+    },
+    {
+      "name": "CardRatings Affiliate Program",
+      "topic": "Strategic Credit Card Point Stacking for Free Flights",
+      "commission_note": "High CPA payouts for approved credit card applications, industry standard for travel hackers.",
+      "score": 5,
+      "status": "Todo",
+      "signup_url": "https://www.cardratings.com/affiliate-program"
+    },
+    {
+      "name": "Bankrate Credit Card Affiliate Program",
+      "topic": "Strategic Credit Card Point Stacking for Free Flights",
+      "commission_note": "Access to major credit card issuer offers with competitive bounties per application.",
+      "score": 5,
+      "status": "Todo",
+      "signup_url": "https://www.bankrate.com/affiliates/"
+    },
+    {
+      "name": "AwardWallet",
+      "topic": "Credit Card Point Redemption",
+      "commission_note": "Earns commission for Plus memberships; highly relevant to points/miles trackers.",
+      "score": 5,
+      "status": "Todo",
+      "signup_url": "https://awardwallet.com/affiliate"
+    },
+    {
+      "name": "Point.me",
+      "topic": "Credit Card Point Redemption",
+      "commission_note": "A leading flight award search engine; high conversion for people looking to maximize point redemptions.",
+      "score": 5,
+      "status": "Todo",
+      "signup_url": "https://point.me/affiliate"
+    },
+    {
+      "name": "Skiplagged",
+      "topic": "Hidden Flight Prices",
+      "commission_note": "The industry leader for hidden-city ticketing; excellent fit for 'travel hacks' content.",
+      "score": 5,
+      "status": "Todo",
+      "signup_url": "https://skiplagged.com/affiliates"
+    },
+    {
+      "name": "Point.me",
+      "topic": "Advanced Airline Loyalty and Points Stacking",
+      "commission_note": "High conversion for points search tools",
+      "score": 5,
+      "status": "Todo",
+      "signup_url": "https://point.me/affiliate"
+    },
+    {
+      "name": "Skiplagged",
+      "topic": "Airline Hidden City Ticketing",
+      "commission_note": "Direct affiliate program for their booking engine",
+      "score": 5,
+      "status": "Todo",
+      "signup_url": "https://skiplagged.com/affiliate"
+    },
+    {
+      "name": "Seats.aero",
+      "topic": "Airline Points Redemption Arbitrage",
+      "commission_note": "Popular tool for finding reward flights",
+      "score": 5,
+      "status": "Todo",
+      "signup_url": "https://seats.aero/affiliate"
+    },
+    {
+      "name": "WayAway",
+      "topic": "Flight Price Tracking",
+      "commission_note": "Cashback based flight aggregator",
+      "score": 5,
+      "status": "Todo",
+      "signup_url": "https://wayaway.io/affiliates"
+    },
+    {
+      "name": "Rakuten",
+      "topic": "Points Double Dipping",
+      "commission_note": "Essential for stacking cashback with points",
+      "score": 5,
+      "status": "Todo",
+      "signup_url": "https://www.rakuten.com/affiliate"
+    },
+    {
+      "name": "CardRatings",
+      "topic": "Strategic Credit Card Spending",
+      "commission_note": "High payout for credit card approvals",
+      "score": 5,
+      "status": "Todo",
+      "signup_url": "https://www.cardratings.com/affiliate-program"
+    },
+    {
+      "name": "CardRatings Affiliate Program",
+      "topic": "Best travel credit cards for beginners",
+      "commission_note": "Strong reputation with competitive payouts for credit card referrals.",
+      "score": 4,
+      "status": "In Progress",
+      "signup_url": "https://www.cardratings.com/affiliates"
+    },
+    {
+      "name": "Hotels.com Affiliate Program (via Impact)",
+      "topic": "Hotel booking discounts and price comparison",
+      "commission_note": "Reliable tracking and broad inventory; well-suited for travel hack content.",
+      "score": 4,
+      "status": "Todo",
+      "signup_url": "https://impact.com/"
+    },
+    {
+      "name": "Priority Pass Affiliate Program",
+      "topic": null,
+      "commission_note": "High relevance to points/miles audience; offers commission for lounge membership signups.",
+      "score": 4,
+      "status": "Todo",
+      "signup_url": "https://www.prioritypass.com/en/partners/affiliate"
+    },
+    {
+      "name": "WayAway",
+      "topic": "Hidden City Ticketing",
+      "commission_note": "Travel aggregator that allows affiliates to earn on flight bookings; highly relevant to budget travelers using various ticketing hacks.",
+      "score": 4,
+      "status": "Todo",
+      "signup_url": "https://wayaway.io/"
+    },
+    {
+      "name": "WayAway",
+      "topic": "Hidden Flight Prices",
+      "commission_note": "Aggregator that highlights hidden flight pricing; offers a generous cashback program for users.",
+      "score": 4,
+      "status": "No Good",
+      "signup_url": "https://wayaway.io/for-partners"
+    },
+    {
+      "name": "AwardWallet",
+      "topic": "Advanced Airline Loyalty and Points Stacking",
+      "commission_note": "Referral program for Plus upgrades",
+      "score": 4,
+      "status": "Todo",
+      "signup_url": "https://awardwallet.com/affiliate"
+    },
+    {
+      "name": "Thrifty Traveler",
+      "topic": "Airline Loyalty Points Strategy",
+      "commission_note": "Strong recurring commission for paid newsletter subs",
+      "score": 4,
+      "status": "Todo",
+      "signup_url": "https://thriftytraveler.com/affiliate-program/"
+    },
+    {
+      "name": "Travel Freely",
+      "topic": "Airline reward programs and point redemption strategies",
+      "commission_note": "Great for credit card portfolio management",
+      "score": 4,
+      "status": "Todo",
+      "signup_url": "https://travelfreely.com/affiliate/"
+    },
+    {
+      "name": "Kiwi.com",
+      "topic": "Flight Price Tracking",
+      "commission_note": "Aggressive affiliate program for flight bookings",
+      "score": 4,
+      "status": "Todo",
+      "signup_url": "https://www.kiwi.com/en/affiliates/"
+    },
+    {
+      "name": "Skyscanner",
+      "topic": "Google Flights hidden price tracker",
+      "commission_note": "High trust and brand recognition for flights",
+      "score": 4,
+      "status": "Todo",
+      "signup_url": "https://partners.skyscanner.net/"
+    },
+    {
+      "name": "AirHelp",
+      "topic": "Hidden Airline Booking Fees",
+      "commission_note": "Monetizes flight issues and fees",
+      "score": 4,
+      "status": "Todo",
+      "signup_url": "https://www.airhelp.com/en/affiliate-program/"
+    },
+    {
+      "name": "Bankrate Credit Cards",
+      "topic": "Strategic Credit Card Spending",
+      "commission_note": "Major player in CC lead gen",
+      "score": 4,
+      "status": "Todo",
+      "signup_url": "https://www.bankrate.com/affiliate-program/"
+    },
+    {
+      "name": "Hopper",
+      "topic": "The Google Flights Price Tracking Hack",
+      "commission_note": "High engagement for price tracking",
+      "score": 4,
+      "status": "Todo",
+      "signup_url": "https://www.hopper.com/partners/"
+    },
+    {
+      "name": "Momondo",
+      "topic": "Google Flights hidden features",
+      "commission_note": "Standard travel affiliate program",
+      "score": 3,
+      "status": "Todo",
+      "signup_url": "https://www.momondo.com/about/affiliate"
+    },
+    {
+      "name": "Trip.com",
+      "topic": "Google Flights hidden pricing",
+      "commission_note": "Wide global inventory",
+      "score": 3,
+      "status": "Todo",
+      "signup_url": "https://trip.com/affiliate/"
+    },
+    {
+      "name": "CheapOair",
+      "topic": "Hidden Flight Pricing",
+      "commission_note": "High commission rates on booking revenue",
+      "score": 3,
+      "status": "Todo",
+      "signup_url": "https://www.cheapoair.com/affiliate-program"
+    },
+    {
+      "name": "Priority Pass",
+      "topic": "The Zero-Cost Flight Upgrade System",
+      "commission_note": "Standard travel perk referral",
+      "score": 3,
+      "status": "Todo",
+      "signup_url": "https://www.prioritypass.com/affiliates"
+    }
+  ]
 }
