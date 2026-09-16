@@ -393,6 +393,18 @@ async function addSearchRequest(text) {
     await loadRequests();
   } catch (err) { showToast("Failed to add: " + err.message, "error"); console.error(err); }
 }
+async function deleteSearchRequest(id) {
+  if (!hasToken()) { showToast("Connect first to delete", "error"); return; }
+  if (!confirm("Delete this search request?")) return;
+  try {
+    const { sha, data } = await getPrivateFile(SEARCH_REQUESTS_PATH);
+    const file = data || { requests: [] };
+    file.requests = (file.requests || []).filter(r => r.id !== id);
+    await putPrivateFile(SEARCH_REQUESTS_PATH, file, sha, `Delete referral search request via dashboard`);
+    showToast("Deleted", "ok");
+    await loadRequests();
+  } catch (err) { showToast("Failed to delete: " + err.message, "error"); console.error(err); }
+}
 function renderRequests() {
   const container = document.getElementById("page-requests");
   const items = (requestsData && requestsData.requests) || [];
@@ -409,12 +421,14 @@ function renderRequests() {
           <div class="meta">Added ${formatDate(r.added_date)}${r.resolved_date ? " · searched " + formatDate(r.resolved_date) : ""}${r.programs_found != null ? ` · ${r.programs_found} program(s) found` : ""}</div>
         </div>
         <span class="req-badge ${r.status}">${r.status === "no_match" ? "No match" : r.status === "found" ? "Found" : "Pending"}</span>
+        <button class="remove-btn" data-id="${r.id}" ${hasToken() ? "" : "disabled"}>Delete</button>
       </div>`).join("")}
   </div>` : `<div class="empty-state">No search requests yet.</div>`;
 
   container.innerHTML = listHtml + addFormHtml;
   const btn = document.getElementById("add-request-btn");
   if (btn) btn.addEventListener("click", () => addSearchRequest(document.getElementById("add-request-text").value.trim()));
+  container.querySelectorAll(".request-row .remove-btn").forEach(b => b.addEventListener("click", () => deleteSearchRequest(b.dataset.id)));
 }
 async function loadRequests() {
   try { requestsData = await (await fetch("data/searchRequests.json?_=" + Date.now())).json(); }
@@ -436,6 +450,18 @@ async function addVideoIdea(text, target) {
     await loadIdeas();
   } catch (err) { showToast("Failed to add: " + err.message, "error"); console.error(err); }
 }
+async function deleteVideoIdea(id) {
+  if (!hasToken()) { showToast("Connect first to delete", "error"); return; }
+  if (!confirm("Delete this video idea?")) return;
+  try {
+    const { sha, data } = await getPrivateFile(VIDEO_IDEAS_PATH);
+    const file = data || { ideas: [] };
+    file.ideas = (file.ideas || []).filter(i => i.id !== id);
+    await putPrivateFile(VIDEO_IDEAS_PATH, file, sha, `Delete video idea via dashboard`);
+    showToast("Deleted", "ok");
+    await loadIdeas();
+  } catch (err) { showToast("Failed to delete: " + err.message, "error"); console.error(err); }
+}
 function renderIdeas() {
   const container = document.getElementById("page-ideas");
   const items = (ideasData && ideasData.ideas) || [];
@@ -454,12 +480,14 @@ function renderIdeas() {
           <div class="meta">${targetLabel[i.target] || i.target} · added ${formatDate(i.added_date)}${i.used_date ? " · used " + formatDate(i.used_date) + " (" + (targetLabel[i.used_in] || i.used_in) + ")" : ""}</div>
         </div>
         <span class="req-badge ${i.status}">${i.status === "used" ? "Used" : "Pending"}</span>
+        <button class="remove-btn" data-id="${i.id}" ${hasToken() ? "" : "disabled"}>Delete</button>
       </div>`).join("")}
   </div>` : `<div class="empty-state">No video ideas yet.</div>`;
 
   container.innerHTML = listHtml + addFormHtml;
   const btn = document.getElementById("add-idea-btn");
   if (btn) btn.addEventListener("click", () => addVideoIdea(document.getElementById("add-idea-text").value.trim(), document.getElementById("add-idea-target").value));
+  container.querySelectorAll(".request-row .remove-btn").forEach(b => b.addEventListener("click", () => deleteVideoIdea(b.dataset.id)));
 }
 async function loadIdeas() {
   try { ideasData = await (await fetch("data/videoIdeas.json?_=" + Date.now())).json(); }
