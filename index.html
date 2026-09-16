@@ -330,7 +330,9 @@ async function removeLink(topic, url) {
     const section = (data.sections || []).find(s => s.title === topic);
     if (section) section.links = (section.links || []).filter(l => l.url !== url);
     await putPrivateFile(AFFILIATE_LINKS_PATH, data, sha, `Remove referral link via dashboard: ${topic}`);
-    showToast("Removed", "ok"); await loadApplied();
+    appliedData = { sections: data.sections.map(s => ({ topic: s.title, links: s.links })) };
+    renderApplied();
+    showToast("Removed", "ok");
   } catch (err) { showToast("Failed to remove: " + err.message, "error"); console.error(err); }
 }
 async function addLink(topic, label, url) {
@@ -344,7 +346,9 @@ async function addLink(topic, label, url) {
     section.links = section.links || [];
     section.links.push({ label, url, added_date: addedDate });
     await putPrivateFile(AFFILIATE_LINKS_PATH, data, sha, `Add referral link via dashboard: ${topic}`);
-    showToast("Added", "ok"); await loadApplied();
+    appliedData = { sections: data.sections.map(s => ({ topic: s.title, links: s.links })) };
+    renderApplied();
+    showToast("Added", "ok");
   } catch (err) { showToast("Failed to add: " + err.message, "error"); console.error(err); }
 }
 function renderApplied() {
@@ -389,8 +393,9 @@ async function addSearchRequest(text) {
     file.requests = file.requests || [];
     file.requests.push({ id: newId(), text, status: "pending", added_date: new Date().toISOString().slice(0, 10) });
     await putPrivateFile(SEARCH_REQUESTS_PATH, file, sha, `Add referral search request via dashboard`);
+    requestsData = file;  // reflect what we just wrote, not the (weekly-stale) public snapshot
+    renderRequests();
     showToast("Added — it'll be searched on the next referral scan", "ok");
-    await loadRequests();
   } catch (err) { showToast("Failed to add: " + err.message, "error"); console.error(err); }
 }
 async function deleteSearchRequest(id) {
@@ -401,8 +406,9 @@ async function deleteSearchRequest(id) {
     const file = data || { requests: [] };
     file.requests = (file.requests || []).filter(r => r.id !== id);
     await putPrivateFile(SEARCH_REQUESTS_PATH, file, sha, `Delete referral search request via dashboard`);
+    requestsData = file;
+    renderRequests();
     showToast("Deleted", "ok");
-    await loadRequests();
   } catch (err) { showToast("Failed to delete: " + err.message, "error"); console.error(err); }
 }
 function renderRequests() {
@@ -446,8 +452,9 @@ async function addVideoIdea(text, target) {
     file.ideas = file.ideas || [];
     file.ideas.push({ id: newId(), text, target, status: "pending", added_date: new Date().toISOString().slice(0, 10) });
     await putPrivateFile(VIDEO_IDEAS_PATH, file, sha, `Add video idea via dashboard`);
+    ideasData = file;
+    renderIdeas();
     showToast("Added — it'll be made on the next matching content run", "ok");
-    await loadIdeas();
   } catch (err) { showToast("Failed to add: " + err.message, "error"); console.error(err); }
 }
 async function deleteVideoIdea(id) {
@@ -458,8 +465,9 @@ async function deleteVideoIdea(id) {
     const file = data || { ideas: [] };
     file.ideas = (file.ideas || []).filter(i => i.id !== id);
     await putPrivateFile(VIDEO_IDEAS_PATH, file, sha, `Delete video idea via dashboard`);
+    ideasData = file;
+    renderIdeas();
     showToast("Deleted", "ok");
-    await loadIdeas();
   } catch (err) { showToast("Failed to delete: " + err.message, "error"); console.error(err); }
 }
 function renderIdeas() {
