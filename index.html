@@ -6,103 +6,119 @@
 <title>Trip Hack Hub — Referral Dashboard</title>
 <style>
   :root {
-    --bg: #0f1420; --card-bg: #171d2c; --card-border: #262e42;
-    --text: #e7eaf3; --text-dim: #9aa4bd;
-    --accent: #6c8cff; --green: #3ecf8e; --yellow: #f5c451; --red: #f5686b;
+    --bg: #eaf6fd;
+    --card-bg: #ffffff;
+    --card-border: #cfe6f5;
+    --text: #1e3a5f;
+    --text-dim: #6b8299;
+    --blue: #2574f5;
+    --cyan: #45c5fb;
+    --navy: #1e5182;
+    --green: #6fa83d;
+    --green-bg: #eaf7d9;
+    --yellow: #e8a83c;
+    --yellow-bg: #fdf1de;
+    --red: #e15e4d;
+    --red-bg: #fbe7e3;
     --radius: 14px;
   }
   * { box-sizing: border-box; }
-  body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: var(--bg); color: var(--text); padding: 32px 24px 64px; }
+  body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: linear-gradient(180deg, var(--bg) 0%, #ffffff 340px); color: var(--text); padding: 32px 24px 64px; }
   .wrap { max-width: 1180px; margin: 0 auto; }
   header { margin-bottom: 20px; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; }
-  header h1 { font-size: 26px; margin: 0 0 4px; }
+  header h1 { font-size: 27px; margin: 0 0 4px; color: var(--navy); }
   header p { margin: 0; color: var(--text-dim); font-size: 14px; }
 
   .connect-box { text-align: right; }
   .connect-box .status { font-size: 12.5px; color: var(--text-dim); margin-bottom: 6px; }
-  .connect-box .status.on { color: var(--green); }
-  .btn-small { background: var(--card-bg); border: 1px solid var(--card-border); color: var(--text); padding: 6px 12px; border-radius: 8px; font-size: 12.5px; cursor: pointer; }
-  .btn-small:hover { border-color: var(--accent); }
-  .btn-primary { background: var(--accent); color: #0b0f18; border: none; font-weight: 600; }
+  .connect-box .status.on { color: var(--green); font-weight: 600; }
+  .btn-small { background: #fff; border: 1.5px solid var(--card-border); color: var(--navy); padding: 6px 12px; border-radius: 8px; font-size: 12.5px; cursor: pointer; font-weight: 600; }
+  .btn-small:hover { border-color: var(--blue); }
+  .btn-primary { background: var(--blue); color: #fff; border: none; }
+  .btn-primary:hover { opacity: .88; }
 
-  .page-tabs { display: flex; gap: 8px; margin-bottom: 22px; flex-wrap: wrap; }
-  .page-tab { background: transparent; border: none; color: var(--text-dim); font-size: 14.5px; font-weight: 600; padding: 10px 4px; cursor: pointer; border-bottom: 2px solid transparent; }
-  .page-tab.active { color: var(--text); border-bottom-color: var(--accent); }
+  .page-tabs { display: flex; gap: 6px; margin-bottom: 22px; flex-wrap: wrap; background: #fff; border: 1px solid var(--card-border); border-radius: 12px; padding: 6px; width: fit-content; }
+  .page-tab { background: transparent; border: none; color: var(--text-dim); font-size: 14px; font-weight: 700; padding: 10px 18px; cursor: pointer; border-radius: 8px; transition: all .15s; }
+  .page-tab[data-page="candidates"].active { background: var(--blue); color: #fff; }
+  .page-tab[data-page="applied"].active { background: var(--green); color: #fff; }
+  .page-tab[data-page="requests"].active { background: var(--yellow); color: #fff; }
+  .page-tab[data-page="ideas"].active { background: var(--navy); color: #fff; }
 
   .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 14px; margin-bottom: 24px; }
-  .stat-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: var(--radius); padding: 16px 18px; }
-  .stat-card .num { font-size: 26px; font-weight: 700; }
-  .stat-card .label { font-size: 11.5px; color: var(--text-dim); margin-top: 4px; text-transform: uppercase; letter-spacing: .04em; }
-  .stat-card.accent .num { color: var(--accent); }
+  .stat-card { background: var(--card-bg); border: 1.5px solid var(--card-border); border-radius: var(--radius); padding: 16px 18px; }
+  .stat-card .num { font-size: 26px; font-weight: 800; }
+  .stat-card .label { font-size: 11.5px; color: var(--text-dim); margin-top: 4px; text-transform: uppercase; letter-spacing: .04em; font-weight: 600; }
+  .stat-card.accent .num { color: var(--blue); }
   .stat-card.green .num { color: var(--green); }
   .stat-card.yellow .num { color: var(--yellow); }
   .stat-card.red .num { color: var(--red); }
 
   .tabs { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
-  .tab { background: var(--card-bg); border: 1px solid var(--card-border); color: var(--text-dim); padding: 8px 16px; border-radius: 999px; font-size: 13px; cursor: pointer; user-select: none; }
-  .tab:hover { border-color: var(--accent); color: var(--text); }
-  .tab.active { background: var(--accent); color: #0b0f18; border-color: var(--accent); font-weight: 600; }
+  .tab { background: #fff; border: 1.5px solid var(--card-border); color: var(--text-dim); padding: 8px 16px; border-radius: 999px; font-size: 13px; cursor: pointer; user-select: none; font-weight: 600; }
+  .tab:hover { border-color: var(--blue); color: var(--navy); }
+  .tab.active { background: var(--blue); color: #fff; border-color: var(--blue); }
 
-  .table-wrap { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: var(--radius); overflow: hidden; }
+  .table-wrap { background: var(--card-bg); border: 1.5px solid var(--card-border); border-radius: var(--radius); overflow: hidden; }
   table { width: 100%; border-collapse: collapse; }
   th, td { padding: 13px 14px; text-align: left; font-size: 13.5px; }
-  th { color: var(--text-dim); font-weight: 600; text-transform: uppercase; font-size: 10.5px; letter-spacing: .04em; border-bottom: 1px solid var(--card-border); }
+  th { color: var(--text-dim); font-weight: 700; text-transform: uppercase; font-size: 10.5px; letter-spacing: .04em; border-bottom: 1.5px solid var(--card-border); background: #f7fbfe; }
   tbody tr { border-bottom: 1px solid var(--card-border); }
   tbody tr:last-child { border-bottom: none; }
-  tbody tr:hover { background: rgba(108,140,255,0.05); }
-  .row-num { color: var(--text-dim); font-variant-numeric: tabular-nums; width: 30px; }
-  .program-name { font-weight: 600; }
+  tbody tr:hover { background: #f3faff; }
+  .row-num { color: var(--text-dim); font-variant-numeric: tabular-nums; width: 30px; font-weight: 600; }
+  .program-name { font-weight: 700; color: var(--navy); }
   .topic-tag { color: var(--text-dim); font-size: 12px; }
   .commission-note { color: var(--text-dim); font-size: 12.5px; max-width: 260px; }
   .date-added { color: var(--text-dim); font-size: 12.5px; white-space: nowrap; }
 
-  select.status-select { background: var(--bg); color: var(--text); border: 1px solid var(--card-border); border-radius: 8px; padding: 6px 10px; font-size: 12.5px; font-weight: 600; cursor: pointer; }
-  select.status-select.new { color: var(--yellow); }
-  select.status-select.applied { color: var(--accent); }
-  select.status-select.approved { color: var(--green); }
-  select.status-select.no-good { color: var(--red); }
+  select.status-select { background: #fff; border: 1.5px solid var(--card-border); border-radius: 8px; padding: 6px 10px; font-size: 12.5px; font-weight: 700; cursor: pointer; }
+  select.status-select.new { color: var(--yellow); border-color: var(--yellow); }
+  select.status-select.applied { color: var(--blue); border-color: var(--blue); }
+  select.status-select.approved { color: var(--green); border-color: var(--green); }
+  select.status-select.no-good { color: var(--red); border-color: var(--red); }
   select.status-select:disabled { opacity: .5; cursor: not-allowed; }
 
-  .open-btn { display: inline-flex; align-items: center; gap: 6px; background: var(--accent); color: #0b0f18; padding: 7px 14px; border-radius: 8px; font-size: 12.5px; font-weight: 600; text-decoration: none; white-space: nowrap; }
+  .open-btn { display: inline-flex; align-items: center; gap: 6px; background: var(--blue); color: #fff; padding: 7px 14px; border-radius: 8px; font-size: 12.5px; font-weight: 700; text-decoration: none; white-space: nowrap; }
   .open-btn:hover { opacity: .85; }
-  .remove-btn { background: transparent; border: 1px solid var(--card-border); color: var(--red); padding: 6px 12px; border-radius: 8px; font-size: 12px; cursor: pointer; }
-  .remove-btn:hover { border-color: var(--red); }
+  .remove-btn { background: #fff; border: 1.5px solid var(--red); color: var(--red); padding: 6px 12px; border-radius: 8px; font-size: 12px; cursor: pointer; font-weight: 600; }
+  .remove-btn:hover { background: var(--red-bg); }
 
   .empty-state { padding: 40px; text-align: center; color: var(--text-dim); }
   footer { margin-top: 24px; color: var(--text-dim); font-size: 12px; text-align: center; }
-  footer a { color: var(--accent); text-decoration: none; }
+  footer a { color: var(--blue); text-decoration: none; font-weight: 600; }
 
-  .connect-panel { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: var(--radius); padding: 20px; margin-bottom: 24px; display: none; }
+  .connect-panel { background: var(--card-bg); border: 1.5px solid var(--card-border); border-radius: var(--radius); padding: 20px; margin-bottom: 24px; display: none; }
   .connect-panel.show { display: block; }
-  .connect-panel input { background: var(--bg); border: 1px solid var(--card-border); color: var(--text); border-radius: 8px; padding: 9px 12px; font-size: 13px; width: 320px; max-width: 100%; margin-right: 8px; }
+  .connect-panel input { background: #f7fbfe; border: 1.5px solid var(--card-border); color: var(--text); border-radius: 8px; padding: 9px 12px; font-size: 13px; width: 320px; max-width: 100%; margin-right: 8px; }
   .connect-panel p { font-size: 12.5px; color: var(--text-dim); margin: 0 0 12px; }
 
-  .applied-section, .request-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: var(--radius); padding: 20px; margin-bottom: 16px; }
-  .applied-section h3, .request-card h3 { margin: 0 0 12px; font-size: 15px; }
+  .applied-section, .request-card { background: var(--card-bg); border: 1.5px solid var(--card-border); border-radius: var(--radius); padding: 20px; margin-bottom: 16px; }
+  .applied-section h3, .request-card h3 { margin: 0 0 12px; font-size: 15px; color: var(--navy); }
   .applied-link-row { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-top: 1px solid var(--card-border); gap: 12px; flex-wrap: wrap; }
   .applied-link-row:first-of-type { border-top: none; }
   .applied-link-row .info { flex: 1; min-width: 200px; }
-  .applied-link-row .label { font-weight: 600; font-size: 13.5px; }
+  .applied-link-row .label { font-weight: 700; font-size: 13.5px; color: var(--navy); }
   .applied-link-row .url { color: var(--text-dim); font-size: 12px; word-break: break-all; }
   .applied-link-row .date { color: var(--text-dim); font-size: 11.5px; white-space: nowrap; }
 
   .add-form { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
-  .add-form input, .add-form select, .add-form textarea { background: var(--bg); border: 1px solid var(--card-border); color: var(--text); border-radius: 8px; padding: 8px 10px; font-size: 12.5px; flex: 1; min-width: 140px; font-family: inherit; }
+  .add-form input, .add-form select, .add-form textarea { background: #f7fbfe; border: 1.5px solid var(--card-border); color: var(--text); border-radius: 8px; padding: 8px 10px; font-size: 12.5px; flex: 1; min-width: 140px; font-family: inherit; }
   .add-form textarea { min-width: 260px; resize: vertical; min-height: 38px; }
+  .form-hint { font-size: 11.5px; color: var(--text-dim); margin: 6px 0 0; width: 100%; }
 
   .request-row { display: flex; align-items: flex-start; justify-content: space-between; padding: 12px 0; border-top: 1px solid var(--card-border); gap: 12px; flex-wrap: wrap; }
   .request-row:first-of-type { border-top: none; }
-  .request-row .text { flex: 1; min-width: 200px; font-size: 13.5px; }
-  .request-row .meta { font-size: 11.5px; color: var(--text-dim); margin-top: 3px; }
-  .req-badge { display: inline-block; padding: 3px 9px; border-radius: 999px; font-size: 11px; font-weight: 600; white-space: nowrap; }
-  .req-badge.pending { background: rgba(245,196,81,0.15); color: var(--yellow); }
-  .req-badge.found, .req-badge.used { background: rgba(62,207,142,0.15); color: var(--green); }
-  .req-badge.no_match { background: rgba(245,104,107,0.15); color: var(--red); }
+  .request-row .text { flex: 1; min-width: 200px; font-size: 13.5px; color: var(--navy); font-weight: 600; }
+  .request-row .meta { font-size: 11.5px; color: var(--text-dim); margin-top: 3px; font-weight: 400; }
+  .req-badge { display: inline-block; padding: 3px 9px; border-radius: 999px; font-size: 11px; font-weight: 700; white-space: nowrap; }
+  .req-badge.pending { background: var(--yellow-bg); color: var(--yellow); }
+  .req-badge.found, .req-badge.used { background: var(--green-bg); color: var(--green); }
+  .req-badge.no_match { background: var(--red-bg); color: var(--red); }
 
-  .toast { position: fixed; bottom: 20px; right: 20px; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 10px; padding: 12px 18px; font-size: 13px; opacity: 0; transform: translateY(10px); transition: all .25s; pointer-events: none; z-index: 100; }
+  .toast { position: fixed; bottom: 20px; right: 20px; background: var(--navy); color: #fff; border-radius: 10px; padding: 12px 18px; font-size: 13px; opacity: 0; transform: translateY(10px); transition: all .25s; pointer-events: none; z-index: 100; font-weight: 600; }
   .toast.show { opacity: 1; transform: translateY(0); }
-  .toast.error { border-color: var(--red); color: var(--red); }
-  .toast.ok { border-color: var(--green); color: var(--green); }
+  .toast.error { background: var(--red); }
+  .toast.ok { background: var(--green); }
 </style>
 </head>
 <body>
@@ -160,10 +176,10 @@
 
 <script>
 const STATUS_META = {
-  "Todo":        { label: "New",      cls: "new",      color: "#f5c451" },
-  "In Progress": { label: "Applied",  cls: "applied",  color: "#6c8cff" },
-  "Done":        { label: "Approved", cls: "approved", color: "#3ecf8e" },
-  "No Good":     { label: "No Good",  cls: "no-good",  color: "#f5686b" },
+  "Todo":        { label: "New",      cls: "new",      color: "#e8a83c" },
+  "In Progress": { label: "Applied",  cls: "applied",  color: "#2574f5" },
+  "Done":        { label: "Approved", cls: "approved", color: "#6fa83d" },
+  "No Good":     { label: "No Good",  cls: "no-good",  color: "#e15e4d" },
 };
 const STATUS_ORDER = ["Todo", "In Progress", "Done", "No Good"];
 
@@ -381,7 +397,7 @@ function renderRequests() {
   const container = document.getElementById("page-requests");
   const items = (requestsData && requestsData.requests) || [];
   const addFormHtml = `<div class="request-card"><h3>Ask us to look for something specific</h3>
-    <p style="color:var(--text-dim);font-size:12.5px;margin:0 0 12px;">Runs on the next weekly referral scan. Be specific — e.g. "Scotiabank Passport Visa Infinite travel card affiliate program".</p>
+    <p class="form-hint">Runs automatically on the next weekly referral scan — once it searches, this list updates to show "Found" (with how many programs) or "No match", and the date it ran. Be specific — e.g. "Scotiabank Passport Visa Infinite travel card affiliate program".</p>
     <div class="add-form"><textarea id="add-request-text" placeholder="What should we search for?" ${hasToken() ? "" : "disabled"}></textarea>
     <button class="btn-small btn-primary" id="add-request-btn" ${hasToken() ? "" : "disabled"}>Submit</button></div></div>`;
 
@@ -390,7 +406,7 @@ function renderRequests() {
       <div class="request-row">
         <div>
           <div class="text">${escapeHtml(r.text)}</div>
-          <div class="meta">Added ${formatDate(r.added_date)}${r.resolved_date ? " · resolved " + formatDate(r.resolved_date) : ""}${r.programs_found != null ? ` · ${r.programs_found} program(s) found` : ""}</div>
+          <div class="meta">Added ${formatDate(r.added_date)}${r.resolved_date ? " · searched " + formatDate(r.resolved_date) : ""}${r.programs_found != null ? ` · ${r.programs_found} program(s) found` : ""}</div>
         </div>
         <span class="req-badge ${r.status}">${r.status === "no_match" ? "No match" : r.status === "found" ? "Found" : "Pending"}</span>
       </div>`).join("")}
@@ -425,7 +441,7 @@ function renderIdeas() {
   const items = (ideasData && ideasData.ideas) || [];
   const targetLabel = { short: "Short", longform: "Long-form", either: "Either" };
   const addFormHtml = `<div class="request-card"><h3>Request a video</h3>
-    <p style="color:var(--text-dim);font-size:12.5px;margin:0 0 12px;">Picked up (oldest first) ahead of the usual trending-topic picks, next time that video type runs.</p>
+    <p class="form-hint">Just describe the topic in plain words — no URL needed, this feeds directly into the script-writing step. Picked up (oldest first) ahead of the usual trending-topic picks, next time that video type runs. Once used, this updates to show the date and whether it went into a Short or long-form video.</p>
     <div class="add-form"><input id="add-idea-text" placeholder="Video idea (e.g. Scotiabank Passport Visa Infinite review)" ${hasToken() ? "" : "disabled"} />
     <select id="add-idea-target" ${hasToken() ? "" : "disabled"}><option value="either">Either</option><option value="short">Short</option><option value="longform">Long-form</option></select>
     <button class="btn-small btn-primary" id="add-idea-btn" ${hasToken() ? "" : "disabled"}>Submit</button></div></div>`;
