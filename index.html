@@ -4,355 +4,468 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Trip Hack Hub — Referral Dashboard</title>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <style>
   :root {
-    --bg: #0f1420;
-    --card-bg: #171d2c;
-    --card-border: #262e42;
-    --text: #e7eaf3;
-    --text-dim: #9aa4bd;
-    --accent: #6c8cff;
-    --green: #3ecf8e;
-    --yellow: #f5c451;
-    --red: #f5686b;
-    --purple: #b98cff;
+    --bg: #0f1420; --card-bg: #171d2c; --card-border: #262e42;
+    --text: #e7eaf3; --text-dim: #9aa4bd;
+    --accent: #6c8cff; --green: #3ecf8e; --yellow: #f5c451; --red: #f5686b;
     --radius: 14px;
   }
   * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    padding: 32px 24px 64px;
-  }
+  body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: var(--bg); color: var(--text); padding: 32px 24px 64px; }
   .wrap { max-width: 1180px; margin: 0 auto; }
-  header { margin-bottom: 28px; }
+  header { margin-bottom: 20px; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; }
   header h1 { font-size: 26px; margin: 0 0 4px; }
   header p { margin: 0; color: var(--text-dim); font-size: 14px; }
-  header p span { color: var(--accent); }
 
-  .stat-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 14px;
-    margin-bottom: 28px;
-  }
-  .stat-card {
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: var(--radius);
-    padding: 18px 20px;
-  }
-  .stat-card .num { font-size: 28px; font-weight: 700; line-height: 1.1; }
-  .stat-card .label { font-size: 12px; color: var(--text-dim); margin-top: 6px; text-transform: uppercase; letter-spacing: .04em; }
+  .connect-box { text-align: right; }
+  .connect-box .status { font-size: 12.5px; color: var(--text-dim); margin-bottom: 6px; }
+  .connect-box .status.on { color: var(--green); }
+  .btn-small { background: var(--card-bg); border: 1px solid var(--card-border); color: var(--text); padding: 6px 12px; border-radius: 8px; font-size: 12.5px; cursor: pointer; }
+  .btn-small:hover { border-color: var(--accent); }
+  .btn-primary { background: var(--accent); color: #0b0f18; border: none; font-weight: 600; }
+
+  .page-tabs { display: flex; gap: 8px; margin-bottom: 22px; flex-wrap: wrap; }
+  .page-tab { background: transparent; border: none; color: var(--text-dim); font-size: 14.5px; font-weight: 600; padding: 10px 4px; cursor: pointer; border-bottom: 2px solid transparent; }
+  .page-tab.active { color: var(--text); border-bottom-color: var(--accent); }
+
+  .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 14px; margin-bottom: 24px; }
+  .stat-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: var(--radius); padding: 16px 18px; }
+  .stat-card .num { font-size: 26px; font-weight: 700; }
+  .stat-card .label { font-size: 11.5px; color: var(--text-dim); margin-top: 4px; text-transform: uppercase; letter-spacing: .04em; }
   .stat-card.accent .num { color: var(--accent); }
   .stat-card.green .num { color: var(--green); }
   .stat-card.yellow .num { color: var(--yellow); }
   .stat-card.red .num { color: var(--red); }
-  .stat-card.purple .num { color: var(--purple); }
 
-  .charts {
-    display: grid;
-    grid-template-columns: 1.3fr 1fr;
-    gap: 16px;
-    margin-bottom: 28px;
-  }
-  @media (max-width: 800px) { .charts { grid-template-columns: 1fr; } }
-  .panel {
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: var(--radius);
-    padding: 20px;
-  }
-  .panel h2 { margin: 0 0 14px; font-size: 15px; color: var(--text-dim); font-weight: 600; text-transform: uppercase; letter-spacing: .03em; }
-  .panel canvas { max-height: 220px; }
-
-  .tabs {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 16px;
-    flex-wrap: wrap;
-  }
-  .tab {
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    color: var(--text-dim);
-    padding: 8px 16px;
-    border-radius: 999px;
-    font-size: 13px;
-    cursor: pointer;
-    transition: all .15s;
-    user-select: none;
-  }
+  .tabs { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+  .tab { background: var(--card-bg); border: 1px solid var(--card-border); color: var(--text-dim); padding: 8px 16px; border-radius: 999px; font-size: 13px; cursor: pointer; user-select: none; }
   .tab:hover { border-color: var(--accent); color: var(--text); }
   .tab.active { background: var(--accent); color: #0b0f18; border-color: var(--accent); font-weight: 600; }
 
-  .table-wrap {
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: var(--radius);
-    overflow: hidden;
-  }
+  .table-wrap { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: var(--radius); overflow: hidden; }
   table { width: 100%; border-collapse: collapse; }
-  th, td { padding: 14px 16px; text-align: left; font-size: 13.5px; }
-  th {
-    color: var(--text-dim);
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 11px;
-    letter-spacing: .04em;
-    border-bottom: 1px solid var(--card-border);
-  }
+  th, td { padding: 13px 14px; text-align: left; font-size: 13.5px; }
+  th { color: var(--text-dim); font-weight: 600; text-transform: uppercase; font-size: 10.5px; letter-spacing: .04em; border-bottom: 1px solid var(--card-border); }
   tbody tr { border-bottom: 1px solid var(--card-border); }
   tbody tr:last-child { border-bottom: none; }
   tbody tr:hover { background: rgba(108,140,255,0.05); }
+  .row-num { color: var(--text-dim); font-variant-numeric: tabular-nums; width: 30px; }
   .program-name { font-weight: 600; }
   .topic-tag { color: var(--text-dim); font-size: 12px; }
-  .commission-note { color: var(--text-dim); font-size: 12.5px; max-width: 320px; }
-  .score-pill {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 26px;
-    height: 22px;
-    padding: 0 6px;
-    border-radius: 6px;
-    font-weight: 700;
-    font-size: 12px;
-    background: rgba(108,140,255,0.15);
-    color: var(--accent);
-  }
-  .badge {
-    display: inline-block;
-    padding: 4px 10px;
-    border-radius: 999px;
-    font-size: 11.5px;
-    font-weight: 600;
-  }
-  .badge.todo { background: rgba(245,196,81,0.15); color: var(--yellow); }
-  .badge.in-progress { background: rgba(108,140,255,0.15); color: var(--accent); }
-  .badge.done { background: rgba(62,207,142,0.15); color: var(--green); }
-  .badge.no-good { background: rgba(245,104,107,0.15); color: var(--red); }
+  .commission-note { color: var(--text-dim); font-size: 12.5px; max-width: 260px; }
+  .date-added { color: var(--text-dim); font-size: 12.5px; white-space: nowrap; }
 
-  .open-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: var(--accent);
-    color: #0b0f18;
-    padding: 7px 14px;
-    border-radius: 8px;
-    font-size: 12.5px;
-    font-weight: 600;
-    text-decoration: none;
-    white-space: nowrap;
-  }
+  select.status-select { background: var(--bg); color: var(--text); border: 1px solid var(--card-border); border-radius: 8px; padding: 6px 10px; font-size: 12.5px; font-weight: 600; cursor: pointer; }
+  select.status-select.new { color: var(--yellow); }
+  select.status-select.applied { color: var(--accent); }
+  select.status-select.approved { color: var(--green); }
+  select.status-select.no-good { color: var(--red); }
+  select.status-select:disabled { opacity: .5; cursor: not-allowed; }
+
+  .open-btn { display: inline-flex; align-items: center; gap: 6px; background: var(--accent); color: #0b0f18; padding: 7px 14px; border-radius: 8px; font-size: 12.5px; font-weight: 600; text-decoration: none; white-space: nowrap; }
   .open-btn:hover { opacity: .85; }
+  .remove-btn { background: transparent; border: 1px solid var(--card-border); color: var(--red); padding: 6px 12px; border-radius: 8px; font-size: 12px; cursor: pointer; }
+  .remove-btn:hover { border-color: var(--red); }
 
   .empty-state { padding: 40px; text-align: center; color: var(--text-dim); }
   footer { margin-top: 24px; color: var(--text-dim); font-size: 12px; text-align: center; }
   footer a { color: var(--accent); text-decoration: none; }
+
+  .connect-panel { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: var(--radius); padding: 20px; margin-bottom: 24px; display: none; }
+  .connect-panel.show { display: block; }
+  .connect-panel input { background: var(--bg); border: 1px solid var(--card-border); color: var(--text); border-radius: 8px; padding: 9px 12px; font-size: 13px; width: 320px; max-width: 100%; margin-right: 8px; }
+  .connect-panel p { font-size: 12.5px; color: var(--text-dim); margin: 0 0 12px; }
+
+  .applied-section, .request-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: var(--radius); padding: 20px; margin-bottom: 16px; }
+  .applied-section h3, .request-card h3 { margin: 0 0 12px; font-size: 15px; }
+  .applied-link-row { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-top: 1px solid var(--card-border); gap: 12px; flex-wrap: wrap; }
+  .applied-link-row:first-of-type { border-top: none; }
+  .applied-link-row .info { flex: 1; min-width: 200px; }
+  .applied-link-row .label { font-weight: 600; font-size: 13.5px; }
+  .applied-link-row .url { color: var(--text-dim); font-size: 12px; word-break: break-all; }
+  .applied-link-row .date { color: var(--text-dim); font-size: 11.5px; white-space: nowrap; }
+
+  .add-form { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+  .add-form input, .add-form select, .add-form textarea { background: var(--bg); border: 1px solid var(--card-border); color: var(--text); border-radius: 8px; padding: 8px 10px; font-size: 12.5px; flex: 1; min-width: 140px; font-family: inherit; }
+  .add-form textarea { min-width: 260px; resize: vertical; min-height: 38px; }
+
+  .request-row { display: flex; align-items: flex-start; justify-content: space-between; padding: 12px 0; border-top: 1px solid var(--card-border); gap: 12px; flex-wrap: wrap; }
+  .request-row:first-of-type { border-top: none; }
+  .request-row .text { flex: 1; min-width: 200px; font-size: 13.5px; }
+  .request-row .meta { font-size: 11.5px; color: var(--text-dim); margin-top: 3px; }
+  .req-badge { display: inline-block; padding: 3px 9px; border-radius: 999px; font-size: 11px; font-weight: 600; white-space: nowrap; }
+  .req-badge.pending { background: rgba(245,196,81,0.15); color: var(--yellow); }
+  .req-badge.found, .req-badge.used { background: rgba(62,207,142,0.15); color: var(--green); }
+  .req-badge.no_match { background: rgba(245,104,107,0.15); color: var(--red); }
+
+  .toast { position: fixed; bottom: 20px; right: 20px; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 10px; padding: 12px 18px; font-size: 13px; opacity: 0; transform: translateY(10px); transition: all .25s; pointer-events: none; z-index: 100; }
+  .toast.show { opacity: 1; transform: translateY(0); }
+  .toast.error { border-color: var(--red); color: var(--red); }
+  .toast.ok { border-color: var(--green); color: var(--green); }
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
-    <h1>🧭 Referral Program Dashboard</h1>
-    <p>Trip Hack Hub affiliate pipeline — last synced <span id="last-synced">—</span></p>
+    <div>
+      <h1>🧭 Referral Program Dashboard</h1>
+      <p>Trip Hack Hub control board — last synced <span id="last-synced">—</span></p>
+    </div>
+    <div class="connect-box">
+      <div class="status" id="connect-status">Not connected — view only</div>
+      <button class="btn-small" id="connect-toggle">Connect to edit</button>
+    </div>
   </header>
 
-  <div class="stat-grid" id="stat-grid"></div>
+  <div class="connect-panel" id="connect-panel">
+    <p>Paste a fine-grained GitHub token with <strong>Account → Projects (Read and write)</strong> and, on
+    the private YouTube-Video-Creator repo, <strong>Contents (Read and write)</strong>. It's saved only in
+    this browser's local storage and sent straight to api.github.com — never anywhere else.</p>
+    <input type="password" id="token-input" placeholder="github_pat_..." />
+    <button class="btn-small btn-primary" id="save-token">Save</button>
+    <button class="btn-small" id="clear-token">Disconnect</button>
+  </div>
 
-  <div class="charts">
-    <div class="panel">
-      <h2>Programs by Status</h2>
-      <canvas id="statusChart"></canvas>
-    </div>
-    <div class="panel">
-      <h2>Score Distribution</h2>
-      <canvas id="scoreChart"></canvas>
+  <div class="page-tabs">
+    <button class="page-tab active" data-page="candidates">Candidates</button>
+    <button class="page-tab" data-page="applied">My Referrals</button>
+    <button class="page-tab" data-page="requests">Search Requests</button>
+    <button class="page-tab" data-page="ideas">Video Ideas</button>
+  </div>
+
+  <div id="page-candidates">
+    <div class="stat-grid" id="stat-grid"></div>
+    <div class="tabs" id="tabs"></div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Program</th><th>Topic</th><th>Commission Note</th><th>Date Added</th><th>Status</th><th></th></tr></thead>
+        <tbody id="table-body"></tbody>
+      </table>
+      <div class="empty-state" id="empty-state" style="display:none;">No programs match this filter.</div>
     </div>
   </div>
 
-  <div class="tabs" id="tabs"></div>
-
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr>
-          <th>Program</th>
-          <th>Topic</th>
-          <th>Commission Note</th>
-          <th>Score</th>
-          <th>Status</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody id="table-body"></tbody>
-    </table>
-    <div class="empty-state" id="empty-state" style="display:none;">No programs match this filter.</div>
-  </div>
+  <div id="page-applied" style="display:none;"></div>
+  <div id="page-requests" style="display:none;"></div>
+  <div id="page-ideas" style="display:none;"></div>
 
   <footer>
-    Auto-generated from the referral pipeline. Signup links are public program pages, not personal tracking links. ·
+    Auto-generated from the referral pipeline. Signup links are public program pages; "My Referrals" shows real applied links. ·
     <a href="https://github.com/ZeroTouchAI/referral-dashboard" target="_blank" rel="noopener">Source</a>
   </footer>
 </div>
 
+<div class="toast" id="toast"></div>
+
 <script>
 const STATUS_META = {
-  "Todo":        { label: "Pending Review", cls: "todo",        color: "#f5c451" },
-  "In Progress": { label: "In Progress",    cls: "in-progress", color: "#6c8cff" },
-  "Done":        { label: "Applied",        cls: "done",        color: "#3ecf8e" },
-  "No Good":     { label: "No Good",        cls: "no-good",     color: "#f5686b" },
+  "Todo":        { label: "New",      cls: "new",      color: "#f5c451" },
+  "In Progress": { label: "Applied",  cls: "applied",  color: "#6c8cff" },
+  "Done":        { label: "Approved", cls: "approved", color: "#3ecf8e" },
+  "No Good":     { label: "No Good",  cls: "no-good",  color: "#f5686b" },
 };
+const STATUS_ORDER = ["Todo", "In Progress", "Done", "No Good"];
 
+const PRIVATE_REPO_OWNER = "ZeroTouchAI";
+const PRIVATE_REPO_NAME = "YouTube-Video-Creator";
+const AFFILIATE_LINKS_PATH = "data/affiliate_links.json";
+const SEARCH_REQUESTS_PATH = "data/referral_search_requests.json";
+const VIDEO_IDEAS_PATH = "data/video_idea_requests.json";
+
+let candidatesData = null, appliedData = null, requestsData = null, ideasData = null;
 let allPrograms = [];
 let activeFilter = "All";
 
-function badge(status) {
-  const meta = STATUS_META[status] || { label: status, cls: "todo" };
-  return `<span class="badge ${meta.cls}">${meta.label}</span>`;
-}
+function getToken() { return localStorage.getItem("gh_dashboard_token") || ""; }
+function hasToken() { return !!getToken(); }
+function newId() { return (crypto.randomUUID ? crypto.randomUUID() : "id-" + Date.now() + "-" + Math.random().toString(36).slice(2)); }
 
-function escapeHtml(s) {
-  return (s || "").replace(/[&<>"']/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c]));
+function showToast(msg, kind) {
+  const el = document.getElementById("toast");
+  el.textContent = msg;
+  el.className = "toast show " + (kind || "");
+  setTimeout(() => { el.className = "toast"; }, 3200);
 }
+function escapeHtml(s) { return (s || "").replace(/[&<>"']/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c])); }
+function formatDate(iso) { if (!iso) return "—"; const d = new Date(iso); return isNaN(d) ? "—" : d.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" }); }
 
+// ---------- Connect panel ----------
+function updateConnectUI() {
+  const statusEl = document.getElementById("connect-status");
+  const toggleBtn = document.getElementById("connect-toggle");
+  if (hasToken()) { statusEl.textContent = "Connected — editing enabled"; statusEl.classList.add("on"); toggleBtn.textContent = "Manage connection"; }
+  else { statusEl.textContent = "Not connected — view only"; statusEl.classList.remove("on"); toggleBtn.textContent = "Connect to edit"; }
+}
+document.getElementById("connect-toggle").addEventListener("click", () => document.getElementById("connect-panel").classList.toggle("show"));
+document.getElementById("save-token").addEventListener("click", () => {
+  const val = document.getElementById("token-input").value.trim();
+  if (!val) return;
+  localStorage.setItem("gh_dashboard_token", val);
+  document.getElementById("token-input").value = "";
+  document.getElementById("connect-panel").classList.remove("show");
+  updateConnectUI(); renderTable(); renderApplied(); renderRequests(); renderIdeas();
+  showToast("Connected", "ok");
+});
+document.getElementById("clear-token").addEventListener("click", () => {
+  localStorage.removeItem("gh_dashboard_token");
+  updateConnectUI(); renderTable(); renderApplied(); renderRequests(); renderIdeas();
+  showToast("Disconnected", "ok");
+});
+
+// ---------- Page switching ----------
+const PAGES = ["candidates", "applied", "requests", "ideas"];
+document.querySelectorAll(".page-tab").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".page-tab").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    PAGES.forEach(p => document.getElementById("page-" + p).style.display = (p === btn.dataset.page ? "" : "none"));
+  });
+});
+
+// ---------- Candidates page ----------
 function renderStats(data) {
   const counts = data.status_counts || {};
-  const total = data.total || 0;
-  const avgScore = data.avg_score != null ? data.avg_score.toFixed(1) : "—";
-
   const cards = [
-    { num: total, label: "Total Programs", cls: "accent" },
-    { num: counts["Todo"] || 0, label: "Pending Review", cls: "yellow" },
-    { num: counts["In Progress"] || 0, label: "In Progress", cls: "accent" },
-    { num: counts["Done"] || 0, label: "Applied", cls: "green" },
+    { num: data.total || 0, label: "Total", cls: "accent" },
+    { num: counts["Todo"] || 0, label: "New", cls: "yellow" },
+    { num: counts["In Progress"] || 0, label: "Applied", cls: "accent" },
+    { num: counts["Done"] || 0, label: "Approved", cls: "green" },
     { num: counts["No Good"] || 0, label: "No Good", cls: "red" },
-    { num: avgScore, label: "Avg. Score", cls: "purple" },
   ];
-
-  document.getElementById("stat-grid").innerHTML = cards.map(c => `
-    <div class="stat-card ${c.cls}">
-      <div class="num">${c.num}</div>
-      <div class="label">${c.label}</div>
-    </div>
-  `).join("");
+  document.getElementById("stat-grid").innerHTML = cards.map(c => `<div class="stat-card ${c.cls}"><div class="num">${c.num}</div><div class="label">${c.label}</div></div>`).join("");
 }
-
-function renderCharts(data) {
-  const counts = data.status_counts || {};
-  const order = ["Todo", "In Progress", "Done", "No Good"];
-  new Chart(document.getElementById("statusChart"), {
-    type: "doughnut",
-    data: {
-      labels: order.map(s => STATUS_META[s].label),
-      datasets: [{
-        data: order.map(s => counts[s] || 0),
-        backgroundColor: order.map(s => STATUS_META[s].color),
-        borderWidth: 0,
-      }],
-    },
-    options: {
-      plugins: { legend: { position: "bottom", labels: { color: "#9aa4bd", boxWidth: 12, padding: 12, font: { size: 11 } } } },
-    },
-  });
-
-  const scoreDist = data.score_distribution || {};
-  const scoreLabels = ["1", "2", "3", "4", "5"];
-  new Chart(document.getElementById("scoreChart"), {
-    type: "bar",
-    data: {
-      labels: scoreLabels,
-      datasets: [{
-        data: scoreLabels.map(s => scoreDist[s] || 0),
-        backgroundColor: "#6c8cff",
-        borderRadius: 6,
-        maxBarThickness: 36,
-      }],
-    },
-    options: {
-      plugins: { legend: { display: false } },
-      scales: {
-        x: { ticks: { color: "#9aa4bd" }, grid: { display: false } },
-        y: { ticks: { color: "#9aa4bd", precision: 0 }, grid: { color: "#262e42" } },
-      },
-    },
-  });
-}
-
 function renderTabs(data) {
   const counts = data.status_counts || {};
   const tabs = [
     { key: "All", label: `All (${data.total || 0})` },
-    { key: "Todo", label: `Pending Review (${counts["Todo"] || 0})` },
-    { key: "In Progress", label: `In Progress (${counts["In Progress"] || 0})` },
-    { key: "Done", label: `Applied (${counts["Done"] || 0})` },
+    { key: "Todo", label: `New (${counts["Todo"] || 0})` },
+    { key: "In Progress", label: `Applied (${counts["In Progress"] || 0})` },
+    { key: "Done", label: `Approved (${counts["Done"] || 0})` },
     { key: "No Good", label: `No Good (${counts["No Good"] || 0})` },
   ];
-  document.getElementById("tabs").innerHTML = tabs.map(t => `
-    <div class="tab ${t.key === activeFilter ? 'active' : ''}" data-filter="${t.key}">${t.label}</div>
-  `).join("");
-  document.querySelectorAll(".tab").forEach(el => {
-    el.addEventListener("click", () => {
-      activeFilter = el.dataset.filter;
-      renderTabs(currentData);
-      renderTable();
-    });
-  });
+  document.getElementById("tabs").innerHTML = tabs.map(t => `<div class="tab ${t.key === activeFilter ? 'active' : ''}" data-filter="${t.key}">${t.label}</div>`).join("");
+  document.querySelectorAll(".tab").forEach(el => el.addEventListener("click", () => { activeFilter = el.dataset.filter; renderTabs(candidatesData); renderTable(); }));
 }
-
+async function changeStatus(itemId, newStatusKey, selectEl) {
+  if (!hasToken()) { showToast("Connect first to edit status", "error"); return; }
+  const optionId = candidatesData.meta.status_options[newStatusKey];
+  if (!optionId) { showToast("Couldn't find that status option — try reconnecting", "error"); return; }
+  const mutation = `mutation { updateProjectV2ItemFieldValue(input: { projectId: "${candidatesData.meta.project_id}", itemId: "${itemId}", fieldId: "${candidatesData.meta.field_id}", value: { singleSelectOptionId: "${optionId}" } }) { projectV2Item { id } } }`;
+  selectEl.disabled = true;
+  try {
+    const resp = await fetch("https://api.github.com/graphql", { method: "POST", headers: { "Authorization": `Bearer ${getToken()}`, "Content-Type": "application/json" }, body: JSON.stringify({ query: mutation }) });
+    const json = await resp.json();
+    if (json.errors) throw new Error(json.errors[0].message);
+    const program = allPrograms.find(p => p.item_id === itemId);
+    if (program) program.status = newStatusKey;
+    candidatesData.status_counts = {};
+    allPrograms.forEach(p => { candidatesData.status_counts[p.status] = (candidatesData.status_counts[p.status] || 0) + 1; });
+    renderStats(candidatesData); renderTabs(candidatesData); renderTable();
+    showToast("Status updated", "ok");
+  } catch (err) { showToast("Failed to update status: " + err.message, "error"); console.error(err); }
+  finally { selectEl.disabled = false; }
+}
 function renderTable() {
-  const rows = activeFilter === "All"
-    ? allPrograms
-    : allPrograms.filter(p => p.status === activeFilter);
-
+  const rows = activeFilter === "All" ? allPrograms : allPrograms.filter(p => p.status === activeFilter);
   const tbody = document.getElementById("table-body");
   const emptyState = document.getElementById("empty-state");
-
-  if (!rows.length) {
-    tbody.innerHTML = "";
-    emptyState.style.display = "block";
-    return;
-  }
+  if (!rows.length) { tbody.innerHTML = ""; emptyState.style.display = "block"; return; }
   emptyState.style.display = "none";
-
-  tbody.innerHTML = rows.map(p => `
-    <tr>
+  tbody.innerHTML = rows.map((p, i) => {
+    const meta = STATUS_META[p.status] || { label: p.status, cls: "new" };
+    const optionsHtml = STATUS_ORDER.map(s => `<option value="${s}" ${s === p.status ? "selected" : ""}>${STATUS_META[s].label}</option>`).join("");
+    return `<tr>
+      <td class="row-num">${i + 1}</td>
       <td class="program-name">${escapeHtml(p.name)}</td>
       <td class="topic-tag">${escapeHtml(p.topic || "General")}</td>
       <td class="commission-note">${escapeHtml(p.commission_note)}</td>
-      <td><span class="score-pill">${p.score ?? "—"}</span></td>
-      <td>${badge(p.status)}</td>
+      <td class="date-added">${formatDate(p.date_added)}</td>
+      <td><select class="status-select ${meta.cls}" data-item-id="${p.item_id}" ${hasToken() ? "" : "disabled"}>${optionsHtml}</select></td>
       <td>${p.signup_url ? `<a class="open-btn" href="${escapeHtml(p.signup_url)}" target="_blank" rel="noopener">Open ↗</a>` : ""}</td>
-    </tr>
-  `).join("");
+    </tr>`;
+  }).join("");
+  tbody.querySelectorAll("select.status-select").forEach(sel => sel.addEventListener("change", () => changeStatus(sel.dataset.itemId, sel.value, sel)));
 }
 
-let currentData = null;
+// ---------- Generic private-repo file read/write helper ----------
+async function getPrivateFile(path) {
+  const resp = await fetch(`https://api.github.com/repos/${PRIVATE_REPO_OWNER}/${PRIVATE_REPO_NAME}/contents/${path}`, { headers: { "Authorization": `Bearer ${getToken()}`, "Accept": "application/vnd.github+json" } });
+  if (resp.status === 404) return { sha: null, data: null };
+  if (!resp.ok) throw new Error(`GET failed (${resp.status})`);
+  const json = await resp.json();
+  return { sha: json.sha, data: JSON.parse(decodeURIComponent(escape(atob(json.content.replace(/\n/g, ""))))) };
+}
+async function putPrivateFile(path, data, sha, message) {
+  const resp = await fetch(`https://api.github.com/repos/${PRIVATE_REPO_OWNER}/${PRIVATE_REPO_NAME}/contents/${path}`, {
+    method: "PUT",
+    headers: { "Authorization": `Bearer ${getToken()}`, "Accept": "application/vnd.github+json", "Content-Type": "application/json" },
+    body: JSON.stringify({ message, sha: sha || undefined, branch: "main", content: btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2)))) }),
+  });
+  if (!resp.ok) { const t = await resp.text(); throw new Error(`PUT failed (${resp.status}): ${t}`); }
+}
 
-fetch("data/dashboardData.json??=" + Date.now())
+// ---------- Applied ("My Referrals") page ----------
+async function removeLink(topic, url) {
+  if (!hasToken()) { showToast("Connect first to edit", "error"); return; }
+  if (!confirm(`Remove this link from ${topic}? This updates the live file used in your video descriptions.`)) return;
+  try {
+    const { sha, data } = await getPrivateFile(AFFILIATE_LINKS_PATH);
+    const section = (data.sections || []).find(s => s.title === topic);
+    if (section) section.links = (section.links || []).filter(l => l.url !== url);
+    await putPrivateFile(AFFILIATE_LINKS_PATH, data, sha, `Remove referral link via dashboard: ${topic}`);
+    showToast("Removed", "ok"); await loadApplied();
+  } catch (err) { showToast("Failed to remove: " + err.message, "error"); console.error(err); }
+}
+async function addLink(topic, label, url) {
+  if (!hasToken()) { showToast("Connect first to edit", "error"); return; }
+  if (!topic || !label || !url) { showToast("Fill in topic, label, and URL", "error"); return; }
+  try {
+    const { sha, data } = await getPrivateFile(AFFILIATE_LINKS_PATH);
+    const addedDate = new Date().toISOString().slice(0, 10);
+    let section = (data.sections || []).find(s => s.title === topic);
+    if (!section) { section = { emoji: "🔧", title: topic, links: [] }; data.sections = data.sections || []; data.sections.push(section); }
+    section.links = section.links || [];
+    section.links.push({ label, url, added_date: addedDate });
+    await putPrivateFile(AFFILIATE_LINKS_PATH, data, sha, `Add referral link via dashboard: ${topic}`);
+    showToast("Added", "ok"); await loadApplied();
+  } catch (err) { showToast("Failed to add: " + err.message, "error"); console.error(err); }
+}
+function renderApplied() {
+  const container = document.getElementById("page-applied");
+  const addFormHtml = `<div class="applied-section"><h3>Add a referral link</h3><div class="add-form">
+    <input id="add-topic" placeholder="Topic (e.g. eSIM)" ${hasToken() ? "" : "disabled"} />
+    <input id="add-label" placeholder="Label (e.g. Airalo)" ${hasToken() ? "" : "disabled"} />
+    <input id="add-url" placeholder="https://..." ${hasToken() ? "" : "disabled"} />
+    <button class="btn-small btn-primary" id="add-link-btn" ${hasToken() ? "" : "disabled"}>Add</button>
+  </div></div>`;
+  if (!appliedData || !(appliedData.sections || []).length) {
+    container.innerHTML = `<div class="empty-state">Nothing applied yet — approve a candidate on the other page, or add one manually below.</div>${addFormHtml}`;
+  } else {
+    const sectionsHtml = appliedData.sections.map(section => `
+      <div class="applied-section"><h3>${escapeHtml(section.topic)}</h3>
+        ${(section.links || []).map(link => `
+          <div class="applied-link-row">
+            <div class="info"><div class="label">${escapeHtml(link.label)}</div><div class="url">${escapeHtml(link.url)}</div></div>
+            <div class="date">${formatDate(link.added_date)}</div>
+            <button class="remove-btn" data-topic="${escapeHtml(section.topic)}" data-url="${escapeHtml(link.url)}" ${hasToken() ? "" : "disabled"}>Remove</button>
+          </div>`).join("")}
+      </div>`).join("");
+    container.innerHTML = sectionsHtml + addFormHtml;
+    container.querySelectorAll(".remove-btn").forEach(btn => btn.addEventListener("click", () => removeLink(btn.dataset.topic, btn.dataset.url)));
+  }
+  const btn = document.getElementById("add-link-btn");
+  if (btn) btn.addEventListener("click", () => addLink(document.getElementById("add-topic").value.trim(), document.getElementById("add-label").value.trim(), document.getElementById("add-url").value.trim()));
+}
+async function loadApplied() {
+  try { appliedData = await (await fetch("data/appliedReferrals.json?_=" + Date.now())).json(); }
+  catch (err) { appliedData = { sections: [] }; }
+  renderApplied();
+}
+
+// ---------- Search Requests page ----------
+async function addSearchRequest(text) {
+  if (!hasToken()) { showToast("Connect first to add a request", "error"); return; }
+  if (!text) { showToast("Enter what to search for", "error"); return; }
+  try {
+    const { sha, data } = await getPrivateFile(SEARCH_REQUESTS_PATH);
+    const file = data || { requests: [] };
+    file.requests = file.requests || [];
+    file.requests.push({ id: newId(), text, status: "pending", added_date: new Date().toISOString().slice(0, 10) });
+    await putPrivateFile(SEARCH_REQUESTS_PATH, file, sha, `Add referral search request via dashboard`);
+    showToast("Added — it'll be searched on the next referral scan", "ok");
+    await loadRequests();
+  } catch (err) { showToast("Failed to add: " + err.message, "error"); console.error(err); }
+}
+function renderRequests() {
+  const container = document.getElementById("page-requests");
+  const items = (requestsData && requestsData.requests) || [];
+  const addFormHtml = `<div class="request-card"><h3>Ask us to look for something specific</h3>
+    <p style="color:var(--text-dim);font-size:12.5px;margin:0 0 12px;">Runs on the next weekly referral scan. Be specific — e.g. "Scotiabank Passport Visa Infinite travel card affiliate program".</p>
+    <div class="add-form"><textarea id="add-request-text" placeholder="What should we search for?" ${hasToken() ? "" : "disabled"}></textarea>
+    <button class="btn-small btn-primary" id="add-request-btn" ${hasToken() ? "" : "disabled"}>Submit</button></div></div>`;
+
+  const listHtml = items.length ? `<div class="request-card"><h3>Your requests</h3>
+    ${items.slice().reverse().map(r => `
+      <div class="request-row">
+        <div>
+          <div class="text">${escapeHtml(r.text)}</div>
+          <div class="meta">Added ${formatDate(r.added_date)}${r.resolved_date ? " · resolved " + formatDate(r.resolved_date) : ""}${r.programs_found != null ? ` · ${r.programs_found} program(s) found` : ""}</div>
+        </div>
+        <span class="req-badge ${r.status}">${r.status === "no_match" ? "No match" : r.status === "found" ? "Found" : "Pending"}</span>
+      </div>`).join("")}
+  </div>` : `<div class="empty-state">No search requests yet.</div>`;
+
+  container.innerHTML = listHtml + addFormHtml;
+  const btn = document.getElementById("add-request-btn");
+  if (btn) btn.addEventListener("click", () => addSearchRequest(document.getElementById("add-request-text").value.trim()));
+}
+async function loadRequests() {
+  try { requestsData = await (await fetch("data/searchRequests.json?_=" + Date.now())).json(); }
+  catch (err) { requestsData = { requests: [] }; }
+  renderRequests();
+}
+
+// ---------- Video Ideas page ----------
+async function addVideoIdea(text, target) {
+  if (!hasToken()) { showToast("Connect first to add an idea", "error"); return; }
+  if (!text) { showToast("Enter a video idea", "error"); return; }
+  try {
+    const { sha, data } = await getPrivateFile(VIDEO_IDEAS_PATH);
+    const file = data || { ideas: [] };
+    file.ideas = file.ideas || [];
+    file.ideas.push({ id: newId(), text, target, status: "pending", added_date: new Date().toISOString().slice(0, 10) });
+    await putPrivateFile(VIDEO_IDEAS_PATH, file, sha, `Add video idea via dashboard`);
+    showToast("Added — it'll be made on the next matching content run", "ok");
+    await loadIdeas();
+  } catch (err) { showToast("Failed to add: " + err.message, "error"); console.error(err); }
+}
+function renderIdeas() {
+  const container = document.getElementById("page-ideas");
+  const items = (ideasData && ideasData.ideas) || [];
+  const targetLabel = { short: "Short", longform: "Long-form", either: "Either" };
+  const addFormHtml = `<div class="request-card"><h3>Request a video</h3>
+    <p style="color:var(--text-dim);font-size:12.5px;margin:0 0 12px;">Picked up (oldest first) ahead of the usual trending-topic picks, next time that video type runs.</p>
+    <div class="add-form"><input id="add-idea-text" placeholder="Video idea (e.g. Scotiabank Passport Visa Infinite review)" ${hasToken() ? "" : "disabled"} />
+    <select id="add-idea-target" ${hasToken() ? "" : "disabled"}><option value="either">Either</option><option value="short">Short</option><option value="longform">Long-form</option></select>
+    <button class="btn-small btn-primary" id="add-idea-btn" ${hasToken() ? "" : "disabled"}>Submit</button></div></div>`;
+
+  const listHtml = items.length ? `<div class="request-card"><h3>Your ideas</h3>
+    ${items.slice().reverse().map(i => `
+      <div class="request-row">
+        <div>
+          <div class="text">${escapeHtml(i.text)}</div>
+          <div class="meta">${targetLabel[i.target] || i.target} · added ${formatDate(i.added_date)}${i.used_date ? " · used " + formatDate(i.used_date) + " (" + (targetLabel[i.used_in] || i.used_in) + ")" : ""}</div>
+        </div>
+        <span class="req-badge ${i.status}">${i.status === "used" ? "Used" : "Pending"}</span>
+      </div>`).join("")}
+  </div>` : `<div class="empty-state">No video ideas yet.</div>`;
+
+  container.innerHTML = listHtml + addFormHtml;
+  const btn = document.getElementById("add-idea-btn");
+  if (btn) btn.addEventListener("click", () => addVideoIdea(document.getElementById("add-idea-text").value.trim(), document.getElementById("add-idea-target").value));
+}
+async function loadIdeas() {
+  try { ideasData = await (await fetch("data/videoIdeas.json?_=" + Date.now())).json(); }
+  catch (err) { ideasData = { ideas: [] }; }
+  renderIdeas();
+}
+
+// ---------- Init ----------
+updateConnectUI();
+fetch("data/dashboardData.json?_=" + Date.now())
   .then(r => r.json())
   .then(data => {
-    currentData = data;
-    allPrograms = data.programs || [];
-    document.getElementById("last-synced").textContent = data.generated_at
-      ? new Date(data.generated_at).toLocaleString()
-      : "unknown";
-    renderStats(data);
-    renderCharts(data);
-    renderTabs(data);
-    renderTable();
+    candidatesData = data; allPrograms = data.programs || [];
+    document.getElementById("last-synced").textContent = data.generated_at ? new Date(data.generated_at).toLocaleString() : "unknown";
+    renderStats(data); renderTabs(data); renderTable();
   })
   .catch(err => {
-    document.getElementById("table-body").innerHTML = "";
     document.getElementById("empty-state").style.display = "block";
     document.getElementById("empty-state").textContent = "Couldn't load dashboard data yet — check back after the next referral scan runs.";
     console.error(err);
   });
+loadApplied(); loadRequests(); loadIdeas();
 </script>
 </body>
 </html>
