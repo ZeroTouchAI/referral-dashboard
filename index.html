@@ -191,7 +191,7 @@ const VIDEO_IDEAS_PATH = "data/video_idea_requests.json";
 
 let candidatesData = null, appliedData = null, requestsData = null, ideasData = null;
 let allPrograms = [];
-let activeFilter = "All";
+let activeFilter = "Todo";
 
 function getToken() { return localStorage.getItem("gh_dashboard_token") || ""; }
 function hasToken() { return !!getToken(); }
@@ -254,11 +254,11 @@ function renderStats(data) {
 function renderTabs(data) {
   const counts = data.status_counts || {};
   const tabs = [
-    { key: "All", label: `All (${data.total || 0})` },
     { key: "Todo", label: `New (${counts["Todo"] || 0})` },
     { key: "In Progress", label: `Applied (${counts["In Progress"] || 0})` },
     { key: "Done", label: `Approved (${counts["Done"] || 0})` },
     { key: "No Good", label: `No Good (${counts["No Good"] || 0})` },
+    { key: "All", label: `All (${data.total || 0})` },
   ];
   document.getElementById("tabs").innerHTML = tabs.map(t => `<div class="tab ${t.key === activeFilter ? 'active' : ''}" data-filter="${t.key}">${t.label}</div>`).join("");
   document.querySelectorAll(".tab").forEach(el => el.addEventListener("click", () => { activeFilter = el.dataset.filter; renderTabs(candidatesData); renderTable(); }));
