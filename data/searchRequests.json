@@ -1,4 +1,83 @@
 {
-  "generated_at": "2026-09-16T00:22:33.661228+00:00",
-  "requests": []
+  "generated_at": "2026-09-18T02:43:19.327136+00:00",
+  "requests": [
+    {
+      "id": "9f6ab3ba-164c-4e22-96eb-2e7b9bdddcc5",
+      "text": "Scotiabank Passport Visa Infinite travel card affiliate program",
+      "status": "pending",
+      "added_date": "2026-09-16"
+    },
+    {
+      "id": "14c70adc-6881-423f-96f6-d0c4e06926e3",
+      "text": "moretapay local QR payments",
+      "status": "pending",
+      "added_date": "2026-09-16"
+    },
+    {
+      "id": "ff7308c8-0fc8-4b9f-89bc-55dce61ce2fc",
+      "text": "Muvmi Tuk Tuk",
+      "status": "pending",
+      "added_date": "2026-09-16"
+    },
+    {
+      "id": "a84858cc-d317-4b69-9da5-4e0fa18dd3b9",
+      "text": "grab Thailand transportation",
+      "status": "pending",
+      "added_date": "2026-09-16"
+    },
+    {
+      "id": "72692094-12e4-4f44-9a40-ce765c07fd91",
+      "text": "bolt Thailand transportation",
+      "status": "pending",
+      "added_date": "2026-09-16"
+    },
+    {
+      "id": "8dd75644-079d-45ff-add8-6733674af912",
+      "text": "cheap flights",
+      "status": "pending",
+      "added_date": "2026-09-16"
+    },
+    {
+      "id": "9e2cfb50-37de-4589-9919-cea76c678950",
+      "text": "saily e-sim",
+      "status": "pending",
+      "added_date": "2026-09-16"
+    },
+    {
+      "id": "3d3e885e-0625-4035-b5ab-2d2bfa319a09",
+      "text": "tripit app",
+      "status": "pending",
+      "added_date": "2026-09-16"
+    },
+    {
+      "id": "b25bb652-fcc2-4793-8a1b-dbfc452e22d8",
+      "text": "Airbnb",
+      "status": "pending",
+      "added_date": "2026-09-16"
+    },
+    {
+      "id": "5d54bd45-9130-4380-9a7e-c5a2eaec22e3",
+      "text": "Bounce bag storage",
+      "status": "pending",
+      "added_date": "2026-09-16"
+    },
+    {
+      "id": "00da58fb-796f-432d-9003-00492857d453",
+      "text": "park'n fly",
+      "status": "pending",
+      "added_date": "2026-09-16"
+    },
+    {
+      "id": "897504d2-3013-4c1d-a829-931dfb3cc5a0",
+      "text": "visa airport companion",
+      "status": "pending",
+      "added_date": "2026-09-16"
+    },
+    {
+      "id": "f5b1a11b-8eb6-4cf5-abdd-fa6fa35f4e41",
+      "text": "Aeroplan",
+      "status": "pending",
+      "added_date": "2026-09-16"
+    }
+  ]
 }
