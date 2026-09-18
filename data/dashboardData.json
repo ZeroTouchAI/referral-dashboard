@@ -1,12 +1,228 @@
 {
-  "generated_at": "2026-09-16T00:22:33.660988+00:00",
-  "total": 30,
+  "generated_at": "2026-09-18T20:11:18.070698+00:00",
+  "total": 54,
   "status_counts": {
     "In Progress": 1,
-    "Todo": 28,
+    "Todo": 52,
     "No Good": 1
   },
   "programs": [
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg7qV4I",
+      "name": "Great Canadian Rebates",
+      "topic": "Scotiabank Passport Visa Infinite Review",
+      "commission_note": "A popular affiliate network for Canadian financial products; offers payouts for approved credit card applications.",
+      "status": "Todo",
+      "signup_url": "https://www.greatcanadianrebates.ca/affiliate/",
+      "date_added": "2026-09-18T20:11:11Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg7qV1w",
+      "name": "Scotiabank Affiliate Program (via Impact)",
+      "topic": "Scotiabank Passport Visa Infinite Review",
+      "commission_note": "Scotiabank utilizes the Impact platform to manage their Canadian credit card affiliate partnerships; requires strong financial content focus.",
+      "status": "Todo",
+      "signup_url": "https://impact.com/partner-signup/",
+      "date_added": "2026-09-18T20:11:07Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg7qVjU",
+      "name": "Trip.com",
+      "topic": null,
+      "commission_note": "Trip.com provides a standardized affiliate program where partners earn a percentage of confirmed bookings for flights, trains, and ground transportation.",
+      "status": "Todo",
+      "signup_url": "https://uk.trip.com/affiliate/",
+      "date_added": "2026-09-18T20:10:25Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg7qVgo",
+      "name": "Klook",
+      "topic": null,
+      "commission_note": "Klook offers a competitive commission rate based on the booking value of transportation, airport transfers, and tours in Thailand.",
+      "status": "Todo",
+      "signup_url": "https://www.klook.com/en-US/tetris/promo/affiliate/",
+      "date_added": "2026-09-18T20:10:21Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg7qVfM",
+      "name": "12Go Asia",
+      "topic": null,
+      "commission_note": "Affiliates earn 50% of the platform's service fee for every successfully booked ticket for trains, buses, ferries, and transfers throughout Thailand.",
+      "status": "Todo",
+      "signup_url": "https://12go.asia/en/affiliate",
+      "date_added": "2026-09-18T20:10:18Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg7qU7I",
+      "name": "CreditCards.ca Affiliate Program",
+      "topic": null,
+      "commission_note": "This third-party aggregator allows publishers to earn commissions for successful referrals to various Canadian credit cards, including Scotiabank products.",
+      "status": "Todo",
+      "signup_url": "https://www.creditcards.ca/affiliate-program/",
+      "date_added": "2026-09-18T20:09:00Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg7qU5k",
+      "name": "Scotiabank Affiliate Program (via Impact)",
+      "topic": null,
+      "commission_note": "Scotiabank manages its Canadian credit card affiliate partnerships through the Impact.com platform, where commissions are paid on approved card applications.",
+      "status": "Todo",
+      "signup_url": "https://impact.com/get-started/",
+      "date_added": "2026-09-18T20:08:57Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg7iB7k",
+      "name": "TD Aeroplan Credit Card Referral Program",
+      "topic": null,
+      "commission_note": "Eligible TD Aeroplan cardholders can earn a set amount of Aeroplan points for every friend or family member who signs up using their referral link.",
+      "status": "Todo",
+      "signup_url": "https://www.td.com/ca/en/personal-banking/refer-a-friend",
+      "date_added": "2026-09-18T03:18:35Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg7iB7I",
+      "name": "American Express Aeroplan Card Referral Program",
+      "topic": null,
+      "commission_note": "Existing cardholders can earn referral bonuses in Aeroplan points for each successful applicant who is approved through their unique link.",
+      "status": "Todo",
+      "signup_url": "https://www.americanexpress.com/en-ca/referral",
+      "date_added": "2026-09-18T03:18:32Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg7iB10",
+      "name": "Priority Pass",
+      "topic": null,
+      "commission_note": "Priority Pass offers a formal partnership program for travel-focused businesses and influencers to promote membership signups with custom commission rates.",
+      "status": "Todo",
+      "signup_url": "https://www.prioritypass.com/en/partners/become-a-partner",
+      "date_added": "2026-09-18T03:18:12Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg7iB1I",
+      "name": "DragonPass",
+      "topic": null,
+      "commission_note": "DragonPass provides a partnership program for travel platforms and travel-related content creators to offer lounge access services with commission structures based on referral volume.",
+      "status": "Todo",
+      "signup_url": "https://en.dragonpass.com.cn/partner",
+      "date_added": "2026-09-18T03:18:09Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg7iBwU",
+      "name": "ParkON",
+      "topic": null,
+      "commission_note": "The program offers a commission for every confirmed parking reservation generated from traffic sent to their platform.",
+      "status": "Todo",
+      "signup_url": "https://parkon.com/affiliate",
+      "date_added": "2026-09-18T03:17:45Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg7iBv4",
+      "name": "AirportParkingReservations.com",
+      "topic": null,
+      "commission_note": "Affiliates earn a percentage of the reservation fee for every completed parking booking referred through their site.",
+      "status": "Todo",
+      "signup_url": "https://www.airportparkingreservations.com/affiliate",
+      "date_added": "2026-09-18T03:17:42Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg7iBvg",
+      "name": "Park'N Fly Canada",
+      "topic": null,
+      "commission_note": "Partners earn commissions for referred customers who book airport parking through their unique tracking links or promo codes.",
+      "status": "Todo",
+      "signup_url": "https://www.parknfly.ca/affiliate-program/",
+      "date_added": "2026-09-18T03:17:40Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg7iBqs",
+      "name": "Bounce",
+      "topic": null,
+      "commission_note": "Partners earn a commission for every booked luggage storage reservation made through their referral links.",
+      "status": "Todo",
+      "signup_url": "https://usebounce.com/partners",
+      "date_added": "2026-09-18T03:17:19Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg7iBh8",
+      "name": "Airbnb Associates Program",
+      "topic": null,
+      "commission_note": "Airbnb currently operates a highly selective and invite-only associates program that is not open to general public signups for most content creators.",
+      "status": "Todo",
+      "signup_url": "https://www.airbnb.com/associates",
+      "date_added": "2026-09-18T03:16:53Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg7iBQA",
+      "name": "TripIt Affiliate Program",
+      "topic": null,
+      "commission_note": "TripIt manages its affiliate program through the CJ Affiliate network, offering commissions for new TripIt Pro subscriptions referred through your links.",
+      "status": "Todo",
+      "signup_url": "https://www.tripit.com/web/faq/affiliate",
+      "date_added": "2026-09-18T03:16:12Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg7iBI0",
+      "name": "Saily Affiliate Program",
+      "topic": null,
+      "commission_note": "Affiliates earn a commission for every sale generated through their unique referral link, with terms and specific payout rates provided upon approval to the program.",
+      "status": "Todo",
+      "signup_url": "https://saily.com/affiliate-program/",
+      "date_added": "2026-09-18T03:15:52Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg7iA0g",
+      "name": "Kiwi.com",
+      "topic": null,
+      "commission_note": "Affiliates receive a commission based on a percentage of the flight booking value, typically paid out monthly.",
+      "status": "Todo",
+      "signup_url": "https://www.kiwi.com/en/affiliate/",
+      "date_added": "2026-09-18T03:14:52Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg7iAzY",
+      "name": "Skyscanner",
+      "topic": null,
+      "commission_note": "They provide commission based on a percentage of the revenue generated from flight bookings made through their affiliate tools.",
+      "status": "Todo",
+      "signup_url": "https://partners.skyscanner.net/",
+      "date_added": "2026-09-18T03:14:48Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg7iAyY",
+      "name": "WayAway",
+      "topic": null,
+      "commission_note": "Affiliates earn up to 50% of the revenue WayAway earns from each flight booking made through their referral links.",
+      "status": "Todo",
+      "signup_url": "https://wayaway.io/affiliate-program",
+      "date_added": "2026-09-18T03:14:46Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg7iAfY",
+      "name": "12Go Affiliate Program",
+      "topic": null,
+      "commission_note": "12Go provides a 50% revenue share of their booking fees for trains, buses, and ferries throughout Thailand.",
+      "status": "Todo",
+      "signup_url": "https://12go.asia/en/affiliate",
+      "date_added": "2026-09-18T03:13:50Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg7iAeM",
+      "name": "Klook Affiliate Program",
+      "topic": null,
+      "commission_note": "Klook offers up to 5% commission on travel activities and transportation bookings in Thailand through the Impact or Partnerize networks.",
+      "status": "Todo",
+      "signup_url": "https://www.klook.com/en-US/tetris/promo/affiliate/",
+      "date_added": "2026-09-18T03:13:47Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg7iAEs",
+      "name": "Scotiabank Affiliate Program (via Impact)",
+      "topic": null,
+      "commission_note": "Scotiabank manages its credit card affiliate programs primarily through the Impact partnership platform, where payouts are typically based on completed application approvals.",
+      "status": "Todo",
+      "signup_url": "https://impact.com/advertiser-profile/scotiabank/",
+      "date_added": "2026-09-18T03:12:18Z"
+    },
     {
       "item_id": "PVTI_lAHODNT1Rs4BfCrRzg6_lzQ",
       "name": "Priority Pass",
