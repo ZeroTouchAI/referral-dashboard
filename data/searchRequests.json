@@ -1,35 +1,45 @@
 {
-  "generated_at": "2026-09-18T02:43:19.327136+00:00",
+  "generated_at": "2026-09-18T20:11:18.070930+00:00",
   "requests": [
     {
       "id": "9f6ab3ba-164c-4e22-96eb-2e7b9bdddcc5",
       "text": "Scotiabank Passport Visa Infinite travel card affiliate program",
-      "status": "pending",
-      "added_date": "2026-09-16"
+      "status": "found",
+      "added_date": "2026-09-16",
+      "resolved_date": "2026-09-18",
+      "programs_found": 2
     },
     {
       "id": "14c70adc-6881-423f-96f6-d0c4e06926e3",
       "text": "moretapay local QR payments",
-      "status": "pending",
-      "added_date": "2026-09-16"
+      "status": "no_match",
+      "added_date": "2026-09-16",
+      "resolved_date": "2026-09-18",
+      "programs_found": 0
     },
     {
       "id": "ff7308c8-0fc8-4b9f-89bc-55dce61ce2fc",
       "text": "Muvmi Tuk Tuk",
-      "status": "pending",
-      "added_date": "2026-09-16"
+      "status": "no_match",
+      "added_date": "2026-09-16",
+      "resolved_date": "2026-09-18",
+      "programs_found": 0
     },
     {
       "id": "a84858cc-d317-4b69-9da5-4e0fa18dd3b9",
       "text": "grab Thailand transportation",
-      "status": "pending",
-      "added_date": "2026-09-16"
+      "status": "found",
+      "added_date": "2026-09-16",
+      "resolved_date": "2026-09-18",
+      "programs_found": 3
     },
     {
       "id": "72692094-12e4-4f44-9a40-ce765c07fd91",
       "text": "bolt Thailand transportation",
-      "status": "pending",
-      "added_date": "2026-09-16"
+      "status": "no_match",
+      "added_date": "2026-09-16",
+      "resolved_date": "2026-09-18",
+      "programs_found": 0
     },
     {
       "id": "8dd75644-079d-45ff-add8-6733674af912",
