@@ -1,4 +1,98 @@
 {
-  "generated_at": "2026-09-16T00:22:33.661265+00:00",
-  "ideas": []
+  "generated_at": "2026-09-18T02:43:19.327136+00:00",
+  "ideas": [
+    {
+      "id": "56eb7829-1d3a-4aee-8597-82e5bfe4ba73",
+      "text": "Scotiabank Passport Visa Infinite travel card review",
+      "target": "either",
+      "status": "used",
+      "added_date": "2026-09-16",
+      "used_date": "2026-09-17",
+      "used_in": "short"
+    },
+    {
+      "id": "cb91fc56-1261-4442-96b6-3d0f5fc94ecb",
+      "text": "moretapay local QR payments",
+      "target": "either",
+      "status": "pending",
+      "added_date": "2026-09-16"
+    },
+    {
+      "id": "bec24351-35c1-4f2b-bdb9-bb5490359737",
+      "text": "Muvmi Tuk Tuk",
+      "target": "either",
+      "status": "pending",
+      "added_date": "2026-09-16"
+    },
+    {
+      "id": "3d5de6fd-a3b6-4550-97ff-3dd06d0ee336",
+      "text": "grab Thailand transportation",
+      "target": "either",
+      "status": "pending",
+      "added_date": "2026-09-16"
+    },
+    {
+      "id": "ca137d0a-7bb3-45c3-9a3e-4790332b4daf",
+      "text": "bolt Thailand transportation",
+      "target": "either",
+      "status": "pending",
+      "added_date": "2026-09-16"
+    },
+    {
+      "id": "7929ab88-62b4-4b84-8a71-1800aa580c88",
+      "text": "cheap flights",
+      "target": "either",
+      "status": "pending",
+      "added_date": "2026-09-16"
+    },
+    {
+      "id": "128a1823-6a9e-4f73-8207-e175ba4b748a",
+      "text": "saily e-sim",
+      "target": "either",
+      "status": "pending",
+      "added_date": "2026-09-16"
+    },
+    {
+      "id": "f5a47067-e630-4de7-95fa-e2d7752deb50",
+      "text": "tripit app",
+      "target": "either",
+      "status": "pending",
+      "added_date": "2026-09-16"
+    },
+    {
+      "id": "bcf60683-0a7e-44ea-ba2e-363ee3d60c28",
+      "text": "Airbnb",
+      "target": "either",
+      "status": "pending",
+      "added_date": "2026-09-16"
+    },
+    {
+      "id": "f8dd2def-5ee0-4acd-9b5a-17ba59d55f79",
+      "text": "Bounce bag storage",
+      "target": "either",
+      "status": "pending",
+      "added_date": "2026-09-16"
+    },
+    {
+      "id": "cad43c51-64ee-4c6e-ba1c-b09e11edb7ba",
+      "text": "park'n fly",
+      "target": "either",
+      "status": "pending",
+      "added_date": "2026-09-16"
+    },
+    {
+      "id": "aa39fdc0-b88c-4eee-aefb-076e82bcc9bc",
+      "text": "visa airport companion",
+      "target": "either",
+      "status": "pending",
+      "added_date": "2026-09-16"
+    },
+    {
+      "id": "479f9c22-3c17-4de8-b2b1-01c37ea8f051",
+      "text": "Aeroplan",
+      "target": "either",
+      "status": "pending",
+      "added_date": "2026-09-16"
+    }
+  ]
 }
