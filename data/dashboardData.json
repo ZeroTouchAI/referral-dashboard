@@ -1,12 +1,75 @@
 {
-  "generated_at": "2026-09-18T20:11:18.070698+00:00",
-  "total": 54,
+  "generated_at": "2026-09-19T22:19:52.022963+00:00",
+  "total": 61,
   "status_counts": {
     "In Progress": 1,
-    "Todo": 52,
+    "Todo": 59,
     "No Good": 1
   },
   "programs": [
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg7xTMQ",
+      "name": "Bounce",
+      "topic": null,
+      "commission_note": "Bounce offers a partner program that provides a commission for every luggage storage booking made through your referral link.",
+      "status": "Todo",
+      "signup_url": "https://usebounce.com/partners",
+      "date_added": "2026-09-19T22:19:49Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg7xTHk",
+      "name": "Airbnb Associates Program",
+      "topic": null,
+      "commission_note": "Airbnb currently operates a highly selective invite-only affiliate program that is not open to general public applications, and they have discontinued their previous open-access referral program.",
+      "status": "Todo",
+      "signup_url": "https://www.airbnb.com/associates",
+      "date_added": "2026-09-19T22:19:26Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg7xTC0",
+      "name": "TripIt Affiliate Program",
+      "topic": null,
+      "commission_note": "TripIt manages its affiliate partnerships through the Impact network, offering commissions on new Pro subscriptions generated through referral links.",
+      "status": "Todo",
+      "signup_url": "https://www.tripit.com/web/content/affiliates",
+      "date_added": "2026-09-19T22:19:03Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg7xS9E",
+      "name": "Saily Affiliate Program",
+      "topic": null,
+      "commission_note": "Saily offers a competitive commission structure for partners who refer new users to their eSIM service via personalized links or promo codes.",
+      "status": "Todo",
+      "signup_url": "https://saily.com/affiliate-program/",
+      "date_added": "2026-09-19T22:18:40Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg7xS5A",
+      "name": "Kiwi.com",
+      "topic": null,
+      "commission_note": "Partners earn an average commission of 3% per completed flight booking generated through their unique affiliate links.",
+      "status": "Todo",
+      "signup_url": "https://affiliate.kiwi.com/",
+      "date_added": "2026-09-19T22:18:16Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg7xS4k",
+      "name": "Skyscanner",
+      "topic": null,
+      "commission_note": "Affiliates earn a commission based on a percentage of the revenue generated from flight clicks and conversions.",
+      "status": "Todo",
+      "signup_url": "https://www.skyscannerpartners.com/affiliates",
+      "date_added": "2026-09-19T22:18:14Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg7xS4E",
+      "name": "WayAway",
+      "topic": null,
+      "commission_note": "Affiliates earn up to 40% of the WayAway service fee on every flight booking made through their link.",
+      "status": "Todo",
+      "signup_url": "https://wayaway.io/affiliate-program",
+      "date_added": "2026-09-19T22:18:12Z"
+    },
     {
       "item_id": "PVTI_lAHODNT1Rs4BfCrRzg7qV4I",
       "name": "Great Canadian Rebates",
