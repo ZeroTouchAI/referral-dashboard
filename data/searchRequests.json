@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T20:11:18.070930+00:00",
+  "generated_at": "2026-09-19T22:19:52.023177+00:00",
   "requests": [
     {
       "id": "9f6ab3ba-164c-4e22-96eb-2e7b9bdddcc5",
@@ -44,32 +44,42 @@
     {
       "id": "8dd75644-079d-45ff-add8-6733674af912",
       "text": "cheap flights",
-      "status": "pending",
-      "added_date": "2026-09-16"
+      "status": "found",
+      "added_date": "2026-09-16",
+      "resolved_date": "2026-09-19",
+      "programs_found": 3
     },
     {
       "id": "9e2cfb50-37de-4589-9919-cea76c678950",
       "text": "saily e-sim",
-      "status": "pending",
-      "added_date": "2026-09-16"
+      "status": "found",
+      "added_date": "2026-09-16",
+      "resolved_date": "2026-09-19",
+      "programs_found": 1
     },
     {
       "id": "3d3e885e-0625-4035-b5ab-2d2bfa319a09",
       "text": "tripit app",
-      "status": "pending",
-      "added_date": "2026-09-16"
+      "status": "found",
+      "added_date": "2026-09-16",
+      "resolved_date": "2026-09-19",
+      "programs_found": 1
     },
     {
       "id": "b25bb652-fcc2-4793-8a1b-dbfc452e22d8",
       "text": "Airbnb",
-      "status": "pending",
-      "added_date": "2026-09-16"
+      "status": "found",
+      "added_date": "2026-09-16",
+      "resolved_date": "2026-09-19",
+      "programs_found": 1
     },
     {
       "id": "5d54bd45-9130-4380-9a7e-c5a2eaec22e3",
       "text": "Bounce bag storage",
-      "status": "pending",
-      "added_date": "2026-09-16"
+      "status": "found",
+      "added_date": "2026-09-16",
+      "resolved_date": "2026-09-19",
+      "programs_found": 1
     },
     {
       "id": "00da58fb-796f-432d-9003-00492857d453",
