@@ -1,12 +1,75 @@
 {
-  "generated_at": "2026-09-19T22:19:52.022963+00:00",
-  "total": 61,
+  "generated_at": "2026-09-20T17:29:46.437786+00:00",
+  "total": 68,
   "status_counts": {
     "In Progress": 1,
-    "Todo": 59,
+    "Todo": 66,
     "No Good": 1
   },
   "programs": [
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg71nuM",
+      "name": "Bounce",
+      "topic": null,
+      "commission_note": "Bounce offers a commission for every booked storage reservation made through your unique referral link.",
+      "status": "Todo",
+      "signup_url": "https://usebounce.com/partners/affiliates",
+      "date_added": "2026-09-20T17:29:43Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg71nnw",
+      "name": "Airbnb Associates Program",
+      "topic": null,
+      "commission_note": "Airbnb currently operates a highly selective and invite-only associates program that is not open to general public signups for most content creators.",
+      "status": "Todo",
+      "signup_url": "https://www.airbnb.com/associates",
+      "date_added": "2026-09-20T17:29:19Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg71new",
+      "name": "TripIt Affiliate Program (via Impact)",
+      "topic": null,
+      "commission_note": "TripIt operates its affiliate program through the Impact platform where commission rates are disclosed upon application approval.",
+      "status": "Todo",
+      "signup_url": "https://publisher.impact.com/brand-campaign-visibility-ui/14870/advertiser/14986/overview",
+      "date_added": "2026-09-20T17:28:48Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg71nY0",
+      "name": "Saily Affiliate Program",
+      "topic": null,
+      "commission_note": "Affiliates earn commissions for every successful purchase made through their unique referral link.",
+      "status": "Todo",
+      "signup_url": "https://saily.com/affiliate-program/",
+      "date_added": "2026-09-20T17:28:23Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg71nJs",
+      "name": "Kiwi.com",
+      "topic": null,
+      "commission_note": "Affiliates receive a commission for every confirmed booking, with payouts typically processed once the flight has been completed.",
+      "status": "Todo",
+      "signup_url": "https://www.kiwi.com/en/affiliate/",
+      "date_added": "2026-09-20T17:27:58Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg71nIw",
+      "name": "Skyscanner",
+      "topic": null,
+      "commission_note": "Partners earn commission based on a revenue-share model on the flight bookings generated through their affiliate links.",
+      "status": "Todo",
+      "signup_url": "https://www.skyscanner.net/affiliates",
+      "date_added": "2026-09-20T17:27:55Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg71nIE",
+      "name": "WayAway",
+      "topic": null,
+      "commission_note": "Affiliates earn up to 50% of the travel aggregator's revenue for every flight booking made through their link.",
+      "status": "Todo",
+      "signup_url": "https://wayaway.io/affiliate-program",
+      "date_added": "2026-09-20T17:27:53Z"
+    },
     {
       "item_id": "PVTI_lAHODNT1Rs4BfCrRzg7xTMQ",
       "name": "Bounce",
