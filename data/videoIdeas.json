@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T22:19:52.023303+00:00",
+  "generated_at": "2026-09-20T17:29:46.438011+00:00",
   "ideas": [
     {
       "id": "56eb7829-1d3a-4aee-8597-82e5bfe4ba73",
@@ -23,8 +23,10 @@
       "id": "bec24351-35c1-4f2b-bdb9-bb5490359737",
       "text": "Muvmi Tuk Tuk",
       "target": "either",
-      "status": "pending",
-      "added_date": "2026-09-16"
+      "status": "used",
+      "added_date": "2026-09-16",
+      "used_date": "2026-09-20",
+      "used_in": "longform"
     },
     {
       "id": "3d5de6fd-a3b6-4550-97ff-3dd06d0ee336",
