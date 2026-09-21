@@ -1,18 +1,100 @@
 {
-  "generated_at": "2026-09-20T17:29:46.437786+00:00",
-  "total": 68,
+  "generated_at": "2026-09-21T19:01:37.562849+00:00",
+  "total": 77,
   "status_counts": {
     "In Progress": 1,
-    "Todo": 66,
-    "No Good": 1
+    "Todo": 74,
+    "No Good": 1,
+    "Done": 1
   },
   "programs": [
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg8AlMA",
+      "name": "Klook",
+      "topic": "Muvmi Tuk Tuk Strategy for Bangkok",
+      "commission_note": "Klook offers localized transport and activity bookings in Bangkok and is the primary platform for booking various local transit experiences.",
+      "status": "Todo",
+      "signup_url": "https://www.klook.com/en-US/tetris/promo/affiliate/",
+      "date_added": "2026-09-21T19:01:32Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg8Ak8s",
+      "name": "Radical Storage",
+      "topic": null,
+      "commission_note": "They provide a dedicated affiliate dashboard to track referrals and offer competitive commission rates on completed luggage storage bookings.",
+      "status": "Todo",
+      "signup_url": "https://radicalstorage.com/affiliate-program",
+      "date_added": "2026-09-21T19:01:12Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg8Ak7g",
+      "name": "Bounce",
+      "topic": null,
+      "commission_note": "Bounce offers a commission for every booked bag storage reservation made through your unique affiliate link.",
+      "status": "Todo",
+      "signup_url": "https://usebounce.com/partners/affiliates",
+      "date_added": "2026-09-21T19:01:10Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg8AksE",
+      "name": "Airbnb Associates Program",
+      "topic": null,
+      "commission_note": "Airbnb operates a curated Associates program that pays a commission for qualified guest bookings and experience bookings made through your unique links.",
+      "status": "Todo",
+      "signup_url": "https://www.airbnb.com/associates",
+      "date_added": "2026-09-21T19:00:44Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg8AkZw",
+      "name": "TripIt (via Concur/SAP)",
+      "topic": null,
+      "commission_note": "TripIt operates under the SAP Concur partner ecosystem, which offers referral and partnership opportunities for travel-related platforms.",
+      "status": "Todo",
+      "signup_url": "https://www.concur.com/en-us/partners",
+      "date_added": "2026-09-21T19:00:13Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg8AkPM",
+      "name": "Saily Affiliate Program (via Impact)",
+      "topic": null,
+      "commission_note": "Affiliates earn a commission on every eSIM purchase made through their unique tracking link, with specific rates confirmed upon application approval within the Impact network.",
+      "status": "Todo",
+      "signup_url": "https://app.impact.com/campaign-campaign-info-display.valuation?execution=e1s1&cid=36787",
+      "date_added": "2026-09-21T18:59:49Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg8Aj9o",
+      "name": "Skyscanner",
+      "topic": null,
+      "commission_note": "Partners earn a share of the revenue generated when users click through to flight providers, managed via the Impact platform.",
+      "status": "Todo",
+      "signup_url": "https://www.skyscanner.net/partners/affiliates",
+      "date_added": "2026-09-21T18:59:21Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg8Aj8E",
+      "name": "CheapOair",
+      "topic": null,
+      "commission_note": "Affiliates earn competitive commissions on flight bookings, hotel stays, and vacation packages through the CJ Affiliate network.",
+      "status": "Todo",
+      "signup_url": "https://www.cheapoair.com/affiliate",
+      "date_added": "2026-09-21T18:59:19Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg8Aj5U",
+      "name": "WayAway",
+      "topic": null,
+      "commission_note": "Earn up to 50% of the WayAway service fee on every flight booked through your affiliate link.",
+      "status": "Todo",
+      "signup_url": "https://wayaway.io/affiliate-program",
+      "date_added": "2026-09-21T18:59:16Z"
+    },
     {
       "item_id": "PVTI_lAHODNT1Rs4BfCrRzg71nuM",
       "name": "Bounce",
       "topic": null,
       "commission_note": "Bounce offers a commission for every booked storage reservation made through your unique referral link.",
-      "status": "Todo",
+      "status": "Done",
       "signup_url": "https://usebounce.com/partners/affiliates",
       "date_added": "2026-09-20T17:29:43Z"
     },
