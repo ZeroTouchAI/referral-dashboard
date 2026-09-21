@@ -155,7 +155,7 @@
     <div class="tabs" id="tabs"></div>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>#</th><th>Program</th><th>Topic</th><th>Commission Note</th><th>Date Added</th><th>Status</th><th></th></tr></thead>
+        <thead><tr><th>#</th><th>Program</th><th>Topic</th><th>Commission Note</th><th>Date Added</th><th>Actions</th></tr></thead>
         <tbody id="table-body"></tbody>
       </table>
       <div class="empty-state" id="empty-state" style="display:none;">No programs match this filter.</div>
@@ -179,9 +179,7 @@ const STATUS_META = {
   "Todo":        { label: "New",      cls: "new",      color: "#e8a83c" },
   "In Progress": { label: "Applied",  cls: "applied",  color: "#2574f5" },
   "Done":        { label: "Approved", cls: "approved", color: "#6fa83d" },
-  "No Good":     { label: "No Good",  cls: "no-good",  color: "#e15e4d" },
 };
-const STATUS_ORDER = ["Todo", "In Progress", "Done", "No Good"];
 
 const PRIVATE_REPO_OWNER = "ZeroTouchAI";
 const PRIVATE_REPO_NAME = "YouTube-Video-Creator";
@@ -247,7 +245,6 @@ function renderStats(data) {
     { num: counts["Todo"] || 0, label: "New", cls: "yellow" },
     { num: counts["In Progress"] || 0, label: "Applied", cls: "accent" },
     { num: counts["Done"] || 0, label: "Approved", cls: "green" },
-    { num: counts["No Good"] || 0, label: "No Good", cls: "red" },
   ];
   document.getElementById("stat-grid").innerHTML = cards.map(c => `<div class="stat-card ${c.cls}"><div class="num">${c.num}</div><div class="label">${c.label}</div></div>`).join("");
 }
@@ -257,18 +254,16 @@ function renderTabs(data) {
     { key: "Todo", label: `New (${counts["Todo"] || 0})` },
     { key: "In Progress", label: `Applied (${counts["In Progress"] || 0})` },
     { key: "Done", label: `Approved (${counts["Done"] || 0})` },
-    { key: "No Good", label: `No Good (${counts["No Good"] || 0})` },
-    { key: "All", label: `All (${data.total || 0})` },
   ];
   document.getElementById("tabs").innerHTML = tabs.map(t => `<div class="tab ${t.key === activeFilter ? 'active' : ''}" data-filter="${t.key}">${t.label}</div>`).join("");
   document.querySelectorAll(".tab").forEach(el => el.addEventListener("click", () => { activeFilter = el.dataset.filter; renderTabs(candidatesData); renderTable(); }));
 }
-async function changeStatus(itemId, newStatusKey, selectEl) {
+async function setStatus(itemId, newStatusKey, btnEl) {
   if (!hasToken()) { showToast("Connect first to edit status", "error"); return; }
   const optionId = candidatesData.meta.status_options[newStatusKey];
   if (!optionId) { showToast("Couldn't find that status option — try reconnecting", "error"); return; }
   const mutation = `mutation { updateProjectV2ItemFieldValue(input: { projectId: "${candidatesData.meta.project_id}", itemId: "${itemId}", fieldId: "${candidatesData.meta.field_id}", value: { singleSelectOptionId: "${optionId}" } }) { projectV2Item { id } } }`;
-  selectEl.disabled = true;
+  if (btnEl) btnEl.disabled = true;
   try {
     const resp = await fetch("https://api.github.com/graphql", { method: "POST", headers: { "Authorization": `Bearer ${getToken()}`, "Content-Type": "application/json" }, body: JSON.stringify({ query: mutation }) });
     const json = await resp.json();
@@ -286,28 +281,57 @@ async function changeStatus(itemId, newStatusKey, selectEl) {
       renderApplied();
     }
   } catch (err) { showToast("Failed to update status: " + err.message, "error"); console.error(err); }
-  finally { selectEl.disabled = false; }
+  finally { if (btnEl) btnEl.disabled = false; }
+}
+async function openAndApply(itemId, url, currentStatus, btnEl) {
+  if (url) window.open(url, "_blank", "noopener");
+  if (currentStatus === "Todo") await setStatus(itemId, "In Progress", btnEl);
+}
+async function toggleAppliedApproved(itemId, currentStatus, btnEl) {
+  await setStatus(itemId, currentStatus === "Done" ? "In Progress" : "Done", btnEl);
+}
+async function deleteCandidate(itemId, name, btnEl) {
+  if (!hasToken()) { showToast("Connect first to delete", "error"); return; }
+  if (!confirm(`Delete "${name}" from the list? This can't be undone.`)) return;
+  const mutation = `mutation { deleteProjectV2Item(input: { projectId: "${candidatesData.meta.project_id}", itemId: "${itemId}" }) { deletedItemId } }`;
+  if (btnEl) btnEl.disabled = true;
+  try {
+    const resp = await fetch("https://api.github.com/graphql", { method: "POST", headers: { "Authorization": `Bearer ${getToken()}`, "Content-Type": "application/json" }, body: JSON.stringify({ query: mutation }) });
+    const json = await resp.json();
+    if (json.errors) throw new Error(json.errors[0].message);
+    allPrograms = allPrograms.filter(p => p.item_id !== itemId);
+    candidatesData.total = allPrograms.length;
+    candidatesData.status_counts = {};
+    allPrograms.forEach(p => { candidatesData.status_counts[p.status] = (candidatesData.status_counts[p.status] || 0) + 1; });
+    renderStats(candidatesData); renderTabs(candidatesData); renderTable();
+    showToast("Deleted", "ok");
+  } catch (err) { showToast("Failed to delete: " + err.message, "error"); console.error(err); if (btnEl) btnEl.disabled = false; }
 }
 function renderTable() {
-  const rows = activeFilter === "All" ? allPrograms : allPrograms.filter(p => p.status === activeFilter);
+  const rows = allPrograms.filter(p => p.status === activeFilter);
   const tbody = document.getElementById("table-body");
   const emptyState = document.getElementById("empty-state");
   if (!rows.length) { tbody.innerHTML = ""; emptyState.style.display = "block"; return; }
   emptyState.style.display = "none";
   tbody.innerHTML = rows.map((p, i) => {
-    const meta = STATUS_META[p.status] || { label: p.status, cls: "new" };
-    const optionsHtml = STATUS_ORDER.map(s => `<option value="${s}" ${s === p.status ? "selected" : ""}>${STATUS_META[s].label}</option>`).join("");
+    const toggleLabel = p.status === "Done" ? "Mark Applied" : "Mark Approved";
+    const toggleVisible = p.status === "In Progress" || p.status === "Done";
     return `<tr>
       <td class="row-num">${i + 1}</td>
       <td class="program-name">${escapeHtml(p.name)}</td>
       <td class="topic-tag">${escapeHtml(p.topic || "General")}</td>
       <td class="commission-note">${escapeHtml(p.commission_note)}</td>
       <td class="date-added">${formatDate(p.date_added)}</td>
-      <td><select class="status-select ${meta.cls}" data-item-id="${p.item_id}" ${hasToken() ? "" : "disabled"}>${optionsHtml}</select></td>
-      <td>${p.signup_url ? `<a class="open-btn" href="${escapeHtml(p.signup_url)}" target="_blank" rel="noopener">Open ↗</a>` : ""}</td>
+      <td>
+        ${p.signup_url ? `<button class="btn-small open-action-btn" data-item-id="${p.item_id}" data-url="${escapeHtml(p.signup_url)}" data-status="${p.status}">Open ↗</button>` : ""}
+        ${toggleVisible ? `<button class="btn-small toggle-btn" data-item-id="${p.item_id}" data-status="${p.status}" ${hasToken() ? "" : "disabled"}>${toggleLabel}</button>` : ""}
+        <button class="remove-btn" data-item-id="${p.item_id}" data-name="${escapeHtml(p.name)}" ${hasToken() ? "" : "disabled"}>Delete</button>
+      </td>
     </tr>`;
   }).join("");
-  tbody.querySelectorAll("select.status-select").forEach(sel => sel.addEventListener("change", () => changeStatus(sel.dataset.itemId, sel.value, sel)));
+  tbody.querySelectorAll(".open-action-btn").forEach(btn => btn.addEventListener("click", () => openAndApply(btn.dataset.itemId, btn.dataset.url, btn.dataset.status, btn)));
+  tbody.querySelectorAll(".toggle-btn").forEach(btn => btn.addEventListener("click", () => toggleAppliedApproved(btn.dataset.itemId, btn.dataset.status, btn)));
+  tbody.querySelectorAll(".remove-btn").forEach(btn => btn.addEventListener("click", () => deleteCandidate(btn.dataset.itemId, btn.dataset.name, btn)));
 }
 
 // ---------- Generic private-repo file read/write helper ----------
