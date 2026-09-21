@@ -231,12 +231,12 @@ document.getElementById("clear-token").addEventListener("click", () => {
 
 // ---------- Page switching ----------
 const PAGES = ["candidates", "applied", "requests", "ideas"];
+function switchPage(pageKey) {
+  document.querySelectorAll(".page-tab").forEach(b => b.classList.toggle("active", b.dataset.page === pageKey));
+  PAGES.forEach(p => document.getElementById("page-" + p).style.display = (p === pageKey ? "" : "none"));
+}
 document.querySelectorAll(".page-tab").forEach(btn => {
-  btn.addEventListener("click", () => {
-    document.querySelectorAll(".page-tab").forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
-    PAGES.forEach(p => document.getElementById("page-" + p).style.display = (p === btn.dataset.page ? "" : "none"));
-  });
+  btn.addEventListener("click", () => switchPage(btn.dataset.page));
 });
 
 // ---------- Candidates page ----------
@@ -279,6 +279,12 @@ async function changeStatus(itemId, newStatusKey, selectEl) {
     allPrograms.forEach(p => { candidatesData.status_counts[p.status] = (candidatesData.status_counts[p.status] || 0) + 1; });
     renderStats(candidatesData); renderTabs(candidatesData); renderTable();
     showToast("Status updated", "ok");
+
+    if (newStatusKey === "Done" && program) {
+      pendingApprovalPrefill = { label: program.name, topic: program.topic };
+      switchPage("applied");
+      renderApplied();
+    }
   } catch (err) { showToast("Failed to update status: " + err.message, "error"); console.error(err); }
   finally { selectEl.disabled = false; }
 }
@@ -351,14 +357,20 @@ async function addLink(topic, label, url) {
     showToast("Added", "ok");
   } catch (err) { showToast("Failed to add: " + err.message, "error"); console.error(err); }
 }
+let pendingApprovalPrefill = null;  // {label, topic} set by changeStatus() when a candidate is Approved
+
 function renderApplied() {
   const container = document.getElementById("page-applied");
+  const prefill = pendingApprovalPrefill;
+  pendingApprovalPrefill = null;  // one-time use
+
   const addFormHtml = `<div class="applied-section"><h3>Add a referral link</h3><div class="add-form">
-    <input id="add-topic" placeholder="Topic (e.g. eSIM)" ${hasToken() ? "" : "disabled"} />
-    <input id="add-label" placeholder="Label (e.g. Airalo)" ${hasToken() ? "" : "disabled"} />
+    <input id="add-label" placeholder="Label (e.g. Airalo)" value="${prefill ? escapeHtml(prefill.label) : ""}" ${hasToken() ? "" : "disabled"} />
     <input id="add-url" placeholder="https://..." ${hasToken() ? "" : "disabled"} />
+    <input id="add-topic" placeholder="Topic (e.g. eSIM)" value="${prefill ? escapeHtml(prefill.topic || "") : ""}" ${hasToken() ? "" : "disabled"} />
     <button class="btn-small btn-primary" id="add-link-btn" ${hasToken() ? "" : "disabled"}>Add</button>
-  </div></div>`;
+  </div>${prefill ? '<p class="form-hint">Pre-filled from the candidate you just approved — paste your referral URL once you\'ve got it, adjust the topic if you want, then Add.</p>' : ""}</div>`;
+
   if (!appliedData || !(appliedData.sections || []).length) {
     container.innerHTML = `<div class="empty-state">Nothing applied yet — approve a candidate on the other page, or add one manually below.</div>${addFormHtml}`;
   } else {
@@ -376,6 +388,7 @@ function renderApplied() {
   }
   const btn = document.getElementById("add-link-btn");
   if (btn) btn.addEventListener("click", () => addLink(document.getElementById("add-topic").value.trim(), document.getElementById("add-label").value.trim(), document.getElementById("add-url").value.trim()));
+  if (prefill) document.getElementById("add-url").focus();
 }
 async function loadApplied() {
   try { appliedData = await (await fetch("data/appliedReferrals.json?_=" + Date.now())).json(); }
