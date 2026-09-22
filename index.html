@@ -83,6 +83,9 @@
   .approve-btn { display: inline-flex; align-items: center; gap: 6px; background: var(--green); color: #fff; padding: 7px 14px; border-radius: 8px; font-size: 12.5px; font-weight: 700; border: none; cursor: pointer; white-space: nowrap; margin: 2px; }
   .approve-btn:hover { opacity: .85; }
   .approve-btn:disabled { opacity: .5; cursor: not-allowed; }
+  .apply-btn { display: inline-flex; align-items: center; gap: 6px; background: var(--yellow); color: #fff; padding: 7px 14px; border-radius: 8px; font-size: 12.5px; font-weight: 700; border: none; cursor: pointer; white-space: nowrap; margin: 2px; }
+  .apply-btn:hover { opacity: .85; }
+  .apply-btn:disabled { opacity: .5; cursor: not-allowed; }
   .remove-btn { background: #fff; border: 1.5px solid var(--red); color: var(--red); padding: 6px 12px; border-radius: 8px; font-size: 12px; cursor: pointer; font-weight: 600; margin: 2px; }
   .remove-btn:hover { background: var(--red-bg); }
   .remove-btn:disabled { opacity: .5; cursor: not-allowed; }
@@ -287,9 +290,11 @@ async function setStatus(itemId, newStatusKey, btnEl) {
   } catch (err) { showToast("Failed to update status: " + err.message, "error"); console.error(err); }
   finally { if (btnEl) btnEl.disabled = false; }
 }
-async function openAndApply(itemId, url, currentStatus, btnEl) {
+function openCandidate(url) {
   if (url) window.open(url, "_blank", "noopener");
-  if (currentStatus === "Todo") await setStatus(itemId, "In Progress", btnEl);
+}
+async function applyToCandidate(itemId, btnEl) {
+  await setStatus(itemId, "In Progress", btnEl);
 }
 async function deleteCandidate(itemId, name, btnEl) {
   if (!hasToken()) { showToast("Connect first to delete", "error"); return; }
@@ -315,7 +320,7 @@ function renderTable() {
   if (!rows.length) { tbody.innerHTML = ""; emptyState.style.display = "block"; return; }
   emptyState.style.display = "none";
   tbody.innerHTML = rows.map((p, i) => {
-    const showApproveBtn = p.status === "In Progress";  // Applied -> can approve. New has no toggle; Approved has no toggle back.
+    const deleteLabel = p.status === "In Progress" ? "Denied" : "Delete";
     return `<tr>
       <td class="row-num">${i + 1}</td>
       <td class="program-name">${escapeHtml(p.name)}</td>
@@ -323,13 +328,15 @@ function renderTable() {
       <td class="commission-note">${escapeHtml(p.commission_note)}</td>
       <td class="date-added">${formatDate(p.date_added)}</td>
       <td>
-        ${p.signup_url ? `<button class="btn-small open-action-btn" data-item-id="${p.item_id}" data-url="${escapeHtml(p.signup_url)}" data-status="${p.status}">Open ↗</button>` : ""}
-        ${showApproveBtn ? `<button class="approve-btn" data-item-id="${p.item_id}" ${hasToken() ? "" : "disabled"}>Mark Approved</button>` : ""}
-        <button class="remove-btn" data-item-id="${p.item_id}" data-name="${escapeHtml(p.name)}" ${hasToken() ? "" : "disabled"}>Delete</button>
+        ${p.signup_url ? `<button class="btn-small open-action-btn" data-url="${escapeHtml(p.signup_url)}">Open ↗</button>` : ""}
+        ${p.status === "Todo" ? `<button class="apply-btn" data-item-id="${p.item_id}" ${hasToken() ? "" : "disabled"}>Apply</button>` : ""}
+        ${p.status === "In Progress" ? `<button class="approve-btn" data-item-id="${p.item_id}" ${hasToken() ? "" : "disabled"}>Mark Approved</button>` : ""}
+        <button class="remove-btn" data-item-id="${p.item_id}" data-name="${escapeHtml(p.name)}" ${hasToken() ? "" : "disabled"}>${deleteLabel}</button>
       </td>
     </tr>`;
   }).join("");
-  tbody.querySelectorAll(".open-action-btn").forEach(btn => btn.addEventListener("click", () => openAndApply(btn.dataset.itemId, btn.dataset.url, btn.dataset.status, btn)));
+  tbody.querySelectorAll(".open-action-btn").forEach(btn => btn.addEventListener("click", () => openCandidate(btn.dataset.url)));
+  tbody.querySelectorAll(".apply-btn").forEach(btn => btn.addEventListener("click", () => applyToCandidate(btn.dataset.itemId, btn)));
   tbody.querySelectorAll(".approve-btn").forEach(btn => btn.addEventListener("click", () => setStatus(btn.dataset.itemId, "Done", btn)));
   tbody.querySelectorAll(".remove-btn").forEach(btn => btn.addEventListener("click", () => deleteCandidate(btn.dataset.itemId, btn.dataset.name, btn)));
 }
