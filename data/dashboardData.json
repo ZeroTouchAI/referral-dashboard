@@ -1,11 +1,10 @@
 {
-  "generated_at": "2026-09-21T19:01:37.562849+00:00",
-  "total": 77,
+  "generated_at": "2026-09-22T02:29:37.611796+00:00",
+  "total": 74,
   "status_counts": {
-    "In Progress": 1,
-    "Todo": 74,
-    "No Good": 1,
-    "Done": 1
+    "In Progress": 3,
+    "Todo": 69,
+    "Done": 2
   },
   "programs": [
     {
@@ -13,7 +12,7 @@
       "name": "Klook",
       "topic": "Muvmi Tuk Tuk Strategy for Bangkok",
       "commission_note": "Klook offers localized transport and activity bookings in Bangkok and is the primary platform for booking various local transit experiences.",
-      "status": "Todo",
+      "status": "In Progress",
       "signup_url": "https://www.klook.com/en-US/tetris/promo/affiliate/",
       "date_added": "2026-09-21T19:01:32Z"
     },
@@ -22,7 +21,7 @@
       "name": "Radical Storage",
       "topic": null,
       "commission_note": "They provide a dedicated affiliate dashboard to track referrals and offer competitive commission rates on completed luggage storage bookings.",
-      "status": "Todo",
+      "status": "In Progress",
       "signup_url": "https://radicalstorage.com/affiliate-program",
       "date_added": "2026-09-21T19:01:12Z"
     },
@@ -31,27 +30,9 @@
       "name": "Bounce",
       "topic": null,
       "commission_note": "Bounce offers a commission for every booked bag storage reservation made through your unique affiliate link.",
-      "status": "Todo",
+      "status": "Done",
       "signup_url": "https://usebounce.com/partners/affiliates",
       "date_added": "2026-09-21T19:01:10Z"
-    },
-    {
-      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg8AksE",
-      "name": "Airbnb Associates Program",
-      "topic": null,
-      "commission_note": "Airbnb operates a curated Associates program that pays a commission for qualified guest bookings and experience bookings made through your unique links.",
-      "status": "Todo",
-      "signup_url": "https://www.airbnb.com/associates",
-      "date_added": "2026-09-21T19:00:44Z"
-    },
-    {
-      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg8AkZw",
-      "name": "TripIt (via Concur/SAP)",
-      "topic": null,
-      "commission_note": "TripIt operates under the SAP Concur partner ecosystem, which offers referral and partnership opportunities for travel-related platforms.",
-      "status": "Todo",
-      "signup_url": "https://www.concur.com/en-us/partners",
-      "date_added": "2026-09-21T19:00:13Z"
     },
     {
       "item_id": "PVTI_lAHODNT1Rs4BfCrRzg8AkPM",
@@ -592,15 +573,6 @@
       "status": "Todo",
       "signup_url": "https://awardwallet.com/affiliate",
       "date_added": "2026-09-15T06:35:01Z"
-    },
-    {
-      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg1-Wno",
-      "name": "WayAway",
-      "topic": "Hidden Flight Prices",
-      "commission_note": "Aggregator that highlights hidden flight pricing; offers a generous cashback program for users.",
-      "status": "No Good",
-      "signup_url": "https://wayaway.io/for-partners",
-      "date_added": "2026-08-10T14:51:25Z"
     },
     {
       "item_id": "PVTI_lAHODNT1Rs4BfCrRzg1-Wik",
