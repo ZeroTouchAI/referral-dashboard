@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-21T19:01:37.563051+00:00",
+  "generated_at": "2026-09-22T22:55:16.711757+00:00",
   "requests": [
     {
       "id": "9f6ab3ba-164c-4e22-96eb-2e7b9bdddcc5",
@@ -12,14 +12,6 @@
     {
       "id": "14c70adc-6881-423f-96f6-d0c4e06926e3",
       "text": "moretapay local QR payments",
-      "status": "no_match",
-      "added_date": "2026-09-16",
-      "resolved_date": "2026-09-18",
-      "programs_found": 0
-    },
-    {
-      "id": "ff7308c8-0fc8-4b9f-89bc-55dce61ce2fc",
-      "text": "Muvmi Tuk Tuk",
       "status": "no_match",
       "added_date": "2026-09-16",
       "resolved_date": "2026-09-18",
@@ -84,20 +76,54 @@
     {
       "id": "00da58fb-796f-432d-9003-00492857d453",
       "text": "park'n fly",
-      "status": "pending",
-      "added_date": "2026-09-16"
+      "status": "found",
+      "added_date": "2026-09-16",
+      "resolved_date": "2026-09-22",
+      "programs_found": 2
     },
     {
       "id": "897504d2-3013-4c1d-a829-931dfb3cc5a0",
       "text": "visa airport companion",
-      "status": "pending",
-      "added_date": "2026-09-16"
+      "status": "found",
+      "added_date": "2026-09-16",
+      "resolved_date": "2026-09-22",
+      "programs_found": 2
     },
     {
       "id": "f5b1a11b-8eb6-4cf5-abdd-fa6fa35f4e41",
       "text": "Aeroplan",
+      "status": "found",
+      "added_date": "2026-09-16",
+      "resolved_date": "2026-09-22",
+      "programs_found": 1
+    },
+    {
+      "id": "b3773497-3127-4f24-95b7-58128268b396",
+      "text": "TripIt",
+      "status": "found",
+      "added_date": "2026-09-21",
+      "resolved_date": "2026-09-22",
+      "programs_found": 1
+    },
+    {
+      "id": "63dbd87e-957e-4faf-831c-c5ab9b565a23",
+      "text": "Airbnb",
+      "status": "found",
+      "added_date": "2026-09-22",
+      "resolved_date": "2026-09-22",
+      "programs_found": 1
+    },
+    {
+      "id": "867254a4-571e-4377-8683-a6292bfa6a7f",
+      "text": "CheapOair",
       "status": "pending",
-      "added_date": "2026-09-16"
+      "added_date": "2026-09-22"
+    },
+    {
+      "id": "ecc66608-2c97-4d1f-93e5-9dff7b50ace5",
+      "text": "Muvmi",
+      "status": "pending",
+      "added_date": "2026-09-22"
     }
   ]
 }
