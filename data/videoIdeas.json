@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-21T19:01:37.563138+00:00",
+  "generated_at": "2026-09-22T22:55:16.711831+00:00",
   "ideas": [
     {
       "id": "56eb7829-1d3a-4aee-8597-82e5bfe4ba73",
@@ -32,8 +32,10 @@
       "id": "3d5de6fd-a3b6-4550-97ff-3dd06d0ee336",
       "text": "grab Thailand transportation",
       "target": "either",
-      "status": "pending",
-      "added_date": "2026-09-16"
+      "status": "used",
+      "added_date": "2026-09-16",
+      "used_date": "2026-09-22",
+      "used_in": "short"
     },
     {
       "id": "ca137d0a-7bb3-45c3-9a3e-4790332b4daf",
