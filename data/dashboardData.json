@@ -1,20 +1,74 @@
 {
-  "generated_at": "2026-09-22T02:29:37.611796+00:00",
-  "total": 74,
+  "generated_at": "2026-09-22T22:55:16.711542+00:00",
+  "total": 78,
   "status_counts": {
-    "In Progress": 3,
-    "Todo": 69,
-    "Done": 2
+    "In Progress": 4,
+    "Todo": 73,
+    "Done": 1
   },
   "programs": [
     {
-      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg8AlMA",
-      "name": "Klook",
-      "topic": "Muvmi Tuk Tuk Strategy for Bangkok",
-      "commission_note": "Klook offers localized transport and activity bookings in Bangkok and is the primary platform for booking various local transit experiences.",
-      "status": "In Progress",
-      "signup_url": "https://www.klook.com/en-US/tetris/promo/affiliate/",
-      "date_added": "2026-09-21T19:01:32Z"
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg8OPSQ",
+      "name": "Airbnb Associates Program",
+      "topic": null,
+      "commission_note": "Airbnb operates a selective Associates program where affiliates earn a commission on qualifying stays and experiences booked through their unique links.",
+      "status": "Todo",
+      "signup_url": "https://www.airbnb.com/associates",
+      "date_added": "2026-09-22T22:55:12Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg8OPFc",
+      "name": "TripIt",
+      "topic": null,
+      "commission_note": "TripIt is owned by SAP Concur, and their partner program operates through the SAP Concur partner ecosystem which supports referral and integration opportunities.",
+      "status": "Todo",
+      "signup_url": "https://www.concur.com/partner-program",
+      "date_added": "2026-09-22T22:54:40Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg8OO64",
+      "name": "Air Canada (via Rakuten Advertising)",
+      "topic": null,
+      "commission_note": "Air Canada manages its affiliate program through the Rakuten Advertising network, offering commissions on flight bookings and vacation packages.",
+      "status": "Todo",
+      "signup_url": "https://signup.linkshare.com/publishers/registration/landing?mid=41334",
+      "date_added": "2026-09-22T22:54:12Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg8OOx4",
+      "name": "LoungeBuddy",
+      "topic": null,
+      "commission_note": "Partners earn commissions on airport lounge bookings generated through their affiliate links.",
+      "status": "Todo",
+      "signup_url": "https://www.loungebuddy.com/affiliate-program",
+      "date_added": "2026-09-22T22:53:45Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg8OOwo",
+      "name": "Priority Pass",
+      "topic": null,
+      "commission_note": "Affiliates earn a commission for every referred member who signs up for a Priority Pass membership plan.",
+      "status": "Todo",
+      "signup_url": "https://www.prioritypass.com/en/partners/affiliates",
+      "date_added": "2026-09-22T22:53:41Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg8OObA",
+      "name": "Parkos",
+      "topic": null,
+      "commission_note": "Parkos offers a competitive commission structure for travel-related websites and influencers based on completed parking reservations.",
+      "status": "Todo",
+      "signup_url": "https://www.parkos.com/affiliate/",
+      "date_added": "2026-09-22T22:52:32Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg8OOZk",
+      "name": "Park'N Fly Canada",
+      "topic": null,
+      "commission_note": "Partners earn a commission on booked parking reservations made through their unique affiliate links.",
+      "status": "Todo",
+      "signup_url": "https://www.parknfly.ca/affiliate-program/",
+      "date_added": "2026-09-22T22:52:28Z"
     },
     {
       "item_id": "PVTI_lAHODNT1Rs4BfCrRzg8Ak8s",
@@ -39,25 +93,16 @@
       "name": "Saily Affiliate Program (via Impact)",
       "topic": null,
       "commission_note": "Affiliates earn a commission on every eSIM purchase made through their unique tracking link, with specific rates confirmed upon application approval within the Impact network.",
-      "status": "Todo",
+      "status": "In Progress",
       "signup_url": "https://app.impact.com/campaign-campaign-info-display.valuation?execution=e1s1&cid=36787",
       "date_added": "2026-09-21T18:59:49Z"
-    },
-    {
-      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg8Aj9o",
-      "name": "Skyscanner",
-      "topic": null,
-      "commission_note": "Partners earn a share of the revenue generated when users click through to flight providers, managed via the Impact platform.",
-      "status": "Todo",
-      "signup_url": "https://www.skyscanner.net/partners/affiliates",
-      "date_added": "2026-09-21T18:59:21Z"
     },
     {
       "item_id": "PVTI_lAHODNT1Rs4BfCrRzg8Aj8E",
       "name": "CheapOair",
       "topic": null,
       "commission_note": "Affiliates earn competitive commissions on flight bookings, hotel stays, and vacation packages through the CJ Affiliate network.",
-      "status": "Todo",
+      "status": "In Progress",
       "signup_url": "https://www.cheapoair.com/affiliate",
       "date_added": "2026-09-21T18:59:19Z"
     },
@@ -69,15 +114,6 @@
       "status": "Todo",
       "signup_url": "https://wayaway.io/affiliate-program",
       "date_added": "2026-09-21T18:59:16Z"
-    },
-    {
-      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg71nuM",
-      "name": "Bounce",
-      "topic": null,
-      "commission_note": "Bounce offers a commission for every booked storage reservation made through your unique referral link.",
-      "status": "Done",
-      "signup_url": "https://usebounce.com/partners/affiliates",
-      "date_added": "2026-09-20T17:29:43Z"
     },
     {
       "item_id": "PVTI_lAHODNT1Rs4BfCrRzg71nnw",
