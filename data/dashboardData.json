@@ -1,12 +1,75 @@
 {
-  "generated_at": "2026-09-22T22:55:16.711542+00:00",
-  "total": 78,
+  "generated_at": "2026-09-24T23:09:05.144471+00:00",
+  "total": 85,
   "status_counts": {
     "In Progress": 4,
-    "Todo": 73,
+    "Todo": 80,
     "Done": 1
   },
   "programs": [
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg8pq48",
+      "name": "TripIt",
+      "topic": null,
+      "commission_note": "TripIt manages its affiliate program through the Impact network, offering commissions for new TripIt Pro subscriptions generated through partner links.",
+      "status": "Todo",
+      "signup_url": "https://www.impact.com/partnerships/",
+      "date_added": "2026-09-24T23:08:35Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg8pqsg",
+      "name": "Air Canada Aeroplan Credit Cards (via American Express)",
+      "topic": null,
+      "commission_note": "As an Aeroplan member, you can earn bonus Aeroplan points for every successful referral that leads to a credit card approval.",
+      "status": "Todo",
+      "signup_url": "https://www.americanexpress.com/en-ca/referral/",
+      "date_added": "2026-09-24T23:08:09Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg8pqh8",
+      "name": "LoungeBuddy",
+      "topic": null,
+      "commission_note": "Operated through the American Express affiliate network, they offer commissions on lounge access bookings made through the platform.",
+      "status": "Todo",
+      "signup_url": "https://www.loungebuddy.com/affiliates",
+      "date_added": "2026-09-24T23:07:42Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg8pqgI",
+      "name": "Priority Pass",
+      "topic": null,
+      "commission_note": "They partner with various travel-focused affiliates to offer commission on memberships sold through tracked links.",
+      "status": "Todo",
+      "signup_url": "https://www.prioritypass.com/en/partners",
+      "date_added": "2026-09-24T23:07:39Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg8pqS0",
+      "name": "ParkON",
+      "topic": null,
+      "commission_note": "ParkON provides an affiliate program with competitive commission rates for travel-focused content creators referring users to airport parking services.",
+      "status": "Todo",
+      "signup_url": "https://parkon.com/affiliate-program",
+      "date_added": "2026-09-24T23:07:14Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg8pqRo",
+      "name": "AirportParkingReservations.com",
+      "topic": null,
+      "commission_note": "This aggregator covers many Park'N Fly locations and offers a commission on every completed parking reservation made through your affiliate link.",
+      "status": "Todo",
+      "signup_url": "https://www.airportparkingreservations.com/affiliate",
+      "date_added": "2026-09-24T23:07:12Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg8pqP4",
+      "name": "Park'N Fly (Canada)",
+      "topic": null,
+      "commission_note": "They offer a referral program that provides discounts to users and potential commissions for partners through their dedicated affiliate portal.",
+      "status": "Todo",
+      "signup_url": "https://www.parknfly.ca/affiliate-program/",
+      "date_added": "2026-09-24T23:07:07Z"
+    },
     {
       "item_id": "PVTI_lAHODNT1Rs4BfCrRzg8OPSQ",
       "name": "Airbnb Associates Program",
