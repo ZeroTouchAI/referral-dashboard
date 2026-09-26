@@ -1,12 +1,84 @@
 {
-  "generated_at": "2026-09-24T23:09:05.144471+00:00",
-  "total": 85,
+  "generated_at": "2026-09-26T22:30:35.518755+00:00",
+  "total": 93,
   "status_counts": {
     "In Progress": 4,
-    "Todo": 80,
+    "Todo": 88,
     "Done": 1
   },
   "programs": [
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg89xSE",
+      "name": "Airbnb Associates Program",
+      "topic": null,
+      "commission_note": "Airbnb operates a curated Associates program that pays a commission for qualified guest bookings and stays referred through your unique links.",
+      "status": "Todo",
+      "signup_url": "https://www.airbnb.com/associates",
+      "date_added": "2026-09-26T22:30:32Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg89xMU",
+      "name": "TripIt",
+      "topic": null,
+      "commission_note": "TripIt is part of the SAP Concur partner ecosystem, and interested parties can apply for partnership status via the SAP Concur partnership portal.",
+      "status": "Todo",
+      "signup_url": "https://www.concur.com/partner-program",
+      "date_added": "2026-09-26T22:30:08Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg89xGg",
+      "name": "Air Canada Aeroplan (via Awin)",
+      "topic": null,
+      "commission_note": "Affiliates can earn commissions for successful flight bookings and select partner offers tracked through the Awin network.",
+      "status": "Todo",
+      "signup_url": "https://publisher-services.awin.com/publisher-signup/en/account/publisher-details?advertiserId=142461",
+      "date_added": "2026-09-26T22:29:46Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg89w-8",
+      "name": "DragonPass",
+      "topic": null,
+      "commission_note": "DragonPass maintains a partnership portal where travel influencers and businesses can apply to integrate or refer their airport companion services for potential revenue sharing.",
+      "status": "Todo",
+      "signup_url": "https://en.dragonpass.com.cn/partner/join",
+      "date_added": "2026-09-26T22:29:22Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg89w9w",
+      "name": "Priority Pass",
+      "topic": null,
+      "commission_note": "Priority Pass offers a dedicated partner program for travel affiliates, providing commissions or incentives based on successful referrals to their lounge access memberships.",
+      "status": "Todo",
+      "signup_url": "https://www.prioritypass.com/en/partners",
+      "date_added": "2026-09-26T22:29:19Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg89w14",
+      "name": "AirportParkingReservations.com",
+      "topic": null,
+      "commission_note": "They offer a competitive commission on every completed parking reservation booked through your affiliate link.",
+      "status": "Todo",
+      "signup_url": "https://www.airportparkingreservations.com/affiliate",
+      "date_added": "2026-09-26T22:28:55Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg89w0k",
+      "name": "Park'N Fly (Canada)",
+      "topic": null,
+      "commission_note": "The program offers a commission structure for referring customers to their airport parking services through a dedicated partner portal.",
+      "status": "Todo",
+      "signup_url": "https://www.parknfly.ca/Affiliate-Program",
+      "date_added": "2026-09-26T22:28:51Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg8prFI",
+      "name": "Airbnb Associates Program",
+      "topic": null,
+      "commission_note": "Airbnb currently operates a limited Associates program that is invitation-only or restricted to specific travel partners, as their public-facing affiliate program has been largely phased out.",
+      "status": "Todo",
+      "signup_url": "https://www.airbnb.com/associates",
+      "date_added": "2026-09-24T23:09:02Z"
+    },
     {
       "item_id": "PVTI_lAHODNT1Rs4BfCrRzg8pq48",
       "name": "TripIt",
