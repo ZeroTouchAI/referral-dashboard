@@ -1,12 +1,66 @@
 {
-  "generated_at": "2026-09-26T22:30:35.518755+00:00",
-  "total": 93,
+  "generated_at": "2026-09-27T18:29:54.256488+00:00",
+  "total": 99,
   "status_counts": {
     "In Progress": 4,
-    "Todo": 88,
+    "Todo": 94,
     "Done": 1
   },
   "programs": [
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg9D9Ts",
+      "name": "TripIt",
+      "topic": null,
+      "commission_note": "TripIt operates its affiliate program through the SAP Concur partner network, offering commissions for driving subscriptions to TripIt Pro.",
+      "status": "Todo",
+      "signup_url": "https://www.concur.com/en-us/partners/affiliate",
+      "date_added": "2026-09-27T18:29:28Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg9D84s",
+      "name": "Air Canada Aeroplan (via Awin)",
+      "topic": null,
+      "commission_note": "Partners earn commissions based on qualifying flight bookings and ancillary services referred through the Awin network.",
+      "status": "Todo",
+      "signup_url": "https://publishers.awin.com/programs/67448/air-canada",
+      "date_added": "2026-09-27T18:29:00Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg9D8iY",
+      "name": "LoungeBuddy",
+      "topic": null,
+      "commission_note": "While LoungeBuddy is owned by American Express, they operate their affiliate partnerships through the American Express Affiliate Program on the Rakuten Advertising network.",
+      "status": "Todo",
+      "signup_url": "https://www.americanexpress.com/en-us/company/about-us/affiliate-program/",
+      "date_added": "2026-09-27T18:28:36Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg9D8es",
+      "name": "Priority Pass",
+      "topic": null,
+      "commission_note": "Affiliates earn commissions on successful signups for Priority Pass lounge memberships through the CJ Affiliate network.",
+      "status": "Todo",
+      "signup_url": "https://www.prioritypass.com/en/partners/affiliates",
+      "date_added": "2026-09-27T18:28:33Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg9D1N4",
+      "name": "ParkON (Airport Parking)",
+      "topic": null,
+      "commission_note": "They provide an affiliate program where partners earn a commission for each completed parking reservation booked via their platform.",
+      "status": "Todo",
+      "signup_url": "https://www.parkon.com/affiliate",
+      "date_added": "2026-09-27T18:19:52Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg9D1LI",
+      "name": "Park'N Fly (Canada)",
+      "topic": null,
+      "commission_note": "They offer a dedicated affiliate program for travel partners to earn commissions on parking reservations made through tracked links.",
+      "status": "Todo",
+      "signup_url": "https://www.parknfly.ca/affiliate-program/",
+      "date_added": "2026-09-27T18:19:49Z"
+    },
     {
       "item_id": "PVTI_lAHODNT1Rs4BfCrRzg89xSE",
       "name": "Airbnb Associates Program",
