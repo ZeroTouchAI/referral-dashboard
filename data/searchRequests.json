@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-27T18:29:54.256718+00:00",
+  "generated_at": "2026-09-28T20:28:57.247677+00:00",
   "requests": [
     {
       "id": "9f6ab3ba-164c-4e22-96eb-2e7b9bdddcc5",
@@ -78,23 +78,21 @@
       "text": "park'n fly",
       "status": "found",
       "added_date": "2026-09-16",
-      "resolved_date": "2026-09-27",
+      "resolved_date": "2026-09-28",
       "programs_found": 2
     },
     {
       "id": "897504d2-3013-4c1d-a829-931dfb3cc5a0",
       "text": "visa airport companion",
-      "status": "found",
-      "added_date": "2026-09-16",
-      "resolved_date": "2026-09-27",
-      "programs_found": 2
+      "status": "pending",
+      "added_date": "2026-09-16"
     },
     {
       "id": "f5b1a11b-8eb6-4cf5-abdd-fa6fa35f4e41",
       "text": "Aeroplan",
       "status": "found",
       "added_date": "2026-09-16",
-      "resolved_date": "2026-09-27",
+      "resolved_date": "2026-09-28",
       "programs_found": 1
     },
     {
@@ -102,7 +100,7 @@
       "text": "TripIt",
       "status": "found",
       "added_date": "2026-09-21",
-      "resolved_date": "2026-09-27",
+      "resolved_date": "2026-09-28",
       "programs_found": 1
     },
     {
@@ -110,7 +108,7 @@
       "text": "Airbnb",
       "status": "found",
       "added_date": "2026-09-22",
-      "resolved_date": "2026-09-27",
+      "resolved_date": "2026-09-28",
       "programs_found": 1
     },
     {
