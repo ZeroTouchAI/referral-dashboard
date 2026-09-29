@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-28T20:28:57.247677+00:00",
+  "generated_at": "2026-09-29T23:33:57.646354+00:00",
   "requests": [
     {
       "id": "9f6ab3ba-164c-4e22-96eb-2e7b9bdddcc5",
@@ -84,8 +84,10 @@
     {
       "id": "897504d2-3013-4c1d-a829-931dfb3cc5a0",
       "text": "visa airport companion",
-      "status": "pending",
-      "added_date": "2026-09-16"
+      "status": "found",
+      "added_date": "2026-09-16",
+      "resolved_date": "2026-09-29",
+      "programs_found": 2
     },
     {
       "id": "f5b1a11b-8eb6-4cf5-abdd-fa6fa35f4e41",
@@ -114,14 +116,18 @@
     {
       "id": "867254a4-571e-4377-8683-a6292bfa6a7f",
       "text": "CheapOair",
-      "status": "pending",
-      "added_date": "2026-09-22"
+      "status": "found",
+      "added_date": "2026-09-22",
+      "resolved_date": "2026-09-29",
+      "programs_found": 1
     },
     {
       "id": "ecc66608-2c97-4d1f-93e5-9dff7b50ace5",
       "text": "Muvmi",
-      "status": "pending",
-      "added_date": "2026-09-22"
+      "status": "no_match",
+      "added_date": "2026-09-22",
+      "resolved_date": "2026-09-29",
+      "programs_found": 0
     }
   ]
 }
