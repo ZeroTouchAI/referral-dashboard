@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-05T21:20:32.169681+00:00",
+  "generated_at": "2026-10-06T23:31:07.766895+00:00",
   "ideas": [
     {
       "id": "56eb7829-1d3a-4aee-8597-82e5bfe4ba73",
@@ -104,8 +104,10 @@
       "id": "aa39fdc0-b88c-4eee-aefb-076e82bcc9bc",
       "text": "visa airport companion",
       "target": "either",
-      "status": "pending",
-      "added_date": "2026-09-16"
+      "status": "used",
+      "added_date": "2026-09-16",
+      "used_date": "2026-10-06",
+      "used_in": "short"
     },
     {
       "id": "479f9c22-3c17-4de8-b2b1-01c37ea8f051",
