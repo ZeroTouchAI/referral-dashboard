@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-06T23:31:07.766569+00:00",
+  "generated_at": "2026-10-08T20:33:56.061251+00:00",
   "total": 100,
   "status_counts": {
     "In Progress": 4,
@@ -8,58 +8,58 @@
   },
   "programs": [
     {
-      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg9SoZ4",
-      "name": "Saily Affiliate Program (via PartnerStack)",
-      "topic": "Saily eSIM travel connectivity guide",
-      "commission_note": "High commission rates for eSIM activations via PartnerStack.",
-      "status": "Todo",
-      "signup_url": "https://partners.saily.com/",
-      "date_added": "2026-09-28T20:28:44Z"
-    },
-    {
-      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg9SoWc",
-      "name": "Skyscanner (via Impact)",
-      "topic": "Cheap Flight Booking",
-      "commission_note": "Competitive CPA for flight referrals tracked via Impact.",
-      "status": "Todo",
-      "signup_url": "https://app.impact.com/campaign-campaign-info-display.marketing?execution=e1s1",
-      "date_added": "2026-09-28T20:28:40Z"
-    },
-    {
-      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg9SoTY",
-      "name": "WayAway",
-      "topic": "Cheap Flight Booking",
-      "commission_note": "Earn up to 50% revenue share on flight bookings.",
-      "status": "Todo",
-      "signup_url": "https://wayaway.io/for-travel-bloggers",
-      "date_added": "2026-09-28T20:28:36Z"
-    },
-    {
-      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg9SnXw",
-      "name": "Airbnb Associates Program",
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg-BOtc",
+      "name": "Priority Pass",
       "topic": null,
-      "commission_note": "Airbnb currently operates their own invite-only or limited-access affiliate program, and most creators are directed to apply via their official partner portal to earn commissions on stays and experiences.",
+      "commission_note": "Priority Pass offers a dedicated partner program for travel affiliates, with commission structures typically managed upon approval based on referral volume.",
       "status": "Todo",
-      "signup_url": "https://www.airbnb.com/associates",
-      "date_added": "2026-09-28T20:27:27Z"
+      "signup_url": "https://www.prioritypass.com/en/partners",
+      "date_added": "2026-10-01T23:46:21Z"
     },
     {
-      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg9Smwk",
-      "name": "TripIt",
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg9jNbQ",
+      "name": "CheapOair Affiliate Program",
       "topic": null,
-      "commission_note": "TripIt operates under the SAP Concur partner program, which offers referral and affiliate opportunities for travel-related platforms.",
+      "commission_note": "The program is managed via the CJ Affiliate network and offers competitive commissions for qualified flight, hotel, and car rental bookings.",
       "status": "Todo",
-      "signup_url": "https://www.concur.com/partner-program",
-      "date_added": "2026-09-28T20:26:40Z"
+      "signup_url": "https://www.cheapoair.com/affiliate",
+      "date_added": "2026-09-29T23:33:10Z"
     },
     {
-      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg9SmFA",
-      "name": "Air Canada (via Rakuten Advertising)",
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg9jM9A",
+      "name": "LoungeBuddy",
       "topic": null,
-      "commission_note": "Air Canada utilizes the Rakuten Advertising network to manage its affiliate partnerships for flights and travel services.",
+      "commission_note": "Affiliates earn commissions on lounge bookings generated through their referral links via the Awin network.",
       "status": "Todo",
-      "signup_url": "https://signup.linkshare.com/publishers/registration/landing?mid=41334",
-      "date_added": "2026-09-28T20:25:45Z"
+      "signup_url": "https://www.loungebuddy.com/affiliate-program",
+      "date_added": "2026-09-29T23:32:30Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg9jM7Y",
+      "name": "Priority Pass",
+      "topic": null,
+      "commission_note": "Partners earn a commission for each qualified member referral that signs up for a Priority Pass membership through their tracking links.",
+      "status": "Todo",
+      "signup_url": "https://www.prioritypass.com/en/affiliate-program",
+      "date_added": "2026-09-29T23:32:27Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg9Sofw",
+      "name": "12Go",
+      "topic": "Thailand Transportation Hacks",
+      "commission_note": "Specializes in bus, train, and ferry bookings across Southeast Asia.",
+      "status": "Todo",
+      "signup_url": "https://12go.asia/en/affiliate",
+      "date_added": "2026-09-28T20:28:51Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg9SodA",
+      "name": "Klook",
+      "topic": "Thailand Transportation Hacks",
+      "commission_note": "High conversion rates for local transit, airport pickups, and rail passes in Thailand.",
+      "status": "Todo",
+      "signup_url": "https://www.klook.com/en-US/affiliate/",
+      "date_added": "2026-09-28T20:28:48Z"
     },
     {
       "item_id": "PVTI_lAHODNT1Rs4BfCrRzg9Sh78",
