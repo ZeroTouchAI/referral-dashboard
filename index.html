@@ -281,6 +281,7 @@ async function setStatus(itemId, newStatusKey, btnEl) {
     allPrograms.forEach(p => { candidatesData.status_counts[p.status] = (candidatesData.status_counts[p.status] || 0) + 1; });
     renderStats(candidatesData); renderTabs(candidatesData); renderTable();
     showToast("Status updated", "ok");
+    syncCandidates();
 
     if (newStatusKey === "Done" && program) {
       pendingApprovalPrefill = { label: program.name, topic: program.topic };
@@ -311,6 +312,7 @@ async function deleteCandidate(itemId, name, btnEl) {
     allPrograms.forEach(p => { candidatesData.status_counts[p.status] = (candidatesData.status_counts[p.status] || 0) + 1; });
     renderStats(candidatesData); renderTabs(candidatesData); renderTable();
     showToast("Deleted", "ok");
+    syncCandidates();
   } catch (err) { showToast("Failed to delete: " + err.message, "error"); console.error(err); if (btnEl) btnEl.disabled = false; }
 }
 function renderTable() {
@@ -358,6 +360,33 @@ async function putPrivateFile(path, data, sha, message) {
   if (!resp.ok) { const t = await resp.text(); throw new Error(`PUT failed (${resp.status}): ${t}`); }
 }
 
+// Writes an updated copy of a dashboard data file back to THIS public repo, so edits
+// survive a page refresh. The real edit (Project mutation / private-file write) already
+// happened; without this, the cached public snapshot stayed stale until the next
+// scheduled workflow run, so a refresh would show deleted items reappearing, reverted
+// statuses, and missing new requests/ideas/links.
+async function syncPublicFile(path, payload) {
+  try {
+    const base = `https://api.github.com/repos/ZeroTouchAI/referral-dashboard/contents/${path}`;
+    const headers = { "Authorization": `Bearer ${getToken()}`, "Accept": "application/vnd.github+json" };
+    const getResp = await fetch(base, { headers });
+    const sha = getResp.ok ? (await getResp.json()).sha : undefined;
+    const body = { ...payload, generated_at: new Date().toISOString() };
+    const putResp = await fetch(base, {
+      method: "PUT",
+      headers: { ...headers, "Content-Type": "application/json" },
+      body: JSON.stringify({ message: "Live edit from dashboard", sha, branch: "main", content: btoa(unescape(encodeURIComponent(JSON.stringify(body, null, 2)))) }),
+    });
+    if (!putResp.ok) console.error("Snapshot sync failed:", await putResp.text());
+  } catch (err) {
+    console.error("Snapshot sync failed:", err);  // non-fatal: the real edit already succeeded
+  }
+}
+const syncCandidates = () => syncPublicFile("data/dashboardData.json", candidatesData);
+const syncApplied = () => syncPublicFile("data/appliedReferrals.json", appliedData);
+const syncRequests = () => syncPublicFile("data/searchRequests.json", requestsData);
+const syncIdeas = () => syncPublicFile("data/videoIdeas.json", ideasData);
+
 // ---------- Applied ("My Referrals") page ----------
 async function removeLink(topic, url) {
   if (!hasToken()) { showToast("Connect first to edit", "error"); return; }
@@ -370,6 +399,7 @@ async function removeLink(topic, url) {
     appliedData = { sections: data.sections.map(s => ({ topic: s.title, links: s.links })) };
     renderApplied();
     showToast("Removed", "ok");
+    syncApplied();
   } catch (err) { showToast("Failed to remove: " + err.message, "error"); console.error(err); }
 }
 async function addLink(topic, label, url) {
@@ -386,6 +416,7 @@ async function addLink(topic, label, url) {
     appliedData = { sections: data.sections.map(s => ({ topic: s.title, links: s.links })) };
     renderApplied();
     showToast("Added", "ok");
+    syncApplied();
   } catch (err) { showToast("Failed to add: " + err.message, "error"); console.error(err); }
 }
 let pendingApprovalPrefill = null;  // {label, topic} set by changeStatus() when a candidate is Approved
@@ -440,6 +471,7 @@ async function addSearchRequest(text) {
     requestsData = file;  // reflect what we just wrote, not the (weekly-stale) public snapshot
     renderRequests();
     showToast("Added — it'll be searched on the next referral scan", "ok");
+    syncRequests();
   } catch (err) { showToast("Failed to add: " + err.message, "error"); console.error(err); }
 }
 async function deleteSearchRequest(id) {
@@ -453,6 +485,7 @@ async function deleteSearchRequest(id) {
     requestsData = file;
     renderRequests();
     showToast("Deleted", "ok");
+    syncRequests();
   } catch (err) { showToast("Failed to delete: " + err.message, "error"); console.error(err); }
 }
 function renderRequests() {
@@ -499,6 +532,7 @@ async function addVideoIdea(text, target) {
     ideasData = file;
     renderIdeas();
     showToast("Added — it'll be made on the next matching content run", "ok");
+    syncIdeas();
   } catch (err) { showToast("Failed to add: " + err.message, "error"); console.error(err); }
 }
 async function deleteVideoIdea(id) {
@@ -512,6 +546,7 @@ async function deleteVideoIdea(id) {
     ideasData = file;
     renderIdeas();
     showToast("Deleted", "ok");
+    syncIdeas();
   } catch (err) { showToast("Failed to delete: " + err.message, "error"); console.error(err); }
 }
 function renderIdeas() {
