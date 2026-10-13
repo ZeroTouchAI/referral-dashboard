@@ -1,12 +1,192 @@
 {
-  "generated_at": "2026-10-12T21:56:15.245780+00:00",
-  "total": 100,
+  "generated_at": "2026-10-13T17:24:10.640542+00:00",
+  "total": 120,
   "status_counts": {
     "In Progress": 4,
-    "Todo": 95,
+    "Todo": 115,
     "Done": 1
   },
   "programs": [
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzhASVVw",
+      "name": "Saily Affiliate Program",
+      "topic": "Saily eSIM travel connectivity guide",
+      "commission_note": "Earn commission on eSIM sales generated through your unique link.",
+      "status": "Todo",
+      "signup_url": "https://saily.com/affiliate-program/",
+      "date_added": "2026-10-12T21:56:06Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzhASVSs",
+      "name": "Skyscanner",
+      "topic": "Cheap Flight Booking",
+      "commission_note": "Commission on flight, hotel, and car rental bookings via Impact.",
+      "status": "Todo",
+      "signup_url": "https://www.skyscannerpartners.com/affiliates",
+      "date_added": "2026-10-12T21:56:00Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzhASVPU",
+      "name": "WayAway",
+      "topic": "Cheap Flight Booking",
+      "commission_note": "Earn commission on flight bookings made through your affiliate links via Travelpayouts.",
+      "status": "Todo",
+      "signup_url": "https://wayaway.io/partners",
+      "date_added": "2026-10-12T21:55:54Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzhASVME",
+      "name": "Aeroplan Referral Program",
+      "topic": "Aeroplan Points Strategy",
+      "commission_note": "Earn bonus points for referring friends to the Aeroplan program.",
+      "status": "Todo",
+      "signup_url": "https://www.aircanada.com/ca/en/aco/home/aeroplan/your-aeroplan/refer-a-friend.html",
+      "date_added": "2026-10-12T21:55:47Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzhASVHM",
+      "name": "Chase Refer-a-Friend",
+      "topic": "Advanced Credit Card Point Transfer Strategy",
+      "commission_note": "Earn bonus points for each account opened via your unique referral link.",
+      "status": "Todo",
+      "signup_url": "https://www.chase.com/referafriend",
+      "date_added": "2026-10-12T21:55:41Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzhASVDg",
+      "name": "American Express Refer-a-Friend",
+      "topic": "Advanced Credit Card Point Transfer Strategy",
+      "commission_note": "Earn statement credits or bonus points for every successful referral.",
+      "status": "Todo",
+      "signup_url": "https://www.americanexpress.com/en-us/referral",
+      "date_added": "2026-10-12T21:55:34Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg-uwso",
+      "name": "TripIt",
+      "topic": "TripIt Pro Hidden Features",
+      "commission_note": "Commission on subscriptions to TripIt Pro.",
+      "status": "Todo",
+      "signup_url": "https://www.tripit.com/web/affiliate",
+      "date_added": "2026-10-05T21:20:26Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg-uwps",
+      "name": "Bounce",
+      "topic": "Bounce bag storage",
+      "commission_note": "Revenue share on every bag stored via your referral.",
+      "status": "Todo",
+      "signup_url": "https://usebounce.com/partners",
+      "date_added": "2026-10-05T21:20:22Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg-uwmw",
+      "name": "AirportParking.com",
+      "topic": "Airport Parking Hacks",
+      "commission_note": "Earn commission on every reservation made through affiliate links.",
+      "status": "Todo",
+      "signup_url": "https://www.airportparking.com/affiliate",
+      "date_added": "2026-10-05T21:20:18Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg-uv9M",
+      "name": "CheapOair Affiliate Program (via CJ Affiliate)",
+      "topic": null,
+      "commission_note": "CheapOair operates its affiliate program through the CJ Affiliate network, offering commissions based on completed flight, hotel, and car rental bookings.",
+      "status": "Todo",
+      "signup_url": "https://www.cj.com/partner-with-us",
+      "date_added": "2026-10-05T21:19:18Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg-uvr0",
+      "name": "Priority Pass",
+      "topic": null,
+      "commission_note": "They offer a dedicated partnership program for travel-focused entities to promote lounge membership access through customized referral channels.",
+      "status": "Todo",
+      "signup_url": "https://www.prioritypass.com/en/partners",
+      "date_added": "2026-10-05T21:18:52Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg-uvpw",
+      "name": "DragonPass",
+      "topic": null,
+      "commission_note": "DragonPass operates a B2B partner program for businesses and travel influencers to integrate or promote their lounge access services.",
+      "status": "Todo",
+      "signup_url": "https://en.dragonpass.com.cn/partner",
+      "date_added": "2026-10-05T21:18:49Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg-edj0",
+      "name": "CheapOair Affiliate Program",
+      "topic": null,
+      "commission_note": "CheapOair manages its affiliate program through the CJ Affiliate network, offering competitive commissions on flight, hotel, and car rental bookings.",
+      "status": "Todo",
+      "signup_url": "https://www.cheapoair.com/lp/affiliate-program",
+      "date_added": "2026-10-04T18:11:27Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg-edYs",
+      "name": "LoungeBuddy",
+      "topic": null,
+      "commission_note": "LoungeBuddy operates an affiliate program that rewards partners for driving new bookings for airport lounge access.",
+      "status": "Todo",
+      "signup_url": "https://www.loungebuddy.com/affiliate-program",
+      "date_added": "2026-10-04T18:10:59Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg-edXo",
+      "name": "Priority Pass",
+      "topic": null,
+      "commission_note": "Priority Pass offers an affiliate program managed through Awin that provides commissions on sales generated through tracked affiliate links.",
+      "status": "Todo",
+      "signup_url": "https://www.prioritypass.com/en/partners/affiliate",
+      "date_added": "2026-10-04T18:10:56Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg-XwuI",
+      "name": "CheapOair Affiliate Program",
+      "topic": null,
+      "commission_note": "The program is managed through the CJ Affiliate network and offers competitive commissions on flights and hotel bookings.",
+      "status": "Todo",
+      "signup_url": "https://www.cheapoair.com/lp/affiliate-program",
+      "date_added": "2026-10-03T22:47:06Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg-Xwic",
+      "name": "Priority Pass",
+      "topic": null,
+      "commission_note": "Priority Pass offers a dedicated partner program where affiliates earn commissions for driving signups to their airport lounge membership programs.",
+      "status": "Todo",
+      "signup_url": "https://www.prioritypass.com/en/partners",
+      "date_added": "2026-10-03T22:46:37Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg-Xwg4",
+      "name": "DragonPass",
+      "topic": null,
+      "commission_note": "DragonPass operates a partnership program for travel influencers and service providers to earn commissions on airport lounge access and companion service referrals.",
+      "status": "Todo",
+      "signup_url": "https://en.dragonpass.com.cn/affiliate",
+      "date_added": "2026-10-03T22:46:34Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg-BO3w",
+      "name": "CheapOair Affiliate Program",
+      "topic": null,
+      "commission_note": "The program is hosted on the CJ Affiliate network and offers commissions for completed flight, hotel, and car rental bookings.",
+      "status": "Todo",
+      "signup_url": "https://www.cheapoair.com/affiliate",
+      "date_added": "2026-10-01T23:46:48Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzg-BOuM",
+      "name": "DragonPass",
+      "topic": null,
+      "commission_note": "DragonPass provides a partnership portal for travel-related platforms to integrate lounge access services and earn commissions on generated memberships.",
+      "status": "Todo",
+      "signup_url": "https://en.dragonpass.com.cn/partner/join",
+      "date_added": "2026-10-01T23:46:25Z"
+    },
     {
       "item_id": "PVTI_lAHODNT1Rs4BfCrRzg-BOtc",
       "name": "Priority Pass",
