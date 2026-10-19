@@ -1,12 +1,84 @@
 {
-  "generated_at": "2026-10-18T17:15:41.530189+00:00",
-  "total": 120,
+  "generated_at": "2026-10-19T19:35:28.779318+00:00",
+  "total": 128,
   "status_counts": {
     "In Progress": 4,
-    "Todo": 115,
+    "Todo": 123,
     "Done": 1
   },
   "programs": [
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzhB7ZxE",
+      "name": "DragonPass Affiliate Program",
+      "topic": "Visa Airport Companion",
+      "commission_note": "Direct partnership for lounge and transit services.",
+      "status": "Todo",
+      "signup_url": "https://en.dragonpass.com.cn/affiliate",
+      "date_added": "2026-10-19T19:35:17Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzhB7Zp4",
+      "name": "Kiwi.com Affiliate Program",
+      "topic": "Flight Booking Hidden Fee Hack",
+      "commission_note": "Strong for budget flight discovery, paid via Impact.",
+      "status": "Todo",
+      "signup_url": "https://affiliate.kiwi.com/",
+      "date_added": "2026-10-19T19:35:10Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzhB7ZjI",
+      "name": "WayAway Affiliate Program",
+      "topic": "Flight Booking Hidden Fee Hack",
+      "commission_note": "Cashback travel aggregator, highly relevant for 'saving money' content.",
+      "status": "Todo",
+      "signup_url": "https://wayaway.io/partners",
+      "date_added": "2026-10-19T19:35:04Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzhB7Zb0",
+      "name": "LoungeBuddy (via American Express/Amex Offers)",
+      "topic": "Airport Lounge Access Hack",
+      "commission_note": "Referral bonuses for Amex Platinum which includes lounge access.",
+      "status": "Todo",
+      "signup_url": "https://www.americanexpress.com/en-us/referral",
+      "date_added": "2026-10-19T19:34:57Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzhB7ZWU",
+      "name": "Priority Pass Affiliate Program",
+      "topic": "Airport Lounge Access Hack",
+      "commission_note": "Paid via Commission Junction (CJ), standard commission per sale.",
+      "status": "Todo",
+      "signup_url": "https://www.prioritypass.com/en/partners",
+      "date_added": "2026-10-19T19:34:51Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzhB7ZQE",
+      "name": "Airbnb Associates Program",
+      "topic": "Airbnb Fee Hack",
+      "commission_note": "Direct program, earns commission on stays booked via referral link.",
+      "status": "Todo",
+      "signup_url": "https://www.airbnb.com/associates",
+      "date_added": "2026-10-19T19:34:45Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzhB7ZJs",
+      "name": "CardRatings Affiliate Program",
+      "topic": "Advanced Credit Card Points Strategy for Business Class Flights",
+      "commission_note": "High conversion rates for travel credit cards via Impact.",
+      "status": "Todo",
+      "signup_url": "https://www.cardratings.com/affiliate-program",
+      "date_added": "2026-10-19T19:34:37Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzhB7ZDg",
+      "name": "Bankrate Credit Cards Affiliate Program",
+      "topic": "Advanced Credit Card Points Strategy for Business Class Flights",
+      "commission_note": "CPA (Cost Per Acquisition) model, competitive payouts for card approvals.",
+      "status": "Todo",
+      "signup_url": "https://www.bankrate.com/affiliates/",
+      "date_added": "2026-10-19T19:34:30Z"
+    },
     {
       "item_id": "PVTI_lAHODNT1Rs4BfCrRzhASVVw",
       "name": "Saily Affiliate Program",
