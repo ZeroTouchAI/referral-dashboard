@@ -1,12 +1,66 @@
 {
-  "generated_at": "2026-11-01T18:53:46.017777+00:00",
-  "total": 128,
+  "generated_at": "2026-11-02T22:32:16.636432+00:00",
+  "total": 134,
   "status_counts": {
     "In Progress": 4,
-    "Todo": 123,
+    "Todo": 129,
     "Done": 1
   },
   "programs": [
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzhFhmjc",
+      "name": "Points.com",
+      "topic": "Strategic Credit Card Points and Booking Hacks",
+      "commission_note": "Affiliate program for buying/gifting/transferring points",
+      "status": "Todo",
+      "signup_url": "https://www.points.com/affiliates/",
+      "date_added": "2026-11-02T22:32:05Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzhFhmdI",
+      "name": "Bankrate Credit Cards (via Impact)",
+      "topic": "Strategic Credit Card Points and Airline Booking Optimization",
+      "commission_note": "Host thousands of credit card affiliate offers, extremely high relevance for points strategy content",
+      "status": "Todo",
+      "signup_url": "https://impact.com/partnerships/",
+      "date_added": "2026-11-02T22:31:57Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzhFhmXM",
+      "name": "AwardWallet",
+      "topic": "Credit card point transfer hack",
+      "commission_note": "Referral program for their pro-tier subscriptions",
+      "status": "Todo",
+      "signup_url": "https://awardwallet.com/affiliate",
+      "date_added": "2026-11-02T22:31:50Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzhFhmRE",
+      "name": "CardRatings",
+      "topic": "Credit Card Point Arbitrage",
+      "commission_note": "Access to high-converting credit card affiliate offers through their publisher network",
+      "status": "Todo",
+      "signup_url": "https://www.cardratings.com/affiliate-program",
+      "date_added": "2026-11-02T22:31:43Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzhFhmLI",
+      "name": "DragonPass",
+      "topic": "Airport Lounge Access",
+      "commission_note": "Partnership program for lounge access sales",
+      "status": "Todo",
+      "signup_url": "https://en.dragonpass.com.cn/affiliate",
+      "date_added": "2026-11-02T22:31:35Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzhFhmB4",
+      "name": "Priority Pass",
+      "topic": "Airport Lounge Access",
+      "commission_note": "Commission based on referred memberships sold via impact.com",
+      "status": "Todo",
+      "signup_url": "https://www.prioritypass.com/en/partners/affiliates",
+      "date_added": "2026-11-02T22:31:27Z"
+    },
     {
       "item_id": "PVTI_lAHODNT1Rs4BfCrRzhB7ZxE",
       "name": "DragonPass Affiliate Program",
