@@ -32,6 +32,10 @@ change** and add a line below.
 
 ## Changelog
 
+- **v1.2.0** — Clear error messages for bad/expired tokens (no more bare "failed
+  401"), token panel now lists both repos it needs, YouTube Ideas show the
+  video title and a "Couldn't read" state. Pipeline reads the YouTube Ideas
+  queue (see YouTube-Video-Creator PR #79).
 - **v1.1.0** — Compass favicon, version badge, "Powered by zerotouchai.com"
   footer link, new **YouTube Ideas** page (reference video URLs used as
   inspiration for new videos).

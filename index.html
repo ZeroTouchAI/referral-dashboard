@@ -105,6 +105,8 @@
   .yt-info { flex: 1; min-width: 200px; }
   .yt-info a { color: var(--blue); font-weight: 700; font-size: 13.5px; text-decoration: none; word-break: break-all; }
   .yt-info a:hover { text-decoration: underline; }
+  .yt-title { font-weight: 700; color: var(--navy); font-size: 14px; margin-bottom: 2px; }
+  .yt-error { font-size: 12px; color: var(--red); margin-top: 4px; }
   .yt-note { font-size: 13px; color: var(--navy); margin-top: 4px; white-space: pre-wrap; }
   .yt-info .meta { font-size: 11.5px; color: var(--text-dim); margin-top: 4px; }
 
@@ -134,7 +136,7 @@
   .req-badge { display: inline-block; padding: 3px 9px; border-radius: 999px; font-size: 11px; font-weight: 700; white-space: nowrap; }
   .req-badge.pending { background: var(--yellow-bg); color: var(--yellow); }
   .req-badge.found, .req-badge.used { background: var(--green-bg); color: var(--green); }
-  .req-badge.no_match { background: var(--red-bg); color: var(--red); }
+  .req-badge.no_match, .req-badge.failed { background: var(--red-bg); color: var(--red); }
 
   .toast { position: fixed; bottom: 20px; right: 20px; background: var(--navy); color: #fff; border-radius: 10px; padding: 12px 18px; font-size: 13px; opacity: 0; transform: translateY(10px); transition: all .25s; pointer-events: none; z-index: 100; font-weight: 600; }
   .toast.show { opacity: 1; transform: translateY(0); }
@@ -156,9 +158,11 @@
   </header>
 
   <div class="connect-panel" id="connect-panel">
-    <p>Paste a fine-grained GitHub token with <strong>Account → Projects (Read and write)</strong> and, on
-    the private YouTube-Video-Creator repo, <strong>Contents (Read and write)</strong>. It's saved only in
-    this browser's local storage and sent straight to api.github.com — never anywhere else.</p>
+    <p>Paste a fine-grained GitHub token with <strong>Account → Projects (Read and write)</strong> and
+    <strong>Contents (Read and write)</strong> on <strong>both</strong> the private YouTube-Video-Creator repo and this
+    referral-dashboard repo (the second one keeps your edits after a page refresh). If you see "failed 401", the token
+    has expired or been revoked: create a new one and paste it here. It's saved only in this browser's local storage
+    and sent straight to api.github.com — never anywhere else.</p>
     <input type="password" id="token-input" placeholder="github_pat_..." />
     <button class="btn-small btn-primary" id="save-token">Save</button>
     <button class="btn-small" id="clear-token">Disconnect</button>
@@ -200,7 +204,7 @@
 
 <script>
 // >>> BUMP THIS VERSION ON EVERY CHANGE TO THE DASHBOARD (and add a line to the README changelog) <<<
-const APP_VERSION = "1.1.0";
+const APP_VERSION = "1.2.0";
 
 const STATUS_META = {
   "Todo":        { label: "New",      cls: "new",      color: "#e8a83c" },
@@ -227,7 +231,7 @@ function showToast(msg, kind) {
   const el = document.getElementById("toast");
   el.textContent = msg;
   el.className = "toast show " + (kind || "");
-  setTimeout(() => { el.className = "toast"; }, 3200);
+  setTimeout(() => { el.className = "toast"; }, kind === "error" ? 7000 : 3200);
 }
 function escapeHtml(s) { return (s || "").replace(/[&<>"']/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c])); }
 function formatDate(iso) { if (!iso) return "—"; const d = new Date(iso); return isNaN(d) ? "—" : d.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" }); }
@@ -365,10 +369,19 @@ function renderTable() {
 }
 
 // ---------- Generic private-repo file read/write helper ----------
+// Turns a bare HTTP status from GitHub into something actionable.
+function apiError(action, status) {
+  if (status === 401) {
+    document.getElementById("connect-panel").classList.add("show");
+    return new Error("GitHub rejected your token (expired or revoked). Paste a fresh one in the panel above.");
+  }
+  if (status === 403 || status === 404) return new Error(`your token can't ${action} the YouTube-Video-Creator repo. It needs Contents: Read and write on it.`);
+  return new Error(`GitHub returned ${status} when trying to ${action} the repo.`);
+}
 async function getPrivateFile(path) {
   const resp = await fetch(`https://api.github.com/repos/${PRIVATE_REPO_OWNER}/${PRIVATE_REPO_NAME}/contents/${path}`, { headers: { "Authorization": `Bearer ${getToken()}`, "Accept": "application/vnd.github+json" } });
   if (resp.status === 404) return { sha: null, data: null };
-  if (!resp.ok) throw new Error(`GET failed (${resp.status})`);
+  if (!resp.ok) throw apiError("read", resp.status);
   const json = await resp.json();
   return { sha: json.sha, data: JSON.parse(decodeURIComponent(escape(atob(json.content.replace(/\n/g, ""))))) };
 }
@@ -378,7 +391,7 @@ async function putPrivateFile(path, data, sha, message) {
     headers: { "Authorization": `Bearer ${getToken()}`, "Accept": "application/vnd.github+json", "Content-Type": "application/json" },
     body: JSON.stringify({ message, sha: sha || undefined, branch: "main", content: btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2)))) }),
   });
-  if (!resp.ok) { const t = await resp.text(); throw new Error(`PUT failed (${resp.status}): ${t}`); }
+  if (!resp.ok) { console.error("PUT failed", resp.status, await resp.text()); throw apiError("save to", resp.status); }
 }
 
 // Writes an updated copy of a dashboard data file back to THIS public repo, so edits
@@ -669,11 +682,13 @@ function renderYoutube() {
       <div class="yt-row">
         ${vid ? `<a href="${escapeHtml(safeUrl)}" target="_blank" rel="noopener"><img class="yt-thumb" loading="lazy" src="https://i.ytimg.com/vi/${encodeURIComponent(vid)}/mqdefault.jpg" alt="Video thumbnail" /></a>` : ""}
         <div class="yt-info">
+          ${i.source_title ? `<div class="yt-title">${escapeHtml(i.source_title)}${i.source_channel ? ` <span class="topic-tag">· ${escapeHtml(i.source_channel)}</span>` : ""}</div>` : ""}
           ${safeUrl ? `<a href="${escapeHtml(safeUrl)}" target="_blank" rel="noopener">${escapeHtml(i.url)} ↗</a>` : escapeHtml(i.url)}
           ${i.note ? `<div class="yt-note">${escapeHtml(i.note)}</div>` : ""}
           <div class="meta">${targetLabel[i.target] || i.target} · added ${formatDate(i.added_date)}${i.used_date ? " · used " + formatDate(i.used_date) + " (" + (targetLabel[i.used_in] || i.used_in) + ")" : ""}</div>
+          ${i.status === "failed" && i.error ? `<div class="yt-error">${escapeHtml(i.error)}</div>` : ""}
         </div>
-        <span class="req-badge ${i.status}">${i.status === "used" ? "Used" : "Pending"}</span>
+        <span class="req-badge ${i.status}">${i.status === "used" ? "Used" : i.status === "failed" ? "Couldn't read" : "Pending"}</span>
         <button class="remove-btn" data-id="${i.id}" ${hasToken() ? "" : "disabled"}>Delete</button>
       </div>`;
     }).join("")}
