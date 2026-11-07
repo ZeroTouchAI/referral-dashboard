@@ -1,5 +1,4 @@
 {
-  "generated_at": "2026-11-07T05:41:44.011232+00:00",
   "ideas": [
     {
       "id": "92190299-d4db-4aa7-a1d9-2a515bdd06a1",
@@ -49,6 +48,16 @@
       "target": "longform",
       "status": "pending",
       "added_date": "2026-11-07"
+    },
+    {
+      "id": "aa2c8b92-404a-4f7a-bd5e-7635132f7b07",
+      "url": "https://www.youtube.com/watch?v=tN0npr4--uE",
+      "video_id": "tN0npr4--uE",
+      "note": "",
+      "target": "longform",
+      "status": "pending",
+      "added_date": "2026-11-07"
     }
-  ]
+  ],
+  "generated_at": "2026-11-07T05:45:01.644Z"
 }
