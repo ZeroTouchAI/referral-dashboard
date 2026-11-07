@@ -32,6 +32,9 @@ change** and add a line below.
 
 ## Changelog
 
+- **v1.3.0** — Short / Long-form / Either badge next to the Pending/Used badge on
+  the Video Ideas and YouTube Ideas lists, so the chosen format is visible before
+  an idea is run.
 - **v1.2.0** — Clear error messages for bad/expired tokens (no more bare "failed
   401"), token panel now lists both repos it needs, YouTube Ideas show the
   video title and a "Couldn't read" state. Pipeline reads the YouTube Ideas
