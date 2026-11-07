@@ -1,4 +1,5 @@
 {
+  "generated_at": "2026-11-07T05:40:13.741886+00:00",
   "ideas": [
     {
       "id": "92190299-d4db-4aa7-a1d9-2a515bdd06a1",
@@ -6,45 +7,12 @@
       "video_id": "hMovRv44KEM",
       "note": "",
       "target": "longform",
-      "status": "pending",
-      "added_date": "2026-11-07"
-    },
-    {
-      "id": "439b2dba-802a-442e-804a-c8b49be00ba7",
-      "url": "https://www.youtube.com/watch?v=j_0Busu8Cz4",
-      "video_id": "j_0Busu8Cz4",
-      "note": "",
-      "target": "longform",
-      "status": "pending",
-      "added_date": "2026-11-07"
-    },
-    {
-      "id": "d7901180-82c2-428e-8716-241800be318c",
-      "url": "https://www.youtube.com/watch?v=T9WVXaouNfg&t=10s",
-      "video_id": "T9WVXaouNfg",
-      "note": "",
-      "target": "longform",
-      "status": "pending",
-      "added_date": "2026-11-07"
-    },
-    {
-      "id": "7b1d6921-c156-4570-82ba-588819ff12a3",
-      "url": "https://www.youtube.com/watch?v=2NjPvBaJEjE",
-      "video_id": "2NjPvBaJEjE",
-      "note": "",
-      "target": "longform",
-      "status": "pending",
-      "added_date": "2026-11-07"
-    },
-    {
-      "id": "1a8b6713-eea4-4c6c-8c35-6df882511a22",
-      "url": "https://www.youtube.com/watch?v=S2ILxoJ5Ue4",
-      "video_id": "S2ILxoJ5Ue4",
-      "note": "",
-      "target": "longform",
-      "status": "pending",
-      "added_date": "2026-11-07"
+      "status": "used",
+      "added_date": "2026-11-07",
+      "source_title": "12 SECRETS Only Airport Employees Know",
+      "source_channel": "FlySmarter",
+      "used_date": "2026-11-07",
+      "used_in": "longform"
     }
-  ],
-  "generated_at": "2026-11-07T05:33:13.008Z"
+  ]
 }
