@@ -1,4 +1,14 @@
 {
-  "generated_at": "2026-11-07T00:00:00+00:00",
-  "ideas": []
+  "ideas": [
+    {
+      "id": "92190299-d4db-4aa7-a1d9-2a515bdd06a1",
+      "url": "https://www.youtube.com/watch?v=hMovRv44KEM",
+      "video_id": "hMovRv44KEM",
+      "note": "",
+      "target": "longform",
+      "status": "pending",
+      "added_date": "2026-11-07"
+    }
+  ],
+  "generated_at": "2026-11-07T05:30:19.279Z"
 }
