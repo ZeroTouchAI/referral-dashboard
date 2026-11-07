@@ -57,7 +57,16 @@
       "target": "longform",
       "status": "pending",
       "added_date": "2026-11-07"
+    },
+    {
+      "id": "f8350675-8876-4389-ae8e-8e80ed13035d",
+      "url": "https://www.youtube.com/watch?v=yMdcuZi-Z-k",
+      "video_id": "yMdcuZi-Z-k",
+      "note": "",
+      "target": "longform",
+      "status": "pending",
+      "added_date": "2026-11-07"
     }
   ],
-  "generated_at": "2026-11-07T05:45:01.644Z"
+  "generated_at": "2026-11-07T05:47:40.355Z"
 }
