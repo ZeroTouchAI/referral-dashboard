@@ -23,3 +23,16 @@ Only the fields needed for the dashboard are synced: program name, topic,
 commission note, score, and status. Personal referral/tracking codes are
 never included — the `signup_url` field is always the generic public
 sign-up page for a program, not any tracking link.
+
+## Versioning
+
+The dashboard version is shown next to the title and is defined by
+`APP_VERSION` near the top of the script in `index.html`. **Bump it on every
+change** and add a line below.
+
+## Changelog
+
+- **v1.1.0** — Compass favicon, version badge, "Powered by zerotouchai.com"
+  footer link, new **YouTube Ideas** page (reference video URLs used as
+  inspiration for new videos).
+- **v1.0.0** — Candidates, My Referrals, Search Requests, Video Ideas.

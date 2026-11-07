@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Trip Hack Hub — Referral Dashboard</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E🧭%3C/text%3E%3C/svg%3E" />
 <style>
   :root {
     --bg: #eaf6fd;
@@ -28,6 +29,7 @@
   header { margin-bottom: 20px; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; }
   header h1 { font-size: 27px; margin: 0 0 4px; color: var(--navy); }
   header p { margin: 0; color: var(--text-dim); font-size: 14px; }
+  .version { display: inline-block; vertical-align: middle; margin-left: 8px; padding: 2px 9px; border-radius: 999px; background: var(--card-bg); border: 1.5px solid var(--card-border); color: var(--text-dim); font-size: 12px; font-weight: 700; letter-spacing: .02em; }
 
   .connect-box { text-align: right; }
   .connect-box .status { font-size: 12.5px; color: var(--text-dim); margin-bottom: 6px; }
@@ -43,6 +45,7 @@
   .page-tab[data-page="applied"].active { background: var(--green); color: #fff; }
   .page-tab[data-page="requests"].active { background: var(--yellow); color: #fff; }
   .page-tab[data-page="ideas"].active { background: var(--navy); color: #fff; }
+  .page-tab[data-page="youtube"].active { background: var(--red); color: #fff; }
 
   .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 14px; margin-bottom: 24px; }
   .stat-card { background: var(--card-bg); border: 1.5px solid var(--card-border); border-radius: var(--radius); padding: 16px 18px; }
@@ -93,6 +96,17 @@
   .empty-state { padding: 40px; text-align: center; color: var(--text-dim); }
   footer { margin-top: 24px; color: var(--text-dim); font-size: 12px; text-align: center; }
   footer a { color: var(--blue); text-decoration: none; font-weight: 600; }
+  .powered-by { margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--card-border); text-align: center; font-size: 12.5px; color: var(--text-dim); }
+  .powered-by a { color: var(--blue); text-decoration: none; font-weight: 700; }
+  .powered-by a:hover { text-decoration: underline; }
+  .yt-row { display: flex; align-items: flex-start; gap: 14px; padding: 14px 0; border-top: 1px solid var(--card-border); flex-wrap: wrap; }
+  .yt-row:first-of-type { border-top: none; }
+  .yt-thumb { width: 128px; height: 72px; object-fit: cover; border-radius: 8px; border: 1px solid var(--card-border); background: #f7fbfe; flex-shrink: 0; }
+  .yt-info { flex: 1; min-width: 200px; }
+  .yt-info a { color: var(--blue); font-weight: 700; font-size: 13.5px; text-decoration: none; word-break: break-all; }
+  .yt-info a:hover { text-decoration: underline; }
+  .yt-note { font-size: 13px; color: var(--navy); margin-top: 4px; white-space: pre-wrap; }
+  .yt-info .meta { font-size: 11.5px; color: var(--text-dim); margin-top: 4px; }
 
   .connect-panel { background: var(--card-bg); border: 1.5px solid var(--card-border); border-radius: var(--radius); padding: 20px; margin-bottom: 24px; display: none; }
   .connect-panel.show { display: block; }
@@ -132,7 +146,7 @@
 <div class="wrap">
   <header>
     <div>
-      <h1>🧭 Referral Program Dashboard</h1>
+      <h1>🧭 Referral Program Dashboard <span class="version" id="app-version"></span></h1>
       <p>Trip Hack Hub control board — last synced <span id="last-synced">—</span></p>
     </div>
     <div class="connect-box">
@@ -155,6 +169,7 @@
     <button class="page-tab" data-page="applied">My Referrals</button>
     <button class="page-tab" data-page="requests">Search Requests</button>
     <button class="page-tab" data-page="ideas">Video Ideas</button>
+    <button class="page-tab" data-page="youtube">YouTube Ideas</button>
   </div>
 
   <div id="page-candidates">
@@ -172,16 +187,21 @@
   <div id="page-applied" style="display:none;"></div>
   <div id="page-requests" style="display:none;"></div>
   <div id="page-ideas" style="display:none;"></div>
+  <div id="page-youtube" style="display:none;"></div>
 
   <footer>
     Auto-generated from the referral pipeline. Signup links are public program pages; "My Referrals" shows real applied links. ·
     <a href="https://github.com/ZeroTouchAI/referral-dashboard" target="_blank" rel="noopener">Source</a>
   </footer>
+  <div class="powered-by">Powered by <a href="https://zerotouchai.com" target="_blank" rel="noopener">zerotouchai.com</a></div>
 </div>
 
 <div class="toast" id="toast"></div>
 
 <script>
+// >>> BUMP THIS VERSION ON EVERY CHANGE TO THE DASHBOARD (and add a line to the README changelog) <<<
+const APP_VERSION = "1.1.0";
+
 const STATUS_META = {
   "Todo":        { label: "New",      cls: "new",      color: "#e8a83c" },
   "In Progress": { label: "Applied",  cls: "applied",  color: "#2574f5" },
@@ -193,8 +213,9 @@ const PRIVATE_REPO_NAME = "YouTube-Video-Creator";
 const AFFILIATE_LINKS_PATH = "data/affiliate_links.json";
 const SEARCH_REQUESTS_PATH = "data/referral_search_requests.json";
 const VIDEO_IDEAS_PATH = "data/video_idea_requests.json";
+const YOUTUBE_IDEAS_PATH = "data/youtube_idea_requests.json";
 
-let candidatesData = null, appliedData = null, requestsData = null, ideasData = null;
+let candidatesData = null, appliedData = null, requestsData = null, ideasData = null, youtubeData = null;
 let allPrograms = [];
 let activeFilter = "Todo";
 
@@ -225,17 +246,17 @@ document.getElementById("save-token").addEventListener("click", () => {
   localStorage.setItem("gh_dashboard_token", val);
   document.getElementById("token-input").value = "";
   document.getElementById("connect-panel").classList.remove("show");
-  updateConnectUI(); renderTable(); renderApplied(); renderRequests(); renderIdeas();
+  updateConnectUI(); renderTable(); renderApplied(); renderRequests(); renderIdeas(); renderYoutube();
   showToast("Connected", "ok");
 });
 document.getElementById("clear-token").addEventListener("click", () => {
   localStorage.removeItem("gh_dashboard_token");
-  updateConnectUI(); renderTable(); renderApplied(); renderRequests(); renderIdeas();
+  updateConnectUI(); renderTable(); renderApplied(); renderRequests(); renderIdeas(); renderYoutube();
   showToast("Disconnected", "ok");
 });
 
 // ---------- Page switching ----------
-const PAGES = ["candidates", "applied", "requests", "ideas"];
+const PAGES = ["candidates", "applied", "requests", "ideas", "youtube"];
 function switchPage(pageKey) {
   document.querySelectorAll(".page-tab").forEach(b => b.classList.toggle("active", b.dataset.page === pageKey));
   PAGES.forEach(p => document.getElementById("page-" + p).style.display = (p === pageKey ? "" : "none"));
@@ -386,6 +407,7 @@ const syncCandidates = () => syncPublicFile("data/dashboardData.json", candidate
 const syncApplied = () => syncPublicFile("data/appliedReferrals.json", appliedData);
 const syncRequests = () => syncPublicFile("data/searchRequests.json", requestsData);
 const syncIdeas = () => syncPublicFile("data/videoIdeas.json", ideasData);
+const syncYoutube = () => syncPublicFile("data/youtubeIdeas.json", youtubeData);
 
 // ---------- Applied ("My Referrals") page ----------
 async function removeLink(topic, url) {
@@ -582,8 +604,95 @@ async function loadIdeas() {
   renderIdeas();
 }
 
+// ---------- YouTube Ideas page ----------
+// Reference videos to draw inspiration from: the concept gets reworked into an original video, never copied.
+function getYoutubeId(url) {
+  try {
+    const u = new URL(url);
+    const host = u.hostname.replace(/^(www|m)\./, "");
+    let id = null;
+    if (host === "youtu.be") id = u.pathname.slice(1).split("/")[0];
+    else if (host === "youtube.com") {
+      if (u.pathname === "/watch") id = u.searchParams.get("v");
+      else { const m = u.pathname.match(/^\/(shorts|embed|live)\/([^/?]+)/); if (m) id = m[2]; }
+    }
+    return id && /^[\w-]{6,20}$/.test(id) ? id : null;
+  } catch (e) { return null; }
+}
+async function addYoutubeIdea(url, note, target) {
+  if (!hasToken()) { showToast("Connect first to add a YouTube idea", "error"); return; }
+  if (!url) { showToast("Paste a YouTube video URL", "error"); return; }
+  const videoId = getYoutubeId(url);
+  if (!videoId) { showToast("That doesn't look like a YouTube video URL", "error"); return; }
+  try {
+    const { sha, data } = await getPrivateFile(YOUTUBE_IDEAS_PATH);
+    const file = data || { ideas: [] };
+    file.ideas = file.ideas || [];
+    file.ideas.push({ id: newId(), url, video_id: videoId, note, target, status: "pending", added_date: new Date().toISOString().slice(0, 10) });
+    await putPrivateFile(YOUTUBE_IDEAS_PATH, file, sha, `Add YouTube idea via dashboard`);
+    youtubeData = file;
+    renderYoutube();
+    showToast("Added — it'll be used as inspiration on the next matching content run", "ok");
+    syncYoutube();
+  } catch (err) { showToast("Failed to add: " + err.message, "error"); console.error(err); }
+}
+async function deleteYoutubeIdea(id) {
+  if (!hasToken()) { showToast("Connect first to delete", "error"); return; }
+  if (!confirm("Delete this YouTube idea?")) return;
+  try {
+    const { sha, data } = await getPrivateFile(YOUTUBE_IDEAS_PATH);
+    const file = data || { ideas: [] };
+    file.ideas = (file.ideas || []).filter(i => i.id !== id);
+    await putPrivateFile(YOUTUBE_IDEAS_PATH, file, sha, `Delete YouTube idea via dashboard`);
+    youtubeData = file;
+    renderYoutube();
+    showToast("Deleted", "ok");
+    syncYoutube();
+  } catch (err) { showToast("Failed to delete: " + err.message, "error"); console.error(err); }
+}
+function renderYoutube() {
+  const container = document.getElementById("page-youtube");
+  const items = (youtubeData && youtubeData.ideas) || [];
+  const targetLabel = { short: "Short", longform: "Long-form", either: "Either" };
+  const addFormHtml = `<div class="request-card"><h3>Add a YouTube video for inspiration</h3>
+    <p class="form-hint">Paste the URL of a video whose concept you like. It's used as inspiration — the idea gets reworked into an original video, not copied. Use the note to say what to borrow (the hook, the format, the angle...). Picked up (oldest first) on the next matching content run.</p>
+    <div class="add-form"><input id="add-yt-url" placeholder="https://www.youtube.com/watch?v=..." ${hasToken() ? "" : "disabled"} />
+    <select id="add-yt-target" ${hasToken() ? "" : "disabled"}><option value="either">Either</option><option value="short">Short</option><option value="longform">Long-form</option></select>
+    <textarea id="add-yt-note" placeholder="What should we take from this video? (optional)" ${hasToken() ? "" : "disabled"}></textarea>
+    <button class="btn-small btn-primary" id="add-yt-btn" ${hasToken() ? "" : "disabled"}>Submit</button></div></div>`;
+
+  const listHtml = items.length ? `<div class="request-card"><h3>Your YouTube ideas</h3>
+    ${items.slice().reverse().map(i => {
+      const vid = i.video_id || getYoutubeId(i.url);
+      const safeUrl = /^https?:\/\//i.test(i.url || "") ? i.url : "";
+      return `
+      <div class="yt-row">
+        ${vid ? `<a href="${escapeHtml(safeUrl)}" target="_blank" rel="noopener"><img class="yt-thumb" loading="lazy" src="https://i.ytimg.com/vi/${encodeURIComponent(vid)}/mqdefault.jpg" alt="Video thumbnail" /></a>` : ""}
+        <div class="yt-info">
+          ${safeUrl ? `<a href="${escapeHtml(safeUrl)}" target="_blank" rel="noopener">${escapeHtml(i.url)} ↗</a>` : escapeHtml(i.url)}
+          ${i.note ? `<div class="yt-note">${escapeHtml(i.note)}</div>` : ""}
+          <div class="meta">${targetLabel[i.target] || i.target} · added ${formatDate(i.added_date)}${i.used_date ? " · used " + formatDate(i.used_date) + " (" + (targetLabel[i.used_in] || i.used_in) + ")" : ""}</div>
+        </div>
+        <span class="req-badge ${i.status}">${i.status === "used" ? "Used" : "Pending"}</span>
+        <button class="remove-btn" data-id="${i.id}" ${hasToken() ? "" : "disabled"}>Delete</button>
+      </div>`;
+    }).join("")}
+  </div>` : `<div class="empty-state">No YouTube ideas yet.</div>`;
+
+  container.innerHTML = listHtml + addFormHtml;
+  const btn = document.getElementById("add-yt-btn");
+  if (btn) btn.addEventListener("click", () => addYoutubeIdea(document.getElementById("add-yt-url").value.trim(), document.getElementById("add-yt-note").value.trim(), document.getElementById("add-yt-target").value));
+  container.querySelectorAll(".yt-row .remove-btn").forEach(b => b.addEventListener("click", () => deleteYoutubeIdea(b.dataset.id)));
+}
+async function loadYoutube() {
+  try { youtubeData = await (await fetch("data/youtubeIdeas.json?_=" + Date.now())).json(); }
+  catch (err) { youtubeData = { ideas: [] }; }
+  renderYoutube();
+}
+
 // ---------- Init ----------
 updateConnectUI();
+document.getElementById("app-version").textContent = "v" + APP_VERSION;
 fetch("data/dashboardData.json?_=" + Date.now())
   .then(r => r.json())
   .then(data => {
@@ -596,7 +705,7 @@ fetch("data/dashboardData.json?_=" + Date.now())
     document.getElementById("empty-state").textContent = "Couldn't load dashboard data yet — check back after the next referral scan runs.";
     console.error(err);
   });
-loadApplied(); loadRequests(); loadIdeas();
+loadApplied(); loadRequests(); loadIdeas(); loadYoutube();
 </script>
 </body>
 </html>
