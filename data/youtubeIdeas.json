@@ -95,15 +95,6 @@
       "added_date": "2026-11-07"
     },
     {
-      "id": "1ddfbdea-125a-448f-ba38-d83e4aea041a",
-      "url": "https://www.youtube.com/watch?v=AXuRLjYY4lY",
-      "video_id": "AXuRLjYY4lY",
-      "note": "",
-      "target": "longform",
-      "status": "pending",
-      "added_date": "2026-11-07"
-    },
-    {
       "id": "30a69ccc-3135-4d7d-9a6d-98668bc55106",
       "url": "https://www.youtube.com/watch?v=7e7rQ33KLI8",
       "video_id": "7e7rQ33KLI8",
@@ -122,5 +113,5 @@
       "added_date": "2026-11-07"
     }
   ],
-  "generated_at": "2026-11-07T05:54:15.420Z"
+  "generated_at": "2026-11-08T05:11:11.251Z"
 }
