@@ -1,12 +1,66 @@
 {
-  "generated_at": "2026-11-08T18:46:47.917701+00:00",
-  "total": 134,
+  "generated_at": "2026-11-09T23:15:00.232228+00:00",
+  "total": 140,
   "status_counts": {
     "In Progress": 4,
-    "Todo": 129,
+    "Todo": 135,
     "Done": 1
   },
   "programs": [
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzhHWBQc",
+      "name": "Viator",
+      "topic": "Muvmi Tuk Tuk Strategy for Bangkok",
+      "commission_note": "Covers Bangkok tuk-tuk tours and local experiences that serve as accessible alternatives to Muvmi.",
+      "status": "Todo",
+      "signup_url": "https://www.viator.com/affiliate",
+      "date_added": "2026-11-09T23:14:48Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzhHWBK8",
+      "name": "ExpertFlyer",
+      "topic": "Hidden airline booking and seat optimization strategies",
+      "commission_note": "Essential tool for points/miles enthusiasts to find award availability and seat alerts.",
+      "status": "Todo",
+      "signup_url": "https://www.expertflyer.com/affiliate-program",
+      "date_added": "2026-11-09T23:14:40Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzhHWBGQ",
+      "name": "WayAway",
+      "topic": "Hidden Airline Booking Loophole",
+      "commission_note": "Aggregator that rewards users with cashback; aligns perfectly with travel hack content.",
+      "status": "Todo",
+      "signup_url": "https://wayaway.io/affiliate-program",
+      "date_added": "2026-11-09T23:14:34Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzhHWBBI",
+      "name": "Klook",
+      "topic": "Bolt Thailand Transport Hack",
+      "commission_note": "Klook offers airport transfers and local transport booking which serves as a great alternative to Bolt.",
+      "status": "Todo",
+      "signup_url": "https://www.klook.com/en-US/affiliate/",
+      "date_added": "2026-11-09T23:14:27Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzhHWA74",
+      "name": "Monos",
+      "topic": "Avoiding baggage fees",
+      "commission_note": "Premium luggage brand that is highly relevant to audiences looking to avoid fees via proper sizing.",
+      "status": "Todo",
+      "signup_url": "https://monos.com/pages/affiliate-program",
+      "date_added": "2026-11-09T23:14:21Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzhHWA0Q",
+      "name": "Amazon Associates",
+      "topic": "Avoiding baggage fees",
+      "commission_note": "Earn commission on travel gear, luggage scales, and carry-on approved backpacks.",
+      "status": "Todo",
+      "signup_url": "https://affiliate-program.amazon.com/",
+      "date_added": "2026-11-09T23:14:14Z"
+    },
     {
       "item_id": "PVTI_lAHODNT1Rs4BfCrRzhFhmjc",
       "name": "Points.com",
