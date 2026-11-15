@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T23:57:42.933580+00:00",
+  "generated_at": "2026-11-15T19:43:51.611726+00:00",
   "ideas": [
     {
       "id": "92190299-d4db-4aa7-a1d9-2a515bdd06a1",
@@ -33,8 +33,12 @@
       "video_id": "T9WVXaouNfg",
       "note": "",
       "target": "longform",
-      "status": "pending",
-      "added_date": "2026-11-07"
+      "status": "used",
+      "added_date": "2026-11-07",
+      "source_title": "10 SECRETS Only Airport Employees Know",
+      "source_channel": "FlySmarter",
+      "used_date": "2026-11-15",
+      "used_in": "longform"
     },
     {
       "id": "7b1d6921-c156-4570-82ba-588819ff12a3",
