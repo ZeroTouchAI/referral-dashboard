@@ -1,12 +1,30 @@
 {
-  "generated_at": "2026-11-15T19:43:51.611379+00:00",
-  "total": 140,
+  "generated_at": "2026-11-16T23:07:48.267406+00:00",
+  "total": 142,
   "status_counts": {
     "In Progress": 4,
-    "Todo": 135,
+    "Todo": 137,
     "Done": 1
   },
   "programs": [
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzhJUbp0",
+      "name": "WayAway",
+      "topic": "Hidden Airline Booking and Upgrade Strategies",
+      "commission_note": "Cashback-focused travel aggregator program via Travelpayouts, ideal for savvy flight hackers.",
+      "status": "Todo",
+      "signup_url": "https://wayaway.io/for-partners",
+      "date_added": "2026-11-16T23:07:39Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzhJUbjQ",
+      "name": "ExpertFlyer",
+      "topic": "Airline Seat Selection Hack",
+      "commission_note": "Earn commissions on subscriptions for seat alerts and flight availability tools.",
+      "status": "Todo",
+      "signup_url": "https://www.expertflyer.com/affiliate-program",
+      "date_added": "2026-11-16T23:07:33Z"
+    },
     {
       "item_id": "PVTI_lAHODNT1Rs4BfCrRzhHWBQc",
       "name": "Viator",
