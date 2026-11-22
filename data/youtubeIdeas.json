@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T00:59:45.205474+00:00",
+  "generated_at": "2026-11-22T20:45:54.362563+00:00",
   "ideas": [
     {
       "id": "92190299-d4db-4aa7-a1d9-2a515bdd06a1",
@@ -46,8 +46,12 @@
       "video_id": "2NjPvBaJEjE",
       "note": "",
       "target": "longform",
-      "status": "pending",
-      "added_date": "2026-11-07"
+      "status": "used",
+      "added_date": "2026-11-07",
+      "source_title": "10 NEW Airport Dress Code Rules Catching Travelers Off Guard",
+      "source_channel": "Portable Professional (Travel Tips with Megan)",
+      "used_date": "2026-11-22",
+      "used_in": "longform"
     },
     {
       "id": "1a8b6713-eea4-4c6c-8c35-6df882511a22",
