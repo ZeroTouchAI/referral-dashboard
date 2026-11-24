@@ -1,12 +1,48 @@
 {
-  "generated_at": "2026-11-22T20:45:54.362143+00:00",
-  "total": 142,
+  "generated_at": "2026-11-24T01:25:10.474295+00:00",
+  "total": 146,
   "status_counts": {
     "In Progress": 4,
-    "Todo": 137,
+    "Todo": 141,
     "Done": 1
   },
   "programs": [
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzhLT4-0",
+      "name": "Revolut",
+      "topic": "Local QR Payment Arbitrage",
+      "commission_note": "Bounty for successful account activation.",
+      "status": "Todo",
+      "signup_url": "https://www.revolut.com/legal/affiliate-program/",
+      "date_added": "2026-11-24T01:25:03Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzhLT45o",
+      "name": "Wise",
+      "topic": "Local QR Payment Arbitrage",
+      "commission_note": "Flat fee for qualified sign-ups who transfer money internationally.",
+      "status": "Todo",
+      "signup_url": "https://wise.com/gb/affiliates/",
+      "date_added": "2026-11-24T01:24:56Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzhLT40I",
+      "name": "Priority Pass",
+      "topic": "Airport Security and Boarding Hacks",
+      "commission_note": "Fixed commission per lounge membership sale.",
+      "status": "Todo",
+      "signup_url": "https://www.prioritypass.com/en/become-a-partner",
+      "date_added": "2026-11-24T01:24:50Z"
+    },
+    {
+      "item_id": "PVTI_lAHODNT1Rs4BfCrRzhLT4vs",
+      "name": "CLEAR",
+      "topic": "Airport Security and Boarding Hacks",
+      "commission_note": "Performance-based bounties for new memberships referred.",
+      "status": "Todo",
+      "signup_url": "https://www.clearme.com/partners",
+      "date_added": "2026-11-24T01:24:44Z"
+    },
     {
       "item_id": "PVTI_lAHODNT1Rs4BfCrRzhJUbp0",
       "name": "WayAway",
